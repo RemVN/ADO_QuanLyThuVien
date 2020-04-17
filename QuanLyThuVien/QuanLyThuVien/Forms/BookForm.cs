@@ -168,5 +168,9 @@ namespace QuanLyThuVien.Forms
             }
         }
 
+        private void ButtonRefresh_Click(object sender, EventArgs e)
+        {
+            Program.getMain().bookManager.refreshGrid();
+        }
     }
 }

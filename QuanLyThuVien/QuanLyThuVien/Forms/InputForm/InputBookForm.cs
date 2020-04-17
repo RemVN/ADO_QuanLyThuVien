@@ -17,7 +17,7 @@ namespace QuanLyThuVien.Forms.InputForm
     {
         Main main = Program.getMain();
 
-        public InputBookForm(bool isAdd) : base(isAdd, "", Program.getMain().BookForm.tacGiaGrid, true)
+        public InputBookForm(bool isAdd) : base(isAdd, "", Program.getMain().BookForm.bookGrid, true)
         {
             InitializeComponent();
             comboStatus.DataSource = Configuration.statusList;
@@ -50,27 +50,39 @@ namespace QuanLyThuVien.Forms.InputForm
             return isAdd ? "Thêm sách" : "Sửa sách";
         }
 
-        public void editAuthorToSQL()
+        public void editBookToSql()
         {
-            SqlCommand sqlCommand = new SqlCommand("update Sach set MaLoaiSach = @MaLoaiSach, MaViTri = @MaViTri, @MaNXB = MaNXB, MaTG = @MaTG, TenSach = @TenSach, TinhTrang = @TinhTrang, NamXB = @NamXB, GiaSach = @GiaSach where MaSach = @MaSach", main.sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand("update Sach " +
+                "set MaLoaiSach = @MaLoaiSach, MaViTri = @MaViTri, MaNXB = @MaNXB, MaTG = @MaTG, TenSach = @TenSach, TinhTrang = @TinhTrang, NamXB = @NamXB, GiaSach = @GiaSach " +
+                "where MaSach = @MaSach", main.sqlConnection);
             this.Invoke(new Action(delegate
             {
                 sqlCommand.Parameters.AddWithValue("@MaSach", id);
-                sqlCommand.Parameters.AddWithValue("@MaLoaiSach", comboType.SelectedValue);
-                sqlCommand.Parameters.AddWithValue("@MaViTri", comboLocation.SelectedValue);
-                sqlCommand.Parameters.AddWithValue("@MaNXB", comboNXB.SelectedValue);
-                sqlCommand.Parameters.AddWithValue("@MaTG", comboAuthor.SelectedValue);
-                sqlCommand.Parameters.AddWithValue("@TenSach", textName.Text);
-                sqlCommand.Parameters.AddWithValue("@NamXB", (int)numYear.Value);
-                sqlCommand.Parameters.AddWithValue("@GiaSach", (float)numPrice.Value);
-                sqlCommand.Parameters.AddWithValue("@TinhTrang", comboStatus.SelectedValue);
+                addParam(sqlCommand);
             }));
             sqlCommand.ExecuteNonQuery();
         }
 
-        public void addAuthorToSQL()
+        public void addParam(SqlCommand sqlCommand)
         {
-            SqlCommand sqlCommand = new SqlCommand("insert into TacGia (TenTacGia, SDT) values (@TenTG, @SDT)", main.sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@MaLoaiSach", comboType.SelectedValue);
+            sqlCommand.Parameters.AddWithValue("@MaViTri", comboLocation.SelectedValue);
+            sqlCommand.Parameters.AddWithValue("@MaNXB", comboNXB.SelectedValue);
+            sqlCommand.Parameters.AddWithValue("@MaTG", comboAuthor.SelectedValue);
+            sqlCommand.Parameters.AddWithValue("@TenSach", textName.Text);
+            sqlCommand.Parameters.AddWithValue("@NamXB", (int)numYear.Value);
+            sqlCommand.Parameters.AddWithValue("@GiaSach", (float)numPrice.Value);
+            sqlCommand.Parameters.AddWithValue("@TinhTrang", comboStatus.SelectedValue);
+        }
+
+        public void addBookToSql()
+        {
+            SqlCommand sqlCommand = new SqlCommand("insert into Sach (MaLoaiSach, MaViTri, MaNXB, MaTG, TenSach, TinhTrang, NamXB, GiaSach) " +
+                "values (@MaLoaiSach, @MaViTri, @MaNXB, @MaTG, @TenSach, @TinhTrang, @NamXB, @GiaSach)", main.sqlConnection);
+            this.Invoke(new Action(delegate
+            {
+                addParam(sqlCommand);
+            }));
             sqlCommand.ExecuteNonQuery();
         }
 
@@ -89,8 +101,8 @@ namespace QuanLyThuVien.Forms.InputForm
             new Thread(() =>
             {
                 if (isAdd)
-                    addAuthorToSQL();
-                else editAuthorToSQL();
+                    addBookToSql();
+                else editBookToSql();
 
                 refresh();
                 closeForm();

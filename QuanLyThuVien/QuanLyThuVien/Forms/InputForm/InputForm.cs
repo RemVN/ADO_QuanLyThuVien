@@ -48,7 +48,6 @@ namespace QuanLyThuVien.Forms.InputForm
 
         public InputForm withID(string id)
         {
-            Console.WriteLine("ID: " + id);
             this.id = id;
             return this;
         }

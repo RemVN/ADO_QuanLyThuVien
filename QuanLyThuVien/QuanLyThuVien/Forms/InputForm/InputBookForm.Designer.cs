@@ -327,6 +327,7 @@
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "InputBookForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm sách";
             this.Load += new System.EventHandler(this.InputBookForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numYear)).EndInit();

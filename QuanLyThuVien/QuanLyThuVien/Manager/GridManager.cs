@@ -33,6 +33,11 @@ namespace QuanLyThuVien.Manager
             return textBox.Text.Length == 0 ? DBNull.Value : (object) textBox.Text;
         }
 
+        public void refreshGrid()
+        {
+            defaultLoad();
+        }
+
         public void resetGrid()
         {
             currentOffset = 0;
