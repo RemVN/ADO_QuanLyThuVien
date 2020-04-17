@@ -1,4 +1,5 @@
-﻿using QuanLyThuVien.Core;
+﻿using QuanLyThuVien.Config;
+using QuanLyThuVien.Core;
 using QuanLyThuVien.Forms.InputForm;
 using System;
 using System.Collections.Generic;
@@ -14,13 +15,12 @@ namespace QuanLyThuVien.Forms
     public partial class BookForm : Form
     {
 
-        static Main main = Program.getMain();
-
         public BookForm()
         {
             InitializeComponent();
             this.TopLevel = false;
             this.TopMost = true;
+            this.searchBookStatus.DataSource = Configuration.statusList;
         }
 
         private void BookForm_Load(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace QuanLyThuVien.Forms
             // TODO: This line of code loads data into the 'quanLyThuVienDataSet1.TacGia' table. You can move, or remove it, as needed.
             this.tacGiaTableAdapter.Fill(this.tacGiaDataSet.TacGia);
             // TODO: This line of code loads data into the 'quanLyThuVienDataSet.CaNhan' table. You can move, or remove it, as needed.
-
+            Program.getMain().bookManager.resetGrid();
         }
 
         private void ButtonSearch_Click(object sender, EventArgs e)
@@ -62,14 +62,19 @@ namespace QuanLyThuVien.Forms
             new InputLocationForm(true).ShowDialog();
         }
 
+        private void ButtonAddBook_Click(object sender, EventArgs e)
+        {
+            new InputBookForm(true).ShowDialog();
+        }
+
         private void TacGiaGrid_MouseClick(object sender, MouseEventArgs e)
         {
             if(e.Button == MouseButtons.Right)
             {
                 int rowClick = tacGiaGrid.HitTest(e.X, e.Y).RowIndex;
+                if (rowClick == -1) return;
                 DataGridViewRow row = tacGiaGrid.Rows[rowClick];
                 string id = ((int) row.Cells[0].Value).ToString();
-
                 EContextMenu eContextMenu = new EContextMenu(this, new Action(delegate
                 {
                     InputAuthorForm form = new InputAuthorForm(false);
@@ -88,6 +93,7 @@ namespace QuanLyThuVien.Forms
             if (e.Button == MouseButtons.Right)
             {
                 int rowClick = bookTypeGrid.HitTest(e.X, e.Y).RowIndex;
+                if (rowClick == -1) return;
                 DataGridViewRow row = bookTypeGrid.Rows[rowClick];
                 string id = ((int)row.Cells[0].Value).ToString();
                 EContextMenu eContextMenu = new EContextMenu(this, new Action(delegate
@@ -107,6 +113,7 @@ namespace QuanLyThuVien.Forms
             if (e.Button == MouseButtons.Right)
             {
                 int rowClick = nxbGrid.HitTest(e.X, e.Y).RowIndex;
+                if (rowClick == -1) return;
                 DataGridViewRow row = nxbGrid.Rows[rowClick];
                 string id = ((int)row.Cells[0].Value).ToString();
                 EContextMenu eContextMenu = new EContextMenu(this, new Action(delegate
@@ -126,6 +133,7 @@ namespace QuanLyThuVien.Forms
             if (e.Button == MouseButtons.Right)
             {
                 int rowClick = locationGrid.HitTest(e.X, e.Y).RowIndex;
+                if (rowClick == -1) return;
                 DataGridViewRow row = locationGrid.Rows[rowClick];
                 string id = ((int)row.Cells[0].Value).ToString();
                 EContextMenu eContextMenu = new EContextMenu(this, new Action(delegate
@@ -139,5 +147,26 @@ namespace QuanLyThuVien.Forms
                 eContextMenu.menuStrip.Show(locationGrid, new Point(e.X, e.Y));
             }
         }
+
+        private void BookGrid_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                int rowClick = bookGrid.HitTest(e.X, e.Y).RowIndex;
+                if (rowClick == -1) return;
+                DataGridViewRow row = bookGrid.Rows[rowClick];
+                string id = ((int)row.Cells[0].Value).ToString();
+                EContextMenu eContextMenu = new EContextMenu(this, new Action(delegate
+                {
+                    InputBookForm form = new InputBookForm(false);
+                    form.withID(id);
+                    form.withDataRow(row);
+                    form.renameControl();
+                    form.ShowDialog();
+                }));
+                eContextMenu.menuStrip.Show(bookGrid, new Point(e.X, e.Y));
+            }
+        }
+
     }
 }

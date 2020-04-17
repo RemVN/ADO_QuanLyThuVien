@@ -8,6 +8,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace QuanLyThuVien.Manager
@@ -90,7 +91,14 @@ namespace QuanLyThuVien.Manager
 
         public override void defaultLoad()
         {
-            setDataToGrid(getBooksWithOffsetAndLimit(currentOffset, 40));
+            new Thread(() =>
+            {
+                DataTable dataTable = getBooksWithOffsetAndLimit(currentOffset, 40);
+                main.BookForm.Invoke(new Action(delegate
+                {
+                    setDataToGrid(dataTable);
+                }));
+            }).Start();
         }
 
         public DataTable getBooksWithOffsetAndLimit(int offset, int limit)

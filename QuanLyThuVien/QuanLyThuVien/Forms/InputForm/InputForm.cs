@@ -109,7 +109,7 @@ namespace QuanLyThuVien.Forms.InputForm
             }));
         }
 
-        public void refresh()
+        public virtual void refresh()
         {
             DataTable dataTable = getDataTable();
             refreshSelector(dataTable);

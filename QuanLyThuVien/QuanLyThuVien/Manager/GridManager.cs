@@ -21,7 +21,6 @@ namespace QuanLyThuVien.Manager
         {
             this.grid = grid;
             this.grid.DataSource = gridBinding;
-            resetGrid();
         }
 
         public object getValueOfComboBox(ComboBox comboBox)
@@ -43,9 +42,6 @@ namespace QuanLyThuVien.Manager
         public void setDataToGrid(DataTable dataTable)
         {
             grid.DataSource = dataTable;
-            Console.WriteLine(dataTable.Rows.Count);
-            //gridBinding.ResetBindings(true);
-            //grid.Update();
             grid.Refresh();
         }
 

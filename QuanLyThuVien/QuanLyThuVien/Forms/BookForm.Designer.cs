@@ -59,21 +59,27 @@
             this.tacGiaDataSet = new QuanLyThuVien.QuanLyThuVienDataSet1();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.bookTypeGrid = new System.Windows.Forms.DataGridView();
+            this.maLoaiSachDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenLoaiSachDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loaiSachBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.loaiSachDataSet = new QuanLyThuVien.QuanLyThuVienDataSet2();
             this.buttonAddBookType = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.nxbGrid = new System.Windows.Forms.DataGridView();
+            this.maNXBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenNXBDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nXBBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nxbDataSet = new QuanLyThuVien.QuanLyThuVienDataSet3();
             this.buttonAddNXB = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.locationGrid = new System.Windows.Forms.DataGridView();
+            this.maViTriDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenViTriDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.viTriBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.viTriDataSet = new QuanLyThuVien.QuanLyThuVienDataSet4();
             this.buttonAddLocation = new System.Windows.Forms.Button();
             this.bookDetailImages = new System.Windows.Forms.ImageList(this.components);
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonAddBook = new System.Windows.Forms.Button();
             this.searchBookID = new System.Windows.Forms.TextBox();
             this.searchBookName = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
@@ -94,12 +100,6 @@
             this.loaiSachTableAdapter = new QuanLyThuVien.QuanLyThuVienDataSet2TableAdapters.LoaiSachTableAdapter();
             this.nXBTableAdapter = new QuanLyThuVien.QuanLyThuVienDataSet3TableAdapters.NXBTableAdapter();
             this.viTriTableAdapter = new QuanLyThuVien.QuanLyThuVienDataSet4TableAdapters.ViTriTableAdapter();
-            this.maLoaiSachDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenLoaiSachDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maNXBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenNXBDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.maViTriDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenViTriDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bookGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getSachBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sachDataSet)).BeginInit();
@@ -152,6 +152,7 @@
             this.bookGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.bookGrid.Size = new System.Drawing.Size(830, 599);
             this.bookGrid.TabIndex = 0;
+            this.bookGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BookGrid_MouseClick);
             // 
             // maSachDataGridViewTextBoxColumn
             // 
@@ -349,7 +350,7 @@
             // 
             // tacGiaDataSet
             // 
-            this.tacGiaDataSet.DataSetName = "QuanLyThuVienDataSet1";
+            this.tacGiaDataSet.DataSetName = "tacGiaDS";
             this.tacGiaDataSet.EnforceConstraints = false;
             this.tacGiaDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
@@ -393,6 +394,22 @@
             this.bookTypeGrid.Size = new System.Drawing.Size(373, 550);
             this.bookTypeGrid.TabIndex = 22;
             this.bookTypeGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BookTypeGrid_MouseClick);
+            // 
+            // maLoaiSachDataGridViewTextBoxColumn
+            // 
+            this.maLoaiSachDataGridViewTextBoxColumn.DataPropertyName = "MaLoaiSach";
+            this.maLoaiSachDataGridViewTextBoxColumn.HeaderText = "Mã";
+            this.maLoaiSachDataGridViewTextBoxColumn.Name = "maLoaiSachDataGridViewTextBoxColumn";
+            this.maLoaiSachDataGridViewTextBoxColumn.ReadOnly = true;
+            this.maLoaiSachDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // tenLoaiSachDataGridViewTextBoxColumn1
+            // 
+            this.tenLoaiSachDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tenLoaiSachDataGridViewTextBoxColumn1.DataPropertyName = "TenLoaiSach";
+            this.tenLoaiSachDataGridViewTextBoxColumn1.HeaderText = "Tên loại sách";
+            this.tenLoaiSachDataGridViewTextBoxColumn1.Name = "tenLoaiSachDataGridViewTextBoxColumn1";
+            this.tenLoaiSachDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // loaiSachBindingSource
             // 
@@ -464,6 +481,22 @@
             this.nxbGrid.TabIndex = 24;
             this.nxbGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NxbGrid_MouseClick);
             // 
+            // maNXBDataGridViewTextBoxColumn
+            // 
+            this.maNXBDataGridViewTextBoxColumn.DataPropertyName = "MaNXB";
+            this.maNXBDataGridViewTextBoxColumn.HeaderText = "Mã";
+            this.maNXBDataGridViewTextBoxColumn.Name = "maNXBDataGridViewTextBoxColumn";
+            this.maNXBDataGridViewTextBoxColumn.ReadOnly = true;
+            this.maNXBDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // tenNXBDataGridViewTextBoxColumn1
+            // 
+            this.tenNXBDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tenNXBDataGridViewTextBoxColumn1.DataPropertyName = "TenNXB";
+            this.tenNXBDataGridViewTextBoxColumn1.HeaderText = "Tên nhà xuất bản";
+            this.tenNXBDataGridViewTextBoxColumn1.Name = "tenNXBDataGridViewTextBoxColumn1";
+            this.tenNXBDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
             // nXBBindingSource
             // 
             this.nXBBindingSource.DataMember = "NXB";
@@ -533,6 +566,22 @@
             this.locationGrid.TabIndex = 26;
             this.locationGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LocationGrid_MouseClick);
             // 
+            // maViTriDataGridViewTextBoxColumn
+            // 
+            this.maViTriDataGridViewTextBoxColumn.DataPropertyName = "MaViTri";
+            this.maViTriDataGridViewTextBoxColumn.HeaderText = "Mã";
+            this.maViTriDataGridViewTextBoxColumn.Name = "maViTriDataGridViewTextBoxColumn";
+            this.maViTriDataGridViewTextBoxColumn.ReadOnly = true;
+            this.maViTriDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // tenViTriDataGridViewTextBoxColumn1
+            // 
+            this.tenViTriDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tenViTriDataGridViewTextBoxColumn1.DataPropertyName = "TenViTri";
+            this.tenViTriDataGridViewTextBoxColumn1.HeaderText = "Tên vị trí";
+            this.tenViTriDataGridViewTextBoxColumn1.Name = "tenViTriDataGridViewTextBoxColumn1";
+            this.tenViTriDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
             // viTriBindingSource
             // 
             this.viTriBindingSource.DataMember = "ViTri";
@@ -570,22 +619,23 @@
             this.bookDetailImages.Images.SetKeyName(2, "jigsaw.png");
             this.bookDetailImages.Images.SetKeyName(3, "pin.png");
             // 
-            // button2
+            // buttonAddBook
             // 
-            this.button2.BackColor = System.Drawing.Color.Transparent;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(12, 8);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(110, 30);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Thêm sách";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = false;
+            this.buttonAddBook.BackColor = System.Drawing.Color.Transparent;
+            this.buttonAddBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonAddBook.FlatAppearance.BorderSize = 0;
+            this.buttonAddBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddBook.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddBook.Image")));
+            this.buttonAddBook.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAddBook.Location = new System.Drawing.Point(12, 8);
+            this.buttonAddBook.Name = "buttonAddBook";
+            this.buttonAddBook.Size = new System.Drawing.Size(110, 30);
+            this.buttonAddBook.TabIndex = 18;
+            this.buttonAddBook.Text = "Thêm sách";
+            this.buttonAddBook.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAddBook.UseVisualStyleBackColor = false;
+            this.buttonAddBook.Click += new System.EventHandler(this.ButtonAddBook_Click);
             // 
             // searchBookID
             // 
@@ -750,54 +800,6 @@
             // 
             this.viTriTableAdapter.ClearBeforeFill = true;
             // 
-            // maLoaiSachDataGridViewTextBoxColumn
-            // 
-            this.maLoaiSachDataGridViewTextBoxColumn.DataPropertyName = "MaLoaiSach";
-            this.maLoaiSachDataGridViewTextBoxColumn.HeaderText = "Mã";
-            this.maLoaiSachDataGridViewTextBoxColumn.Name = "maLoaiSachDataGridViewTextBoxColumn";
-            this.maLoaiSachDataGridViewTextBoxColumn.ReadOnly = true;
-            this.maLoaiSachDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // tenLoaiSachDataGridViewTextBoxColumn1
-            // 
-            this.tenLoaiSachDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tenLoaiSachDataGridViewTextBoxColumn1.DataPropertyName = "TenLoaiSach";
-            this.tenLoaiSachDataGridViewTextBoxColumn1.HeaderText = "Tên loại sách";
-            this.tenLoaiSachDataGridViewTextBoxColumn1.Name = "tenLoaiSachDataGridViewTextBoxColumn1";
-            this.tenLoaiSachDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // maNXBDataGridViewTextBoxColumn
-            // 
-            this.maNXBDataGridViewTextBoxColumn.DataPropertyName = "MaNXB";
-            this.maNXBDataGridViewTextBoxColumn.HeaderText = "Mã";
-            this.maNXBDataGridViewTextBoxColumn.Name = "maNXBDataGridViewTextBoxColumn";
-            this.maNXBDataGridViewTextBoxColumn.ReadOnly = true;
-            this.maNXBDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // tenNXBDataGridViewTextBoxColumn1
-            // 
-            this.tenNXBDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tenNXBDataGridViewTextBoxColumn1.DataPropertyName = "TenNXB";
-            this.tenNXBDataGridViewTextBoxColumn1.HeaderText = "Tên nhà xuất bản";
-            this.tenNXBDataGridViewTextBoxColumn1.Name = "tenNXBDataGridViewTextBoxColumn1";
-            this.tenNXBDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // maViTriDataGridViewTextBoxColumn
-            // 
-            this.maViTriDataGridViewTextBoxColumn.DataPropertyName = "MaViTri";
-            this.maViTriDataGridViewTextBoxColumn.HeaderText = "Mã";
-            this.maViTriDataGridViewTextBoxColumn.Name = "maViTriDataGridViewTextBoxColumn";
-            this.maViTriDataGridViewTextBoxColumn.ReadOnly = true;
-            this.maViTriDataGridViewTextBoxColumn.Width = 50;
-            // 
-            // tenViTriDataGridViewTextBoxColumn1
-            // 
-            this.tenViTriDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tenViTriDataGridViewTextBoxColumn1.DataPropertyName = "TenViTri";
-            this.tenViTriDataGridViewTextBoxColumn1.HeaderText = "Tên vị trí";
-            this.tenViTriDataGridViewTextBoxColumn1.Name = "tenViTriDataGridViewTextBoxColumn1";
-            this.tenViTriDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
             // BookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -815,7 +817,7 @@
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.searchBookName);
             this.Controls.Add(this.searchBookID);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonAddBook);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.bookGrid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -860,7 +862,7 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.ImageList bookDetailImages;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonAddBook;
         public System.Windows.Forms.DataGridView bookGrid;
         private System.Windows.Forms.Button buttonAddTacGia;
         public System.Windows.Forms.DataGridView tacGiaGrid;

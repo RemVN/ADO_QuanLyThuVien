@@ -51,6 +51,7 @@
     <Compile Include="BookDetails\BookNXB.cs" />
     <Compile Include="BookDetails\SqlObject.cs" />
     <Compile Include="BookDetails\SqlObjectLoader.cs" />
+    <Compile Include="Config\Configuration.cs" />
     <Compile Include="Core\ContextMenuAction.cs" />
     <Compile Include="Core\EContextMenu.cs">
       <SubType>UserControl</SubType>
@@ -63,6 +64,12 @@
     </Compile>
     <Compile Include="Forms\InputForm\InputAuthorForm.Designer.cs">
       <DependentUpon>InputAuthorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InputForm\InputBookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InputForm\InputBookForm.Designer.cs">
+      <DependentUpon>InputBookForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\InputForm\InputBookTypeForm.cs">
       <SubType>Form</SubType>
@@ -139,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\InputForm\InputAuthorForm.resx">
       <DependentUpon>InputAuthorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InputForm\InputBookForm.resx">
+      <DependentUpon>InputBookForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\InputForm\InputBookTypeForm.resx">
       <DependentUpon>InputBookTypeForm.cs</DependentUpon>
