@@ -28,17 +28,18 @@ namespace QuanLyThuVien.Manager
         public object[] getBookSearchParm()
         {
             BookForm bookForm = main.BookForm;
-            object[] arr = new object[10];
+            object[] arr = new object[11];
             arr[0] = getValueOfTextBox(bookForm.searchBookID);
             arr[1] = getValueOfTextBox(bookForm.searchBookName);
             arr[2] = getValueOfComboBox(bookForm.searchBookStatus);
-            arr[3] = bookForm.searchBookYear.Value;
-            arr[4] = bookForm.searchBookPrice.Value;
+            arr[3] = getValueOfNum(bookForm.searchBookYear);
+            arr[4] = getValueOfNum(bookForm.searchBookPrice);
             arr[5] = getValueOfComboBox(bookForm.searchBookType);
             arr[6] = getValueOfComboBox(bookForm.searchBookLocation);
             arr[7] = getValueOfComboBox(bookForm.searchBookNXB);
             arr[8] = getValueOfComboBox(bookForm.searchBookAuthor);
-            arr[9] = 100;
+            arr[9] = getValueOfComboBox(bookForm.searchMuonTra);
+            arr[10] = 100;
             return arr;
         }
 
@@ -52,7 +53,7 @@ namespace QuanLyThuVien.Manager
             SearchQuery searchQuery = new SearchQuery("searchSach", getBookSearchParm())
                 .withParam("@MaSach").withParam("@TenSach").withParam("@TinhTrang")
                 .withParam("@NamXB").withParam("@GiaSach").withParam("@LoaiSach")
-                .withParam("@ViTri").withParam("@NXB").withParam("@TacGia");
+                .withParam("@ViTri").withParam("@NXB").withParam("@TacGia").withParam("@MuonTra");
             return searchQuery.search();
         }
 
@@ -72,6 +73,7 @@ namespace QuanLyThuVien.Manager
             nxbList.AddRange(SqlObjectLoader.getSqlObjectsFromDataTable(typeof(BookNXB), getDataTableWithOffsetAndLimit("getNXB", 0, limit)));
             locationList.AddRange(SqlObjectLoader.getSqlObjectsFromDataTable(typeof(BookLocation), getDataTableWithOffsetAndLimit("getVitri", 0, limit)));
             typeList.AddRange(SqlObjectLoader.getSqlObjectsFromDataTable(typeof(BookType), getDataTableWithOffsetAndLimit("getLoaiSach", 0, limit)));
+            main.BookForm.clearSearchInput();
         }
 
         public void initSelector()

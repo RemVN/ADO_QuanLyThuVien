@@ -21,6 +21,21 @@ namespace QuanLyThuVien.Forms
             this.TopLevel = false;
             this.TopMost = true;
             this.searchBookStatus.DataSource = Configuration.statusList;
+            this.searchMuonTra.DataSource = Configuration.muonTraStatusBookSide;
+        }
+
+        public void clearSearchInput()
+        {
+            searchBookID.Text = "";
+            searchBookName.Text = "";
+            searchBookStatus.SelectedIndex = -1;
+            searchBookYear.Value = 0;
+            searchBookPrice.Value = 0;
+            searchBookType.SelectedIndex = -1;
+            searchBookLocation.SelectedIndex = -1;
+            searchBookNXB.SelectedIndex = -1;
+            searchBookAuthor.SelectedIndex = -1;
+            searchMuonTra.SelectedIndex = -1;
         }
 
         private void BookForm_Load(object sender, EventArgs e)
@@ -171,6 +186,11 @@ namespace QuanLyThuVien.Forms
         private void ButtonRefresh_Click(object sender, EventArgs e)
         {
             Program.getMain().bookManager.refreshGrid();
+        }
+
+        private void ButtonClearSearch_Click(object sender, EventArgs e)
+        {
+            clearSearchInput();
         }
     }
 }

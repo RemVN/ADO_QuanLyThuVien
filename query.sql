@@ -61,6 +61,7 @@ create table MuonTra (
 	NgayMuon date,
 	NgayHenTra date,
 	NgayTra date,
+	DaTra bit
 )
 
 create table TacGia (

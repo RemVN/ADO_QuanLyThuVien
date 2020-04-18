@@ -23,6 +23,11 @@ namespace QuanLyThuVien.Manager
             this.grid.DataSource = gridBinding;
         }
 
+        public object getValueOfNum(NumericUpDown numericUpDown)
+        {
+            return numericUpDown.Value == 0 ? DBNull.Value : (object) numericUpDown.Value;
+        }
+
         public object getValueOfComboBox(ComboBox comboBox)
         {
             return comboBox.SelectedValue == null ? DBNull.Value : comboBox.SelectedValue;

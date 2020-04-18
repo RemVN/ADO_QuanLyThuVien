@@ -16,6 +16,12 @@ namespace QuanLyThuVien.Core
         {
         }
 
+        public NameableObject(int id, string name) 
+        {
+            this.id = id;
+            this.name = name;
+        }
+
         public static string getStringFromSqlObject(object obj)
         {
             return obj is DBNull ? "" : (string)obj;

@@ -43,7 +43,7 @@ create proc getSach
 	@limit int
 as
 begin 
-	select s.MaSach, s.TenSach, s.TinhTrang, s.NamXB, s.GiaSach, l.TenLoaiSach, v.TenViTri, n.TenNXB, tg.TenTacGia 
+	select s.MaSach, s.TenSach, s.TinhTrang, s.NamXB, s.GiaSach, l.TenLoaiSach, v.TenViTri, n.TenNXB, tg.TenTacGia, dbo.getTinhTrangMuonTraBookSide(s.MaSach) as MuonTra
 	from Sach s, LoaiSach l, ViTri v, NXB n, TacGia tg
 	where s.MaLoaiSach = l.MaLoaiSach and s.MaViTri = v.MaViTri
 	and s.MaNXB = n.MaNXB and s.MaTG = tg.MaTG
@@ -112,24 +112,27 @@ create proc searchSach
 	@ViTri nvarchar(100),
 	@NXB nvarchar(100),
 	@TacGia nvarchar(100),
+	@MuonTra int,
 	@limit int
 as
 begin 
-	print(@TacGia)
-	select s.MaSach, s.TenSach, s.TinhTrang, s.NamXB, s.GiaSach, l.TenLoaiSach, v.TenViTri, n.TenNXB, tg.TenTacGia 
-	from Sach s, LoaiSach l, ViTri v, NXB n, TacGia tg
+	--declare @TinhTrangMuonTra nvarchar(20)
+	select 
+	s.MaSach, s.TenSach, s.TinhTrang, s.NamXB, s.GiaSach, l.TenLoaiSach, v.TenViTri, n.TenNXB, tg.TenTacGia, dbo.getTinhTrangMuonTraBookSide(s.MaSach) as MuonTra
+	from Sach s, LoaiSach l, ViTri v, NXB n, TacGia tg 
 	where s.MaLoaiSach = l.MaLoaiSach and s.MaViTri = v.MaViTri
 	and s.MaNXB = n.MaNXB and s.MaTG = tg.MaTG
 	and (
-		(s.MaSach = @MaSach)
-	or (s.TenSach like CONCAT(@TenSach, '%') and @TenSach is not null)
-	or (s.TinhTrang = @TinhTrang and @TinhTrang is not null)
-	or (s.NamXB = @NamXB and @NamXB is not null)
-	or (s.GiaSach = @GiaSach and @GiaSach is not null)
-	or (l.TenLoaiSach like CONCAT(@LoaiSach, '%') and @LoaiSach is not null)
-	or (v.TenViTri like CONCAT(@ViTri, '%') and @ViTri is not null)
-	or (n.TenNXB like CONCAT(@NXB, '%') and @NXB is not null)
-	or (tg.TenTacGia like CONCAT(@TacGia, '%') and @TacGia is not null)
+		(s.MaSach = @MaSach or @MaSach is null)
+	and (s.TenSach like CONCAT(@TenSach, '%') or @TenSach is null)
+	and (s.TinhTrang = @TinhTrang or @TinhTrang is null)
+	and (s.NamXB = @NamXB or @NamXB is null)
+	and (s.GiaSach = @GiaSach or @GiaSach is null)
+	and (l.TenLoaiSach = @LoaiSach or @LoaiSach is null)
+	and (v.TenViTri = @ViTri or @ViTri is null)
+	and (n.TenNXB = @NXB or @NXB is null)
+	and (tg.TenTacGia = @TacGia or @TacGia is null)
+	and (dbo.getMuonTraCode(s.MaSach) = @MuonTra or @MuonTra is null)
 	)
 	order by s.MaSach
 	OFFSET 0 ROWS
@@ -137,8 +140,75 @@ begin
 end
 go
 
-exec searchSach 0, null, null, 0, 0, null, null, null, null, 100
+create function getMuonTraCode
+	(@MaSach as int)
+returns int
+as
+begin
+	if exists (
+		select * from MuonTra where MaSach = @MaSach
+		and DaTra = 0
+	)
+	begin
+		return 0;
+	end
+	return 1;
+end
 go
+
+
+exec searchSach null, null, null, null, null, null, null, null, null, 1, 100
+go
+
+create proc sp_TinhTrangMuonTra
+	@MaSach int
+as
+begin
+	if exists (
+		select * from MuonTra where MaSach = @MaSach
+		and DaTra = 0
+	)
+	begin
+		return N'đang mượn'
+	end
+	return N'đã trả'
+end
+go
+
+create function getTinhTrangMuonTraBookSide
+	(@MaSach as int)
+returns nvarchar(20)
+as
+begin
+	if exists (
+		select * from MuonTra where MaSach = @MaSach
+		and DaTra = 0
+	)
+	begin
+		return N'Đang mượn'
+	end
+	return N'Khả dụng'
+end
+go
+
+create function getTinhTrangMuonTra
+	(@MaSach as int)
+returns nvarchar(20)
+as
+begin
+	if exists (
+		select * from MuonTra where MaSach = @MaSach
+		and DaTra = 0
+	)
+	begin
+		return N'đang mượn'
+	end
+	return N'đã trả'
+end
+go
+
+
+select *, dbo.getTinhTrangMuonTra(MaSach) as TinhTrang from Sach where 1=1
 
 	--select s.MaSach, s.TenSach, s.TinhTrang, s.NamXB, s.GiaSach, l.TenLoaiSach, v.TenViTri, n.TenNXB, tg.TenTacGia 
 	--from Sach s, LoaiSach l, ViTri v, NXB n, TacGia tg

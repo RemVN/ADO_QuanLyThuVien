@@ -49,6 +49,7 @@
             this.tenViTriDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenNXBDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenTacGiaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MuonTra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.getSachBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sachDataSet = new QuanLyThuVien.QuanLyThuVienDataSet();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -103,7 +104,9 @@
             this.loaiSachTableAdapter = new QuanLyThuVien.QuanLyThuVienDataSet2TableAdapters.LoaiSachTableAdapter();
             this.nXBTableAdapter = new QuanLyThuVien.QuanLyThuVienDataSet3TableAdapters.NXBTableAdapter();
             this.viTriTableAdapter = new QuanLyThuVien.QuanLyThuVienDataSet4TableAdapters.ViTriTableAdapter();
-            this.checkAvailableBook = new System.Windows.Forms.CheckBox();
+            this.searchMuonTra = new System.Windows.Forms.ComboBox();
+            this.muonTraStatusBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonClearSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bookGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getSachBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sachDataSet)).BeginInit();
@@ -130,6 +133,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchBookYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookLocationBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBookPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.muonTraStatusBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bookGrid
@@ -151,7 +155,8 @@
             this.tenLoaiSachDataGridViewTextBoxColumn,
             this.tenViTriDataGridViewTextBoxColumn,
             this.tenNXBDataGridViewTextBoxColumn,
-            this.tenTacGiaDataGridViewTextBoxColumn1});
+            this.tenTacGiaDataGridViewTextBoxColumn1,
+            this.MuonTra});
             this.bookGrid.DataSource = this.getSachBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -242,6 +247,14 @@
             this.tenTacGiaDataGridViewTextBoxColumn1.HeaderText = "Tác giả";
             this.tenTacGiaDataGridViewTextBoxColumn1.Name = "tenTacGiaDataGridViewTextBoxColumn1";
             this.tenTacGiaDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // MuonTra
+            // 
+            this.MuonTra.DataPropertyName = "MuonTra";
+            this.MuonTra.HeaderText = "Mượn Trả";
+            this.MuonTra.Name = "MuonTra";
+            this.MuonTra.ReadOnly = true;
+            this.MuonTra.Width = 70;
             // 
             // getSachBindingSource
             // 
@@ -676,7 +689,7 @@
             // 
             this.searchBookName.Location = new System.Drawing.Point(59, 44);
             this.searchBookName.Name = "searchBookName";
-            this.searchBookName.Size = new System.Drawing.Size(111, 20);
+            this.searchBookName.Size = new System.Drawing.Size(99, 20);
             this.searchBookName.TabIndex = 21;
             // 
             // buttonSearch
@@ -722,9 +735,9 @@
             "Mới",
             "Cũ",
             "Mất"});
-            this.searchBookStatus.Location = new System.Drawing.Point(176, 44);
+            this.searchBookStatus.Location = new System.Drawing.Point(164, 44);
             this.searchBookStatus.Name = "searchBookStatus";
-            this.searchBookStatus.Size = new System.Drawing.Size(48, 21);
+            this.searchBookStatus.Size = new System.Drawing.Size(38, 21);
             this.searchBookStatus.TabIndex = 31;
             // 
             // searchBookAuthor
@@ -732,9 +745,9 @@
             this.searchBookAuthor.DataSource = this.bookAuthorBindingSource;
             this.searchBookAuthor.DisplayMember = "Name";
             this.searchBookAuthor.FormattingEnabled = true;
-            this.searchBookAuthor.Location = new System.Drawing.Point(716, 44);
+            this.searchBookAuthor.Location = new System.Drawing.Point(669, 45);
             this.searchBookAuthor.Name = "searchBookAuthor";
-            this.searchBookAuthor.Size = new System.Drawing.Size(126, 21);
+            this.searchBookAuthor.Size = new System.Drawing.Size(102, 21);
             this.searchBookAuthor.TabIndex = 32;
             this.searchBookAuthor.ValueMember = "Name";
             // 
@@ -747,9 +760,9 @@
             this.searchBookNXB.DataSource = this.bookNXBBindingSource;
             this.searchBookNXB.DisplayMember = "Name";
             this.searchBookNXB.FormattingEnabled = true;
-            this.searchBookNXB.Location = new System.Drawing.Point(594, 44);
+            this.searchBookNXB.Location = new System.Drawing.Point(555, 45);
             this.searchBookNXB.Name = "searchBookNXB";
-            this.searchBookNXB.Size = new System.Drawing.Size(116, 21);
+            this.searchBookNXB.Size = new System.Drawing.Size(108, 21);
             this.searchBookNXB.TabIndex = 33;
             this.searchBookNXB.ValueMember = "Name";
             // 
@@ -762,9 +775,9 @@
             this.searchBookType.DataSource = this.bookTypeBindingSource;
             this.searchBookType.DisplayMember = "Name";
             this.searchBookType.FormattingEnabled = true;
-            this.searchBookType.Location = new System.Drawing.Point(370, 44);
+            this.searchBookType.Location = new System.Drawing.Point(348, 45);
             this.searchBookType.Name = "searchBookType";
-            this.searchBookType.Size = new System.Drawing.Size(92, 21);
+            this.searchBookType.Size = new System.Drawing.Size(102, 21);
             this.searchBookType.TabIndex = 34;
             this.searchBookType.ValueMember = "Name";
             // 
@@ -774,7 +787,7 @@
             // 
             // searchBookYear
             // 
-            this.searchBookYear.Location = new System.Drawing.Point(230, 45);
+            this.searchBookYear.Location = new System.Drawing.Point(208, 45);
             this.searchBookYear.Maximum = new decimal(new int[] {
             5000,
             0,
@@ -794,9 +807,9 @@
             this.searchBookLocation.DataSource = this.bookLocationBindingSource;
             this.searchBookLocation.DisplayMember = "Name";
             this.searchBookLocation.FormattingEnabled = true;
-            this.searchBookLocation.Location = new System.Drawing.Point(468, 44);
+            this.searchBookLocation.Location = new System.Drawing.Point(456, 45);
             this.searchBookLocation.Name = "searchBookLocation";
-            this.searchBookLocation.Size = new System.Drawing.Size(120, 21);
+            this.searchBookLocation.Size = new System.Drawing.Size(93, 21);
             this.searchBookLocation.TabIndex = 36;
             this.searchBookLocation.ValueMember = "Name";
             // 
@@ -806,7 +819,7 @@
             // 
             // searchBookPrice
             // 
-            this.searchBookPrice.Location = new System.Drawing.Point(294, 44);
+            this.searchBookPrice.Location = new System.Drawing.Point(272, 45);
             this.searchBookPrice.Name = "searchBookPrice";
             this.searchBookPrice.Size = new System.Drawing.Size(70, 20);
             this.searchBookPrice.TabIndex = 37;
@@ -831,16 +844,38 @@
             // 
             this.viTriTableAdapter.ClearBeforeFill = true;
             // 
-            // checkAvailableBook
+            // searchMuonTra
             // 
-            this.checkAvailableBook.AutoSize = true;
-            this.checkAvailableBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkAvailableBook.Location = new System.Drawing.Point(594, 14);
-            this.checkAvailableBook.Name = "checkAvailableBook";
-            this.checkAvailableBook.Size = new System.Drawing.Size(147, 19);
-            this.checkAvailableBook.TabIndex = 38;
-            this.checkAvailableBook.Text = "Chỉ tìm sách khả dụng";
-            this.checkAvailableBook.UseVisualStyleBackColor = true;
+            this.searchMuonTra.DataSource = this.muonTraStatusBindingSource;
+            this.searchMuonTra.DisplayMember = "Name";
+            this.searchMuonTra.FormattingEnabled = true;
+            this.searchMuonTra.Location = new System.Drawing.Point(777, 45);
+            this.searchMuonTra.Name = "searchMuonTra";
+            this.searchMuonTra.Size = new System.Drawing.Size(65, 21);
+            this.searchMuonTra.TabIndex = 39;
+            this.searchMuonTra.ValueMember = "Id";
+            // 
+            // muonTraStatusBindingSource
+            // 
+            this.muonTraStatusBindingSource.DataSource = typeof(QuanLyThuVien.MuonTra.MuonTraStatus);
+            // 
+            // buttonClearSearch
+            // 
+            this.buttonClearSearch.BackColor = System.Drawing.Color.Transparent;
+            this.buttonClearSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonClearSearch.FlatAppearance.BorderSize = 0;
+            this.buttonClearSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClearSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClearSearch.Image = ((System.Drawing.Image)(resources.GetObject("buttonClearSearch.Image")));
+            this.buttonClearSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonClearSearch.Location = new System.Drawing.Point(581, 8);
+            this.buttonClearSearch.Name = "buttonClearSearch";
+            this.buttonClearSearch.Size = new System.Drawing.Size(160, 31);
+            this.buttonClearSearch.TabIndex = 40;
+            this.buttonClearSearch.Text = "Xoá khung tìm kiếm";
+            this.buttonClearSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonClearSearch.UseVisualStyleBackColor = false;
+            this.buttonClearSearch.Click += new System.EventHandler(this.ButtonClearSearch_Click);
             // 
             // BookForm
             // 
@@ -848,7 +883,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1267, 680);
-            this.Controls.Add(this.checkAvailableBook);
+            this.Controls.Add(this.buttonClearSearch);
+            this.Controls.Add(this.searchMuonTra);
             this.Controls.Add(this.searchBookPrice);
             this.Controls.Add(this.searchBookLocation);
             this.Controls.Add(this.searchBookYear);
@@ -893,6 +929,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.searchBookYear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bookLocationBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchBookPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.muonTraStatusBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -963,6 +1000,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tenViTriDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenNXBDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenTacGiaDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.CheckBox checkAvailableBook;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MuonTra;
+        public System.Windows.Forms.ComboBox searchMuonTra;
+        private System.Windows.Forms.BindingSource muonTraStatusBindingSource;
+        private System.Windows.Forms.Button buttonClearSearch;
     }
 }
