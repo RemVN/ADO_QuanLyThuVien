@@ -85,12 +85,6 @@ namespace QuanLyThuVien.Manager
             setBindingSource(main.BookForm.bookTypeBindingSource, typeList);
         }
 
-        public void setBindingSource(BindingSource bindingSource, object obj)
-        {
-            bindingSource.DataSource = obj;
-            bindingSource.ResetBindings(true);
-        }
-
         public override void defaultLoad()
         {
             new Thread(() =>

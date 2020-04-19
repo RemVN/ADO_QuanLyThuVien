@@ -275,10 +275,10 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ImageList = this.bookDetailImages;
-            this.tabControl1.Location = new System.Drawing.Point(859, 18);
+            this.tabControl1.Location = new System.Drawing.Point(859, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(396, 651);
+            this.tabControl1.Size = new System.Drawing.Size(396, 657);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
@@ -291,7 +291,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 39);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(388, 608);
+            this.tabPage1.Size = new System.Drawing.Size(388, 614);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Tác giả";
             // 
@@ -350,7 +350,7 @@
             this.tacGiaGrid.ReadOnly = true;
             this.tacGiaGrid.RowHeadersVisible = false;
             this.tacGiaGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tacGiaGrid.Size = new System.Drawing.Size(373, 550);
+            this.tacGiaGrid.Size = new System.Drawing.Size(373, 556);
             this.tacGiaGrid.TabIndex = 0;
             this.tacGiaGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TacGiaGrid_MouseClick);
             // 
@@ -398,7 +398,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 39);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(388, 608);
+            this.tabPage2.Size = new System.Drawing.Size(388, 614);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Loại sách";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -427,7 +427,7 @@
             this.bookTypeGrid.Name = "bookTypeGrid";
             this.bookTypeGrid.ReadOnly = true;
             this.bookTypeGrid.RowHeadersVisible = false;
-            this.bookTypeGrid.Size = new System.Drawing.Size(373, 550);
+            this.bookTypeGrid.Size = new System.Drawing.Size(373, 556);
             this.bookTypeGrid.TabIndex = 22;
             this.bookTypeGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BookTypeGrid_MouseClick);
             // 
@@ -485,7 +485,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 39);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(388, 608);
+            this.tabPage3.Size = new System.Drawing.Size(388, 614);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "NXB";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -514,7 +514,7 @@
             this.nxbGrid.Name = "nxbGrid";
             this.nxbGrid.ReadOnly = true;
             this.nxbGrid.RowHeadersVisible = false;
-            this.nxbGrid.Size = new System.Drawing.Size(373, 550);
+            this.nxbGrid.Size = new System.Drawing.Size(373, 556);
             this.nxbGrid.TabIndex = 24;
             this.nxbGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NxbGrid_MouseClick);
             // 
@@ -571,7 +571,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 39);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(388, 608);
+            this.tabPage4.Size = new System.Drawing.Size(388, 614);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Vị trí";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -600,7 +600,7 @@
             this.locationGrid.Name = "locationGrid";
             this.locationGrid.ReadOnly = true;
             this.locationGrid.RowHeadersVisible = false;
-            this.locationGrid.Size = new System.Drawing.Size(373, 550);
+            this.locationGrid.Size = new System.Drawing.Size(373, 556);
             this.locationGrid.TabIndex = 26;
             this.locationGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.LocationGrid_MouseClick);
             // 
@@ -666,7 +666,7 @@
             this.buttonAddBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAddBook.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddBook.Image")));
             this.buttonAddBook.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddBook.Location = new System.Drawing.Point(12, 8);
+            this.buttonAddBook.Location = new System.Drawing.Point(12, -1);
             this.buttonAddBook.Name = "buttonAddBook";
             this.buttonAddBook.Size = new System.Drawing.Size(110, 30);
             this.buttonAddBook.TabIndex = 18;
@@ -701,7 +701,7 @@
             this.buttonSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSearch.Image = ((System.Drawing.Image)(resources.GetObject("buttonSearch.Image")));
             this.buttonSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSearch.Location = new System.Drawing.Point(747, 8);
+            this.buttonSearch.Location = new System.Drawing.Point(747, -1);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(95, 31);
             this.buttonSearch.TabIndex = 29;
@@ -719,7 +719,7 @@
             this.buttonRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRefresh.Image = ((System.Drawing.Image)(resources.GetObject("buttonRefresh.Image")));
             this.buttonRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRefresh.Location = new System.Drawing.Point(128, 8);
+            this.buttonRefresh.Location = new System.Drawing.Point(128, -1);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(85, 30);
             this.buttonRefresh.TabIndex = 30;
@@ -868,7 +868,7 @@
             this.buttonClearSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonClearSearch.Image = ((System.Drawing.Image)(resources.GetObject("buttonClearSearch.Image")));
             this.buttonClearSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonClearSearch.Location = new System.Drawing.Point(581, 8);
+            this.buttonClearSearch.Location = new System.Drawing.Point(581, -1);
             this.buttonClearSearch.Name = "buttonClearSearch";
             this.buttonClearSearch.Size = new System.Drawing.Size(160, 31);
             this.buttonClearSearch.TabIndex = 40;

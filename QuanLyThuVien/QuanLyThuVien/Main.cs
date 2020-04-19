@@ -14,21 +14,27 @@ namespace QuanLyThuVien
     {
 
         BookForm bookForm;
+        StaffForm staffForm;
+
         public SqlConnection sqlConnection;
 
         public BookManager bookManager;
+        public StaffManager staffManager;
 
         public Main()
         {
             this.BookForm = new BookForm();
+            this.StaffForm = new StaffForm();
             initSqlConnection();
         }
 
         public BookForm BookForm { get => bookForm; set => bookForm = value; }
+        public StaffForm StaffForm { get => staffForm; set => staffForm = value; }
 
         public void init()
         {
             this.bookManager = new BookManager();
+            this.staffManager = new StaffManager();
             //test2();
         }
 

@@ -157,7 +157,7 @@ end
 go
 
 
-exec searchSach null, null, null, null, null, null, null, null, null, 1, 100
+exec searchSach null, null, null, null, null, null, null, null, null, 0, 100
 go
 
 create proc sp_TinhTrangMuonTra
@@ -208,8 +208,6 @@ end
 go
 
 
-select *, dbo.getTinhTrangMuonTra(MaSach) as TinhTrang from Sach where 1=1
-
 	--select s.MaSach, s.TenSach, s.TinhTrang, s.NamXB, s.GiaSach, l.TenLoaiSach, v.TenViTri, n.TenNXB, tg.TenTacGia 
 	--from Sach s, LoaiSach l, ViTri v, NXB n, TacGia tg
 	--where s.MaLoaiSach = l.MaLoaiSach and s.MaViTri = v.MaViTri
@@ -253,6 +251,33 @@ begin
 	select * from ViTri where 1=1
 end
 go
+
+-- lay du lieu nhan vien
+
+create proc getNhanVien
+	@offset int,
+	@limit int
+as
+begin
+	select cn.MaSo, nv.TenDangNhap, nv.MatKhau, nv.ChucVu, nv.TrangThai, cn.HoTen, cn.NgaySinh, dbo.getGioiTinhDisplayName(cn.GioiTinh) as GioiTinh, cn.SDT, cn.DiaChi 
+	from NhanVien nv, CaNhan cn
+	where nv.MaSo = cn.MaSo
+end
+go
+
+create function getGioiTinhDisplayName
+	(@GioiTinh as int)
+	returns nvarchar(10)
+as
+begin
+	if (@GioiTinh = 0)
+	return N'Nữ';
+	return N'Nam';
+end
+go
+
+select cn.*, nv.TenDangNhap, nv.MatKhau, nv.TrangThai  from NhanVien nv, CaNhan cn
+where nv.MaSo = cn.MaSo
 
 select * from LoaiSach ls 
 where 1 = 1

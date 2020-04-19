@@ -24,6 +24,8 @@ create table NhanVien (
 	MaSo int not null,
 	TenDangNhap varchar(50),
 	MatKhau varchar(50),
+	TrangThai int,
+	ChucVu nvarchar(50),
 )	
 
 create table Sach (

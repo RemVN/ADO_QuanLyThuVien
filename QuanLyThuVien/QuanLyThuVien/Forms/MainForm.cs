@@ -20,41 +20,14 @@ namespace QuanLyThuVien
             button1.ContextMenuStrip = testMenuStrip;
         }
 
-
-        [DllImport("user32.dll")]
-        static extern int ReleaseDC(IntPtr hWnd, IntPtr hDC);
-
-        [DllImport("User32.dll")]
-
-        private static extern IntPtr GetWindowDC(IntPtr hWnd);
-
-        protected override void WndProc(ref System.Windows.Forms.Message m)
-        {
-            const int WM_NCPAINT = 0x85;
-            base.WndProc(ref m);
-
-            if (m.Msg == WM_NCPAINT)
-            {
-
-                IntPtr hdc = GetWindowDC(m.HWnd);
-                if ((int)hdc != 0)
-                {
-                    Graphics g = Graphics.FromHdc(hdc);
-                    g.DrawLine(Pens.Green, 10, 10, 100, 10);
-                    g.Flush();
-                    ReleaseDC(m.HWnd, hdc);
-                }
-
-            }
-        }
-
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             main = Program.getMain();
             main.init();
             this.formPanel.Controls.Add(main.BookForm);
-            main.BookForm.Show();
+            this.formPanel.Controls.Add(main.StaffForm);
+            //main.BookForm.Show();
+            main.StaffForm.Show();
         }
 
         private void imageButton_hover(object sender, EventArgs e)

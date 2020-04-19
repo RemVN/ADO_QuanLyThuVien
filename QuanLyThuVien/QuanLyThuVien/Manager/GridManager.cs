@@ -17,6 +17,7 @@ namespace QuanLyThuVien.Manager
         public int currentOffset = 0;
         public DataGridView grid;
         public BindingSource gridBinding = new BindingSource();
+
         public GridManager(DataGridView grid)
         {
             this.grid = grid;
@@ -53,6 +54,12 @@ namespace QuanLyThuVien.Manager
         {
             grid.DataSource = dataTable;
             grid.Refresh();
+        }
+
+        public void setBindingSource(BindingSource bindingSource, object obj)
+        {
+            bindingSource.DataSource = obj;
+            bindingSource.ResetBindings(true);
         }
 
         public abstract void defaultLoad();

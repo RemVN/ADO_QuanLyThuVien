@@ -99,7 +99,6 @@ namespace QuanLyThuVien.Forms
                     form.ShowDialog();
                 }));
                 eContextMenu.menuStrip.Show(tacGiaGrid ,new Point(e.X, e.Y));
-                //contextMenuTacGia.Show(tacGiaGrid, new Point(e.X, e.Y));
             }
         }
 

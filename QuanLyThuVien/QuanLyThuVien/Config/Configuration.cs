@@ -1,4 +1,6 @@
-﻿using QuanLyThuVien.MuonTra;
+﻿using QuanLyThuVien.Core;
+using QuanLyThuVien.MuonTra;
+using QuanLyThuVien.People;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +12,29 @@ namespace QuanLyThuVien.Config
     {
 
         public static List<string> statusList = new List<string>() {"Mới", "Cũ", "Mất"};
+
         public static List<MuonTraStatus> muonTraStatusBookSide = new List<MuonTraStatus>()
         {
             new MuonTraStatus(0, "Đang mượn"),
             new MuonTraStatus(1, "Khả dụng")
+        };
+
+        public static List<SqlCodeObject> personSexes = new List<SqlCodeObject>()
+        {
+            new SqlCodeObject(0, "Nữ"),
+            new SqlCodeObject(0, "Nam")
+        };
+
+        public static List<SqlCodeObject> staffRanks = new List<SqlCodeObject>()
+        {
+            new SqlCodeObject(0, "Quản lý"),
+            new SqlCodeObject(1, "Thủ thư")
+        };
+
+        public static List<SqlCodeObject> staffAccountStatus = new List<SqlCodeObject>()
+        {
+            new SqlCodeObject(0, "Mở"),
+            new SqlCodeObject(1, "Khoá")
         };
     }
 }
