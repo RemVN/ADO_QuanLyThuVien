@@ -13,6 +13,7 @@ namespace QuanLyThuVien
         static MainForm mainForm;
 
         public static MainForm MainForm { get => mainForm; set => mainForm = value; }
+        public static Main MainInstance { get => main; set => main = value; }
 
         [STAThread]
         static void Main()
@@ -20,14 +21,14 @@ namespace QuanLyThuVien
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Console.WriteLine("Thử nghiệm");
-            main = new Main();
+            MainInstance = new Main();
             MainForm = new MainForm();
             Application.Run(MainForm);
         }
 
         public static Main getMain()
         {
-            return main;
+            return MainInstance;
         }
 
     }

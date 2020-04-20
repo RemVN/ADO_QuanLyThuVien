@@ -10,6 +10,7 @@ namespace QuanLyThuVien.Config
 {
     class Configuration
     {
+        public static int defaultLimit = 99999;
 
         public static List<string> statusList = new List<string>() {"Mới", "Cũ", "Mất"};
 

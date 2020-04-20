@@ -1,23 +1,4 @@
 ﻿
--- get table sinh vien with offset and limit
-
-create proc getSinhVien
-	@offset int,
-	@limit int
-as
-begin 
-	select sv.MaSo, k.TenKhoa, sv.Lop, cn.HoTen, cn.NgaySinh, cn.GioiTinh, cn.SDT, cn.DiaChi 
-	from SinhVien sv, Khoa k, CaNhan cn
-	where sv.MaSo = cn.MaSo and sv.MaKhoa = k.MaKhoa
-	order by sv.MaSo
-	OFFSET @offset ROWS
-	FETCH NEXT @limit ROWS ONLY;
-end
-go
-
-exec getSinhVien 0, 10
-go
-
 -- get table tac gia with offset and limit
 
 create proc getTacGia
@@ -208,20 +189,48 @@ end
 go
 
 
-	--select s.MaSach, s.TenSach, s.TinhTrang, s.NamXB, s.GiaSach, l.TenLoaiSach, v.TenViTri, n.TenNXB, tg.TenTacGia 
-	--from Sach s, LoaiSach l, ViTri v, NXB n, TacGia tg
-	--where s.MaLoaiSach = l.MaLoaiSach and s.MaViTri = v.MaViTri
-	--and s.MaNXB = n.MaNXB and s.MaTG = tg.MaTG
-	--and (s.MaSach = @MaSach or s.MaSach is null)
-	--and (s.TenSach like CONCAT(@TenSach, '%') or s.TenSach is null)
-	--and (s.TinhTrang = @TinhTrang or s.TinhTrang is null)
-	--and (s.NamXB = @NamXB  or s.NamXB is null)
-	--and (s.GiaSach = @GiaSach or s.GiaSach is null)
-	--and (l.TenLoaiSach like CONCAT(@LoaiSach, '%') or l.TenLoaiSach is null)
-	--and (v.TenViTri = CONCAT(@ViTri, '%') or v.TenViTri is null)
-	--and (n.TenNXB = CONCAT(@NXB, '%') or n.TenNXB is null)
-	--and (tg.TenTacGia = CONCAT(@TacGia, '%') or tg.TenTacGia is null)
+--NHAN VIEN
 
+create proc searchNhanVien
+	@MaSo int,
+	@TenDangNhap nvarchar(50),
+	@ChucVu int,
+	@TrangThai int,
+	@HoTen nvarchar(100),
+	@NgaySinh datetime,
+	@GioiTinh int,
+	@SDT nvarchar(50),
+	@DiaChi nvarchar(150),
+	@limit int
+as
+begin
+	select 
+	cn.MaSo, nv.TenDangNhap, nv.MatKhau, 
+	dbo.getChucVuDisplayName(nv.ChucVu) as ChucVu, 
+	dbo.getTrangThaiNhanVienDisplayName(nv.TrangThai) as TrangThai, 
+	cn.HoTen, cn.NgaySinh, 
+	dbo.getGioiTinhDisplayName(cn.GioiTinh) as GioiTinh, 
+	cn.SDT, cn.DiaChi  
+	from NhanVien nv, CaNhan cn
+	where nv.MaSo = cn.MaSo
+	and (
+		(@MaSo = nv.MaSo or @MaSo is null)
+		and (@TenDangNhap = nv.TenDangNhap or @TenDangNhap is null)
+		and (@ChucVu = nv.ChucVu or @ChucVu is null)
+		and (@TrangThai = nv.TrangThai or @TrangThai is null)
+		and (@HoTen like concat(cn.HoTen, '%') or @HoTen is null)
+		and (@NgaySinh = cn.NgaySinh or @NgaySinh is null)
+		and (@GioiTinh = cn.GioiTinh or @GioiTinh is null)
+		and (@SDT = cn.SDT or @SDT is null)
+		and (@DiaChi = cn.DiaChi or @DiaChi is null)
+	)
+	order by cn.MaSo
+	OFFSET 0 ROWS
+	FETCH NEXT @limit ROWS ONLY;
+end
+go
+
+exec searchNhanVien null, null, null, null, null, null, 1, null, null, 100
 
 -- get all author
 create proc getAllTacGia
@@ -259,10 +268,22 @@ create proc getNhanVien
 	@limit int
 as
 begin
-	select cn.MaSo, nv.TenDangNhap, nv.MatKhau, nv.ChucVu, nv.TrangThai, cn.HoTen, cn.NgaySinh, dbo.getGioiTinhDisplayName(cn.GioiTinh) as GioiTinh, cn.SDT, cn.DiaChi 
+	select 
+	cn.MaSo, nv.TenDangNhap, nv.MatKhau, 
+	dbo.getChucVuDisplayName(nv.ChucVu) as ChucVu, 
+	dbo.getTrangThaiNhanVienDisplayName(nv.TrangThai) as TrangThai, 
+	cn.HoTen, cn.NgaySinh, 
+	dbo.getGioiTinhDisplayName(cn.GioiTinh) as GioiTinh, 
+	cn.SDT, cn.DiaChi 
 	from NhanVien nv, CaNhan cn
 	where nv.MaSo = cn.MaSo
+	order by cn.MaSo
+	OFFSET @offset ROWS
+	FETCH NEXT @limit ROWS ONLY;
 end
+go
+
+exec getNhanVien 0, 100
 go
 
 create function getGioiTinhDisplayName
@@ -271,8 +292,97 @@ create function getGioiTinhDisplayName
 as
 begin
 	if (@GioiTinh = 0)
-	return N'Nữ';
+	begin 
+		return N'Nữ';
+	end
 	return N'Nam';
+end
+go
+
+create function getChucVuDisplayName
+	(@ChucVu as int)
+	returns nvarchar(30)
+as
+begin
+	if (@ChucVu = 0) begin
+		return N'Quản lý';
+	end
+	return N'Thủ thư';
+end
+go
+
+create function getTrangThaiNhanVienDisplayName
+	(@TinhTrang as int)
+	returns nvarchar(30)
+as
+begin
+	if (@TinhTrang = 0)
+	begin
+		return N'Khoá';
+	end
+	return N'Mở';
+end
+go
+
+-- Sinh vien
+
+create proc getSinhVien
+	@offset int,
+	@limit int
+as
+begin
+	select 
+	sv.MaSo, k.TenKhoa, Lop.TenLop, sv.NgayCap, sv.NgayHetHan, cn.HoTen, cn.NgaySinh, dbo.getGioiTinhDisplayName(cn.GioiTinh) as GioiTinh, cn.SDT, cn.DiaChi
+	from SinhVien sv, CaNhan cn, Lop, Khoa k
+	where 
+	sv.MaSo = cn.MaSo and
+	sv.MaKhoa = k.MaKhoa and
+	sv.MaLop = lop.MaLop 
+	order by sv.MaSo
+	OFFSET @offset ROWS
+	FETCH NEXT @limit ROWS ONLY;
+end
+go
+
+exec getSinhVien 0, 100
+go
+
+create proc searchSinhVien
+	@MaSo int,
+	@MaKhoa int,
+	@MaLop int,
+	@NgayCap datetime,
+	@NgayHetHan datetime,
+	@HoTen nvarchar(50),
+	@NgaySinh datetime,
+	@GioiTinh int,
+	@SDT nvarchar(100),
+	@DiaChi nvarchar(150),
+	@limit int
+as
+begin 
+	select 
+	sv.MaSo, k.TenKhoa, Lop.TenLop, sv.NgayCap, sv.NgayHetHan, cn.HoTen, cn.NgaySinh, dbo.getGioiTinhDisplayName(cn.GioiTinh) as GioiTinh, cn.SDT, cn.DiaChi
+	from SinhVien sv, CaNhan cn, Lop, Khoa k
+	where 
+	sv.MaSo = cn.MaSo and
+	sv.MaKhoa = k.MaKhoa and
+	sv.MaLop = lop.MaLop and
+	(
+		(@MaSo = cn.MaSo or @MaSo is null) 
+		and (@MaKhoa = k.MaKhoa or @MaKhoa is null)
+		and (@MaLop = Lop.MaLop or @MaLop is null)
+		and (@NgayCap = sv.NgayCap or @NgayCap is null)
+		and (@NgayHetHan =  sv.NgayHetHan or @NgayHetHan is null)
+		and (@HoTen = cn.HoTen or @HoTen is null)
+		and (@NgaySinh = cn.NgaySinh or @NgaySinh is null) 
+		and (@GioiTinh = cn.GioiTinh or @GioiTinh is null)
+		and (@SDT = cn.SDT or @SDT is null)
+		and (@DiaChi = cn.DiaChi or @DiaChi  is null)
+	)
+	order by sv.MaSo
+	OFFSET 0 ROWS
+	FETCH NEXT @limit ROWS ONLY;
 end
 go
 

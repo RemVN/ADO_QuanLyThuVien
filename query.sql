@@ -12,7 +12,14 @@ create table CaNhan (
 create table SinhVien (
 	MaSo int not null, 
 	MaKhoa int not null,
-	Lop varchar(15),
+	MaLop int not null,
+	NgayCap datetime,
+	NgayHetHan datetime
+)
+
+create table Lop (
+	MaLop int not null IDENTITY(1,1) primary key,
+	TenLop nvarchar(50)
 )
 
 create table Khoa (
@@ -25,7 +32,7 @@ create table NhanVien (
 	TenDangNhap varchar(50),
 	MatKhau varchar(50),
 	TrangThai int,
-	ChucVu nvarchar(50),
+	ChucVu int,
 )	
 
 create table Sach (
@@ -73,6 +80,8 @@ create table TacGia (
 )
 
 alter table SinhVien add foreign key (MaSo) references CaNhan(MaSo)
+alter table SinhVien add foreign key (MaLop) references Lop(MaLop) 
+
 alter table NhanVien add foreign key (MaSo) references CaNhan(MaSo)
 
 alter table MuonTra add foreign key (MaSoSV) references CaNhan(MaSo)
@@ -90,3 +99,4 @@ alter table Sach add foreign key (MaTG) references TacGia(MaTG)
 insert into CaNhan (HoTen, NgaySinh, GioiTinh, SDT, DiaChi) values 
 (N'Nguyễn Văn A', '19990523', 1, '0912312351', 'TPHCM')
 
+insert into CaNhan (HoTen, NgaySinh, GioiTinh, SDT, DiaChi) output INSERTED.ID values ()

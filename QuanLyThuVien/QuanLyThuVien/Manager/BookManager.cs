@@ -1,4 +1,5 @@
 ﻿using QuanLyThuVien.BookDetails;
+using QuanLyThuVien.Config;
 using QuanLyThuVien.Core;
 using QuanLyThuVien.Forms;
 using QuanLyThuVien.Searching;
@@ -68,7 +69,7 @@ namespace QuanLyThuVien.Manager
         public void loadSelector()
         {
             clearDataSourceSelector();
-            int limit = 1000;
+            int limit = Configuration.defaultLimit;
             authorList.AddRange(SqlObjectLoader.getSqlObjectsFromDataTable(typeof(BookAuthor), getDataTableWithOffsetAndLimit("getTacGia", 0, limit)));
             nxbList.AddRange(SqlObjectLoader.getSqlObjectsFromDataTable(typeof(BookNXB), getDataTableWithOffsetAndLimit("getNXB", 0, limit)));
             locationList.AddRange(SqlObjectLoader.getSqlObjectsFromDataTable(typeof(BookLocation), getDataTableWithOffsetAndLimit("getVitri", 0, limit)));

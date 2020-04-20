@@ -60,6 +60,7 @@
     <Compile Include="Core\IDObject.cs" />
     <Compile Include="Core\NameableObject.cs" />
     <Compile Include="Core\SqlCodeObject.cs" />
+    <Compile Include="Core\SqlNameObject.cs" />
     <Compile Include="CustomControl\EDateTimePicker.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -126,6 +127,12 @@
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ReaderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ReaderForm.Designer.cs">
+      <DependentUpon>ReaderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\StaffForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +148,7 @@
     </Compile>
     <Compile Include="Manager\BookManager.cs" />
     <Compile Include="Manager\GridManager.cs" />
+    <Compile Include="Manager\ReaderManager.cs" />
     <Compile Include="Manager\StaffManager.cs" />
     <Compile Include="MuonTra\MuonTraStatus.cs" />
     <Compile Include="People\Person.cs" />
@@ -171,12 +179,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyThuVienDataSet4.xsd</DependentUpon>
     </Compile>
+    <Compile Include="QuanLyThuVienDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyThuVienDataSet5.xsd</DependentUpon>
+    </Compile>
     <Compile Include="QuanLyThuVienDataSet6.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyThuVienDataSet6.xsd</DependentUpon>
     </Compile>
+    <Compile Include="QuanLyThuVienDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyThuVienDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyThuVienDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyThuVienDataSet8.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Searching\SearchQuery.cs" />
+    <Compile Include="Utils\InputCleaner.cs" />
     <Compile Include="Utils\Messaging.cs" />
     <EmbeddedResource Include="Core\EContextMenu.resx">
       <DependentUpon>EContextMenu.cs</DependentUpon>
@@ -217,6 +241,9 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ReaderForm.resx">
+      <DependentUpon>ReaderForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\StaffForm.resx">
       <DependentUpon>StaffForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,6 +261,7 @@
     <None Include="Properties\DataSources\QuanLyThuVien.BookDetails.BookLocation.datasource" />
     <None Include="Properties\DataSources\QuanLyThuVien.BookDetails.BookNXB.datasource" />
     <None Include="Properties\DataSources\QuanLyThuVien.BookDetails.BookType.datasource" />
+    <None Include="Properties\DataSources\QuanLyThuVien.Core.NameableObject.datasource" />
     <None Include="Properties\DataSources\QuanLyThuVien.Core.SqlCodeObject.datasource" />
     <None Include="Properties\DataSources\QuanLyThuVien.MuonTra.MuonTraStatus.datasource" />
     <None Include="Properties\Settings.settings">
@@ -300,6 +328,17 @@
     <None Include="QuanLyThuVienDataSet4.xss">
       <DependentUpon>QuanLyThuVienDataSet4.xsd</DependentUpon>
     </None>
+    <None Include="QuanLyThuVienDataSet5.xsc">
+      <DependentUpon>QuanLyThuVienDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyThuVienDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyThuVienDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyThuVienDataSet5.xss">
+      <DependentUpon>QuanLyThuVienDataSet5.xsd</DependentUpon>
+    </None>
     <None Include="QuanLyThuVienDataSet6.xsc">
       <DependentUpon>QuanLyThuVienDataSet6.xsd</DependentUpon>
     </None>
@@ -310,6 +349,28 @@
     </None>
     <None Include="QuanLyThuVienDataSet6.xss">
       <DependentUpon>QuanLyThuVienDataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyThuVienDataSet7.xsc">
+      <DependentUpon>QuanLyThuVienDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyThuVienDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyThuVienDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyThuVienDataSet7.xss">
+      <DependentUpon>QuanLyThuVienDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyThuVienDataSet8.xsc">
+      <DependentUpon>QuanLyThuVienDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyThuVienDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyThuVienDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyThuVienDataSet8.xss">
+      <DependentUpon>QuanLyThuVienDataSet8.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
