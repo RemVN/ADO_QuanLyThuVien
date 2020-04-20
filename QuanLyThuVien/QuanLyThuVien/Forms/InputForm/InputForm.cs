@@ -1,5 +1,6 @@
 ﻿using QuanLyThuVien.BookDetails;
 using QuanLyThuVien.Core;
+using QuanLyThuVien.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -68,7 +69,7 @@ namespace QuanLyThuVien.Forms.InputForm
             return "";
         }
 
-        public virtual void renameControl()
+        public virtual void changeControlData()
         {
             this.Text = getName();
         }
@@ -126,7 +127,7 @@ namespace QuanLyThuVien.Forms.InputForm
 
         public void showInputMissingMessage(string inputName)
         {
-            MessageBox.Show(String.Format("Bạn chưa nhập {0}", inputName), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            Messaging.showInputMissingMessage(inputName);
         }
 
         private void InitializeComponent()
@@ -144,8 +145,7 @@ namespace QuanLyThuVien.Forms.InputForm
 
         private void InputForm_Shown(object sender, EventArgs e)
         {
-            Console.WriteLine("form show");
-            renameControl();
+            changeControlData();
         }
     }
 }

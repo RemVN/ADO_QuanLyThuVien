@@ -22,9 +22,9 @@ namespace QuanLyThuVien.Forms.InputForm
             InitializeComponent();
         }
 
-        public override void renameControl()
+        public override void changeControlData()
         {
-            base.renameControl();
+            base.changeControlData();
             this.buttonAdd.Text = getExecuteButtonName();
             if(!isAdd)
             {

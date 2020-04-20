@@ -95,7 +95,7 @@ namespace QuanLyThuVien.Forms
                     InputAuthorForm form = new InputAuthorForm(false);
                     form.withID(id);
                     form.withDataRow(row);
-                    form.renameControl();
+                    form.changeControlData();
                     form.ShowDialog();
                 }));
                 eContextMenu.menuStrip.Show(tacGiaGrid ,new Point(e.X, e.Y));
@@ -115,7 +115,7 @@ namespace QuanLyThuVien.Forms
                     InputBookTypeForm form = new InputBookTypeForm(false);
                     form.withID(id);
                     form.withDataRow(row);
-                    form.renameControl();
+                    form.changeControlData();
                     form.ShowDialog();
                 }));
                 eContextMenu.menuStrip.Show(bookTypeGrid, new Point(e.X, e.Y));
@@ -135,7 +135,7 @@ namespace QuanLyThuVien.Forms
                     InputNXBForm form = new InputNXBForm(false);
                     form.withID(id);
                     form.withDataRow(row);
-                    form.renameControl();
+                    form.changeControlData();
                     form.ShowDialog();
                 }));
                 eContextMenu.menuStrip.Show(nxbGrid, new Point(e.X, e.Y));
@@ -155,7 +155,7 @@ namespace QuanLyThuVien.Forms
                     InputLocationForm form = new InputLocationForm(false);
                     form.withID(id);
                     form.withDataRow(row);
-                    form.renameControl();
+                    form.changeControlData();
                     form.ShowDialog();
                 }));
                 eContextMenu.menuStrip.Show(locationGrid, new Point(e.X, e.Y));
@@ -175,7 +175,7 @@ namespace QuanLyThuVien.Forms
                     InputBookForm form = new InputBookForm(false);
                     form.withID(id);
                     form.withDataRow(row);
-                    form.renameControl();
+                    form.changeControlData();
                     form.ShowDialog();
                 }));
                 eContextMenu.menuStrip.Show(bookGrid, new Point(e.X, e.Y));

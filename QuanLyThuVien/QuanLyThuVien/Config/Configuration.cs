@@ -22,7 +22,7 @@ namespace QuanLyThuVien.Config
         public static List<SqlCodeObject> personSexes = new List<SqlCodeObject>()
         {
             new SqlCodeObject(0, "Nữ"),
-            new SqlCodeObject(0, "Nam")
+            new SqlCodeObject(1, "Nam")
         };
 
         public static List<SqlCodeObject> staffRanks = new List<SqlCodeObject>()
@@ -33,8 +33,8 @@ namespace QuanLyThuVien.Config
 
         public static List<SqlCodeObject> staffAccountStatus = new List<SqlCodeObject>()
         {
-            new SqlCodeObject(0, "Mở"),
-            new SqlCodeObject(1, "Khoá")
+            new SqlCodeObject(0, "Khoá"),
+            new SqlCodeObject(1, "Mở")
         };
     }
 }

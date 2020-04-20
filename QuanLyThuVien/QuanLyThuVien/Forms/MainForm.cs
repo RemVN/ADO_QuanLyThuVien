@@ -14,6 +14,14 @@ namespace QuanLyThuVien
     {
         static Main main;
 
+        List<Form> forms = new List<Form>();
+        Form currentForm;
+        Button currentFormButton;
+
+        public List<Form> Forms { get => forms; set => forms = value; }
+        public Form CurrentForm { get => currentForm; set => currentForm = value; }
+        public Button CurrentFormButton { get => currentFormButton; set => currentFormButton = value; }
+
         public MainForm()
         {
             InitializeComponent();
@@ -24,10 +32,26 @@ namespace QuanLyThuVien
         {
             main = Program.getMain();
             main.init();
-            this.formPanel.Controls.Add(main.BookForm);
-            this.formPanel.Controls.Add(main.StaffForm);
-            //main.BookForm.Show();
-            main.StaffForm.Show();
+            Forms.Add(main.BookForm);
+            Forms.Add(main.StaffForm);
+            foreach (Form form in Forms) {
+                formPanel.Controls.Add(form);
+            }
+            showForm(main.BookForm, buttonBookForm);
+        }
+
+        public void showForm(Form form, Button button)
+        {
+            if (form == CurrentForm) return;
+            if(CurrentForm != null && CurrentFormButton != null)
+            {
+                CurrentForm.Hide();
+                CurrentFormButton.BackColor = Color.White;
+            }
+            CurrentForm = form;
+            CurrentFormButton = button;
+            CurrentForm.Show();
+            CurrentFormButton.BackColor = Color.FromArgb(147, 168, 253);
         }
 
         private void imageButton_hover(object sender, EventArgs e)
@@ -54,6 +78,16 @@ namespace QuanLyThuVien
         private void ButtonLogout_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ButtonBookForm_Click(object sender, EventArgs e)
+        {
+            showForm(main.BookForm, (Button) sender);
+        }
+
+        private void ButtonStaffForm_Click(object sender, EventArgs e)
+        {
+            showForm(main.StaffForm, (Button) sender);
         }
     }
 }

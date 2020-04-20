@@ -12,7 +12,7 @@ namespace QuanLyThuVien.Manager
     {
 
         public static Main main = Program.getMain();
-        public static MainForm mainForm = Program.getMainForm();
+        public static MainForm mainForm = Program.MainForm;
 
         public int currentOffset = 0;
         public DataGridView grid;

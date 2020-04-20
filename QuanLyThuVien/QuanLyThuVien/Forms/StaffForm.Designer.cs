@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffForm));
             this.staffGrid = new System.Windows.Forms.DataGridView();
             this.maSoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,7 +49,7 @@
             this.buttonClearSearch = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
-            this.buttonAddBook = new System.Windows.Forms.Button();
+            this.buttonAddStaff = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -58,7 +58,6 @@
             this.searchPassword = new System.Windows.Forms.TextBox();
             this.searchRank = new System.Windows.Forms.ComboBox();
             this.sqlCodeObjectBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.searchBirthday = new System.Windows.Forms.DateTimePicker();
             this.getNhanVienTableAdapter = new QuanLyThuVien.QuanLyThuVienDataSet6TableAdapters.getNhanVienTableAdapter();
             this.searchRealname = new System.Windows.Forms.TextBox();
             this.searchSex = new System.Windows.Forms.ComboBox();
@@ -67,6 +66,7 @@
             this.searchLocation = new System.Windows.Forms.TextBox();
             this.searchStatus = new System.Windows.Forms.ComboBox();
             this.sqlCodeObjectBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.searchBirthday = new QuanLyThuVien.CustomControl.EDateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.staffGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getNhanVienBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyThuVienDataSet6)).BeginInit();
@@ -80,8 +80,8 @@
             // 
             this.staffGrid.AllowUserToAddRows = false;
             this.staffGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.staffGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.staffGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.staffGrid.AutoGenerateColumns = false;
             this.staffGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.staffGrid.BackgroundColor = System.Drawing.Color.LightGray;
@@ -98,23 +98,24 @@
             this.sDTDataGridViewTextBoxColumn,
             this.diaChiDataGridViewTextBoxColumn});
             this.staffGrid.DataSource = this.getNhanVienBindingSource;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.staffGrid.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.staffGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.staffGrid.Location = new System.Drawing.Point(12, 69);
             this.staffGrid.Name = "staffGrid";
             this.staffGrid.ReadOnly = true;
             this.staffGrid.RowHeadersVisible = false;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.staffGrid.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.staffGrid.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.staffGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.staffGrid.Size = new System.Drawing.Size(1015, 599);
             this.staffGrid.TabIndex = 1;
+            this.staffGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StaffGrid_MouseClick);
             // 
             // maSoDataGridViewTextBoxColumn
             // 
@@ -218,6 +219,7 @@
             this.buttonClearSearch.Text = "Xoá khung tìm kiếm";
             this.buttonClearSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonClearSearch.UseVisualStyleBackColor = false;
+            this.buttonClearSearch.Click += new System.EventHandler(this.ButtonClearSearch_Click);
             // 
             // buttonRefresh
             // 
@@ -235,6 +237,7 @@
             this.buttonRefresh.Text = "Tải lại";
             this.buttonRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonRefresh.UseVisualStyleBackColor = false;
+            this.buttonRefresh.Click += new System.EventHandler(this.ButtonRefresh_Click);
             // 
             // buttonSearch
             // 
@@ -252,23 +255,25 @@
             this.buttonSearch.Text = "Tìm kiếm";
             this.buttonSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSearch.UseVisualStyleBackColor = false;
+            this.buttonSearch.Click += new System.EventHandler(this.ButtonSearch_Click);
             // 
-            // buttonAddBook
+            // buttonAddStaff
             // 
-            this.buttonAddBook.BackColor = System.Drawing.Color.Transparent;
-            this.buttonAddBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonAddBook.FlatAppearance.BorderSize = 0;
-            this.buttonAddBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAddBook.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddBook.Image")));
-            this.buttonAddBook.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddBook.Location = new System.Drawing.Point(12, 2);
-            this.buttonAddBook.Name = "buttonAddBook";
-            this.buttonAddBook.Size = new System.Drawing.Size(142, 30);
-            this.buttonAddBook.TabIndex = 41;
-            this.buttonAddBook.Text = "Thêm nhân viên";
-            this.buttonAddBook.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonAddBook.UseVisualStyleBackColor = false;
+            this.buttonAddStaff.BackColor = System.Drawing.Color.Transparent;
+            this.buttonAddStaff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonAddStaff.FlatAppearance.BorderSize = 0;
+            this.buttonAddStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddStaff.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddStaff.Image")));
+            this.buttonAddStaff.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAddStaff.Location = new System.Drawing.Point(12, 2);
+            this.buttonAddStaff.Name = "buttonAddStaff";
+            this.buttonAddStaff.Size = new System.Drawing.Size(142, 30);
+            this.buttonAddStaff.TabIndex = 41;
+            this.buttonAddStaff.Text = "Thêm nhân viên";
+            this.buttonAddStaff.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAddStaff.UseVisualStyleBackColor = false;
+            this.buttonAddStaff.Click += new System.EventHandler(this.ButtonAddStaff_Click);
             // 
             // groupBox1
             // 
@@ -362,13 +367,6 @@
             // 
             this.sqlCodeObjectBindingSource1.DataSource = typeof(QuanLyThuVien.Core.SqlCodeObject);
             // 
-            // searchBirthday
-            // 
-            this.searchBirthday.Location = new System.Drawing.Point(563, 43);
-            this.searchBirthday.Name = "searchBirthday";
-            this.searchBirthday.Size = new System.Drawing.Size(111, 20);
-            this.searchBirthday.TabIndex = 54;
-            // 
             // getNhanVienTableAdapter
             // 
             this.getNhanVienTableAdapter.ClearBeforeFill = true;
@@ -433,18 +431,32 @@
             // 
             this.sqlCodeObjectBindingSource2.DataSource = typeof(QuanLyThuVien.Core.SqlCodeObject);
             // 
+            // searchBirthday
+            // 
+            this.searchBirthday.CustomFormat = " ";
+            this.searchBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.searchBirthday.Location = new System.Drawing.Point(563, 43);
+            this.searchBirthday.MaxDate = new System.DateTime(2020, 4, 19, 21, 44, 31, 901);
+            this.searchBirthday.MaxIsToday = true;
+            this.searchBirthday.Name = "searchBirthday";
+            this.searchBirthday.Size = new System.Drawing.Size(111, 20);
+            this.searchBirthday.TabIndex = 60;
+            this.searchBirthday.Value = new System.DateTime(2020, 4, 19, 20, 6, 53, 921);
+            this.searchBirthday.ValueChanged += new System.EventHandler(this.SearchBirthday_ValueChanged);
+            this.searchBirthday.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchBirthday_KeyDown);
+            // 
             // StaffForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1267, 680);
+            this.Controls.Add(this.searchBirthday);
             this.Controls.Add(this.searchStatus);
             this.Controls.Add(this.searchLocation);
             this.Controls.Add(this.searchSDT);
             this.Controls.Add(this.searchSex);
             this.Controls.Add(this.searchRealname);
-            this.Controls.Add(this.searchBirthday);
             this.Controls.Add(this.searchRank);
             this.Controls.Add(this.searchPassword);
             this.Controls.Add(this.searchUsername);
@@ -453,7 +465,7 @@
             this.Controls.Add(this.buttonClearSearch);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonSearch);
-            this.Controls.Add(this.buttonAddBook);
+            this.Controls.Add(this.buttonAddStaff);
             this.Controls.Add(this.staffGrid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StaffForm";
@@ -477,7 +489,7 @@
         private System.Windows.Forms.Button buttonClearSearch;
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.Button buttonSearch;
-        private System.Windows.Forms.Button buttonAddBook;
+        private System.Windows.Forms.Button buttonAddStaff;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
@@ -488,7 +500,6 @@
         private QuanLyThuVienDataSet6 quanLyThuVienDataSet6;
         private QuanLyThuVienDataSet6TableAdapters.getNhanVienTableAdapter getNhanVienTableAdapter;
         public System.Windows.Forms.TextBox searchRealname;
-        private System.Windows.Forms.ComboBox searchSex;
         public System.Windows.Forms.TextBox searchSDT;
         public System.Windows.Forms.TextBox searchLocation;
         private System.Windows.Forms.DataGridViewTextBoxColumn maSoDataGridViewTextBoxColumn;
@@ -506,6 +517,7 @@
         public System.Windows.Forms.ComboBox searchRank;
         public System.Windows.Forms.ComboBox searchStatus;
         private System.Windows.Forms.BindingSource sqlCodeObjectBindingSource2;
-        public System.Windows.Forms.DateTimePicker searchBirthday;
+        public CustomControl.EDateTimePicker searchBirthday;
+        public System.Windows.Forms.ComboBox searchSex;
     }
 }

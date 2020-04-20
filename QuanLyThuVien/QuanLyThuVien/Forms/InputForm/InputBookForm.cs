@@ -27,9 +27,9 @@ namespace QuanLyThuVien.Forms.InputForm
             comboLocation.DataSource = main.BookForm.bookLocationBindingSource;
         }
 
-        public override void renameControl()
+        public override void changeControlData()
         {
-            base.renameControl();
+            base.changeControlData();
             this.buttonAdd.Text = getExecuteButtonName();
             if (!isAdd)
             {

@@ -60,6 +60,15 @@
     <Compile Include="Core\IDObject.cs" />
     <Compile Include="Core\NameableObject.cs" />
     <Compile Include="Core\SqlCodeObject.cs" />
+    <Compile Include="CustomControl\EDateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\TestControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomControl\TestControl.Designer.cs">
+      <DependentUpon>TestControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\InputForm\InputAuthorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +107,18 @@
     </Compile>
     <Compile Include="Forms\InputForm\InputNXBForm.Designer.cs">
       <DependentUpon>InputNXBForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InputForm\InputPersonForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\InputForm\InputPersonForm.Designer.cs">
+      <DependentUpon>InputPersonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\InputForm\InputStaffForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InputForm\InputStaffForm.Designer.cs">
+      <DependentUpon>InputStaffForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
@@ -156,8 +177,12 @@
       <DependentUpon>QuanLyThuVienDataSet6.xsd</DependentUpon>
     </Compile>
     <Compile Include="Searching\SearchQuery.cs" />
+    <Compile Include="Utils\Messaging.cs" />
     <EmbeddedResource Include="Core\EContextMenu.resx">
       <DependentUpon>EContextMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomControl\TestControl.resx">
+      <DependentUpon>TestControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\InputForm\InputAuthorForm.resx">
       <DependentUpon>InputAuthorForm.cs</DependentUpon>
@@ -179,6 +204,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\InputForm\InputNXBForm.resx">
       <DependentUpon>InputNXBForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InputForm\InputPersonForm.resx">
+      <DependentUpon>InputPersonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InputForm\InputStaffForm.resx">
+      <DependentUpon>InputStaffForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
