@@ -29,21 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReaderForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.locationGrid = new System.Windows.Forms.DataGridView();
+            this.khoaGrid = new System.Windows.Forms.DataGridView();
+            this.maKhoaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenKhoaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.khoaGridBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quanLyThuVienDataSet8 = new QuanLyThuVien.QuanLyThuVienDataSet8();
             this.buttonAddKhoa = new System.Windows.Forms.Button();
             this.buttonClearSearch = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
-            this.buttonAddBook = new System.Windows.Forms.Button();
+            this.buttonAddReader = new System.Windows.Forms.Button();
             this.readerGrid = new System.Windows.Forms.DataGridView();
             this.maSoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenKhoaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +60,13 @@
             this.searchSinhVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quanLyThuVienDataSet7 = new QuanLyThuVien.QuanLyThuVienDataSet7();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.classGrid = new System.Windows.Forms.DataGridView();
+            this.maLopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenLopDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.classGridBindingSouce = new System.Windows.Forms.BindingSource(this.components);
+            this.quanLyThuVienDataSet9 = new QuanLyThuVien.QuanLyThuVienDataSet9();
+            this.buttonAddClass = new System.Windows.Forms.Button();
             this.searchSinhVienTableAdapter = new QuanLyThuVien.QuanLyThuVienDataSet7TableAdapters.searchSinhVienTableAdapter();
             this.searchBirthday = new QuanLyThuVien.CustomControl.EDateTimePicker();
             this.searchLocation = new System.Windows.Forms.TextBox();
@@ -72,35 +81,26 @@
             this.searchNgayCap = new QuanLyThuVien.CustomControl.EDateTimePicker();
             this.searchHetHan = new QuanLyThuVien.CustomControl.EDateTimePicker();
             this.khoaTableAdapter = new QuanLyThuVien.QuanLyThuVienDataSet8TableAdapters.KhoaTableAdapter();
-            this.maKhoaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenKhoaDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.buttonAddClass = new System.Windows.Forms.Button();
-            this.quanLyThuVienDataSet9 = new QuanLyThuVien.QuanLyThuVienDataSet9();
-            this.classGridBindingSouce = new System.Windows.Forms.BindingSource(this.components);
             this.lopTableAdapter = new QuanLyThuVien.QuanLyThuVienDataSet9TableAdapters.LopTableAdapter();
-            this.maLopDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenLopDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.locationGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.khoaGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.khoaGridBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyThuVienDataSet8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.readerGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchSinhVienBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyThuVienDataSet7)).BeginInit();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.classGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classGridBindingSouce)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanLyThuVienDataSet9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.khoaBindingSource)).BeginInit();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyThuVienDataSet9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classGridBindingSouce)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.locationGrid);
+            this.tabPage4.Controls.Add(this.khoaGrid);
             this.tabPage4.Controls.Add(this.buttonAddKhoa);
             this.tabPage4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage4.ImageIndex = 3;
@@ -112,32 +112,49 @@
             this.tabPage4.Text = "Khoa";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // locationGrid
+            // khoaGrid
             // 
-            this.locationGrid.AllowUserToAddRows = false;
-            this.locationGrid.AllowUserToDeleteRows = false;
-            this.locationGrid.AutoGenerateColumns = false;
-            this.locationGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            this.locationGrid.BackgroundColor = System.Drawing.Color.LightGray;
-            this.locationGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.locationGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.khoaGrid.AllowUserToAddRows = false;
+            this.khoaGrid.AllowUserToDeleteRows = false;
+            this.khoaGrid.AutoGenerateColumns = false;
+            this.khoaGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            this.khoaGrid.BackgroundColor = System.Drawing.Color.LightGray;
+            this.khoaGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.khoaGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.maKhoaDataGridViewTextBoxColumn,
             this.tenKhoaDataGridViewTextBoxColumn1});
-            this.locationGrid.DataSource = this.khoaGridBindingSource;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.locationGrid.DefaultCellStyle = dataGridViewCellStyle11;
-            this.locationGrid.Location = new System.Drawing.Point(6, 52);
-            this.locationGrid.Name = "locationGrid";
-            this.locationGrid.ReadOnly = true;
-            this.locationGrid.RowHeadersVisible = false;
-            this.locationGrid.Size = new System.Drawing.Size(373, 570);
-            this.locationGrid.TabIndex = 26;
+            this.khoaGrid.DataSource = this.khoaGridBindingSource;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.khoaGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            this.khoaGrid.Location = new System.Drawing.Point(6, 52);
+            this.khoaGrid.Name = "khoaGrid";
+            this.khoaGrid.ReadOnly = true;
+            this.khoaGrid.RowHeadersVisible = false;
+            this.khoaGrid.Size = new System.Drawing.Size(373, 570);
+            this.khoaGrid.TabIndex = 26;
+            this.khoaGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.KhoaGrid_MouseClick);
+            // 
+            // maKhoaDataGridViewTextBoxColumn
+            // 
+            this.maKhoaDataGridViewTextBoxColumn.DataPropertyName = "MaKhoa";
+            this.maKhoaDataGridViewTextBoxColumn.HeaderText = "Mã";
+            this.maKhoaDataGridViewTextBoxColumn.Name = "maKhoaDataGridViewTextBoxColumn";
+            this.maKhoaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.maKhoaDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // tenKhoaDataGridViewTextBoxColumn1
+            // 
+            this.tenKhoaDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tenKhoaDataGridViewTextBoxColumn1.DataPropertyName = "TenKhoa";
+            this.tenKhoaDataGridViewTextBoxColumn1.HeaderText = "Tên khoa";
+            this.tenKhoaDataGridViewTextBoxColumn1.Name = "tenKhoaDataGridViewTextBoxColumn1";
+            this.tenKhoaDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // khoaGridBindingSource
             // 
@@ -164,6 +181,7 @@
             this.buttonAddKhoa.TabIndex = 25;
             this.buttonAddKhoa.Text = "Thêm khoa";
             this.buttonAddKhoa.UseVisualStyleBackColor = false;
+            this.buttonAddKhoa.Click += new System.EventHandler(this.ButtonAddKhoa_Click);
             // 
             // buttonClearSearch
             // 
@@ -217,31 +235,32 @@
             this.buttonSearch.Text = "Tìm kiếm";
             this.buttonSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonSearch.UseVisualStyleBackColor = false;
+            this.buttonSearch.Click += new System.EventHandler(this.ButtonSearchKhoa);
             // 
-            // buttonAddBook
+            // buttonAddReader
             // 
-            this.buttonAddBook.BackColor = System.Drawing.Color.Transparent;
-            this.buttonAddBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonAddBook.FlatAppearance.BorderSize = 0;
-            this.buttonAddBook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAddBook.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddBook.Image")));
-            this.buttonAddBook.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddBook.Location = new System.Drawing.Point(12, 0);
-            this.buttonAddBook.Name = "buttonAddBook";
-            this.buttonAddBook.Size = new System.Drawing.Size(135, 30);
-            this.buttonAddBook.TabIndex = 43;
-            this.buttonAddBook.Text = "Thêm độc giả";
-            this.buttonAddBook.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonAddBook.UseVisualStyleBackColor = false;
-            this.buttonAddBook.Click += new System.EventHandler(this.ButtonAddBook_Click);
+            this.buttonAddReader.BackColor = System.Drawing.Color.Transparent;
+            this.buttonAddReader.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonAddReader.FlatAppearance.BorderSize = 0;
+            this.buttonAddReader.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddReader.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddReader.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddReader.Image")));
+            this.buttonAddReader.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAddReader.Location = new System.Drawing.Point(12, 0);
+            this.buttonAddReader.Name = "buttonAddReader";
+            this.buttonAddReader.Size = new System.Drawing.Size(135, 30);
+            this.buttonAddReader.TabIndex = 43;
+            this.buttonAddReader.Text = "Thêm độc giả";
+            this.buttonAddReader.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAddReader.UseVisualStyleBackColor = false;
+            this.buttonAddReader.Click += new System.EventHandler(this.ButtonAddReader_Click);
             // 
             // readerGrid
             // 
             this.readerGrid.AllowUserToAddRows = false;
             this.readerGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.readerGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.readerGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.readerGrid.AutoGenerateColumns = false;
             this.readerGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.readerGrid.BackgroundColor = System.Drawing.Color.LightGray;
@@ -258,20 +277,20 @@
             this.sDTDataGridViewTextBoxColumn,
             this.diaChiDataGridViewTextBoxColumn});
             this.readerGrid.DataSource = this.searchSinhVienBindingSource;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.readerGrid.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.readerGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.readerGrid.Location = new System.Drawing.Point(12, 76);
             this.readerGrid.Name = "readerGrid";
             this.readerGrid.ReadOnly = true;
             this.readerGrid.RowHeadersVisible = false;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.readerGrid.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.readerGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.readerGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.readerGrid.Size = new System.Drawing.Size(830, 599);
             this.readerGrid.TabIndex = 41;
@@ -376,6 +395,87 @@
             this.tabControl1.Size = new System.Drawing.Size(396, 657);
             this.tabControl1.TabIndex = 42;
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.classGrid);
+            this.tabPage1.Controls.Add(this.buttonAddClass);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(388, 628);
+            this.tabPage1.TabIndex = 4;
+            this.tabPage1.Text = "Lớp";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // classGrid
+            // 
+            this.classGrid.AllowUserToAddRows = false;
+            this.classGrid.AllowUserToDeleteRows = false;
+            this.classGrid.AutoGenerateColumns = false;
+            this.classGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            this.classGrid.BackgroundColor = System.Drawing.Color.LightGray;
+            this.classGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.classGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.maLopDataGridViewTextBoxColumn,
+            this.tenLopDataGridViewTextBoxColumn1});
+            this.classGrid.DataSource = this.classGridBindingSouce;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.classGrid.DefaultCellStyle = dataGridViewCellStyle5;
+            this.classGrid.Location = new System.Drawing.Point(8, 51);
+            this.classGrid.Name = "classGrid";
+            this.classGrid.ReadOnly = true;
+            this.classGrid.RowHeadersVisible = false;
+            this.classGrid.Size = new System.Drawing.Size(373, 570);
+            this.classGrid.TabIndex = 28;
+            // 
+            // maLopDataGridViewTextBoxColumn
+            // 
+            this.maLopDataGridViewTextBoxColumn.DataPropertyName = "MaLop";
+            this.maLopDataGridViewTextBoxColumn.HeaderText = "Mã";
+            this.maLopDataGridViewTextBoxColumn.Name = "maLopDataGridViewTextBoxColumn";
+            this.maLopDataGridViewTextBoxColumn.ReadOnly = true;
+            this.maLopDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // tenLopDataGridViewTextBoxColumn1
+            // 
+            this.tenLopDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tenLopDataGridViewTextBoxColumn1.DataPropertyName = "TenLop";
+            this.tenLopDataGridViewTextBoxColumn1.HeaderText = "Tên lớp";
+            this.tenLopDataGridViewTextBoxColumn1.Name = "tenLopDataGridViewTextBoxColumn1";
+            this.tenLopDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // classGridBindingSouce
+            // 
+            this.classGridBindingSouce.DataMember = "Lop";
+            this.classGridBindingSouce.DataSource = this.quanLyThuVienDataSet9;
+            // 
+            // quanLyThuVienDataSet9
+            // 
+            this.quanLyThuVienDataSet9.DataSetName = "QuanLyThuVienDataSet9";
+            this.quanLyThuVienDataSet9.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // buttonAddClass
+            // 
+            this.buttonAddClass.BackColor = System.Drawing.Color.Transparent;
+            this.buttonAddClass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonAddClass.FlatAppearance.BorderSize = 0;
+            this.buttonAddClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddClass.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddClass.Image")));
+            this.buttonAddClass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAddClass.Location = new System.Drawing.Point(8, 7);
+            this.buttonAddClass.Name = "buttonAddClass";
+            this.buttonAddClass.Size = new System.Drawing.Size(134, 30);
+            this.buttonAddClass.TabIndex = 27;
+            this.buttonAddClass.Text = "Thêm lớp";
+            this.buttonAddClass.UseVisualStyleBackColor = false;
+            // 
             // searchSinhVienTableAdapter
             // 
             this.searchSinhVienTableAdapter.ClearBeforeFill = true;
@@ -385,7 +485,7 @@
             this.searchBirthday.CustomFormat = " ";
             this.searchBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.searchBirthday.Location = new System.Drawing.Point(468, 49);
-            this.searchBirthday.MaxDate = new System.DateTime(2020, 4, 20, 11, 12, 25, 906);
+            this.searchBirthday.MaxDate = new System.DateTime(2020, 4, 20, 11, 33, 1, 545);
             this.searchBirthday.MaxIsToday = true;
             this.searchBirthday.Name = "searchBirthday";
             this.searchBirthday.Size = new System.Drawing.Size(75, 20);
@@ -477,7 +577,7 @@
             this.searchNgayCap.CustomFormat = " ";
             this.searchNgayCap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.searchNgayCap.Location = new System.Drawing.Point(216, 49);
-            this.searchNgayCap.MaxDate = new System.DateTime(2020, 4, 20, 11, 12, 25, 929);
+            this.searchNgayCap.MaxDate = new System.DateTime(2020, 4, 20, 11, 33, 1, 565);
             this.searchNgayCap.MaxIsToday = true;
             this.searchNgayCap.Name = "searchNgayCap";
             this.searchNgayCap.Size = new System.Drawing.Size(75, 20);
@@ -489,7 +589,7 @@
             this.searchHetHan.CustomFormat = " ";
             this.searchHetHan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.searchHetHan.Location = new System.Drawing.Point(295, 49);
-            this.searchHetHan.MaxDate = new System.DateTime(2020, 4, 20, 11, 12, 25, 931);
+            this.searchHetHan.MaxDate = new System.DateTime(2020, 4, 20, 11, 33, 1, 567);
             this.searchHetHan.MaxIsToday = true;
             this.searchHetHan.Name = "searchHetHan";
             this.searchHetHan.Size = new System.Drawing.Size(75, 20);
@@ -500,106 +600,9 @@
             // 
             this.khoaTableAdapter.ClearBeforeFill = true;
             // 
-            // maKhoaDataGridViewTextBoxColumn
-            // 
-            this.maKhoaDataGridViewTextBoxColumn.DataPropertyName = "MaKhoa";
-            this.maKhoaDataGridViewTextBoxColumn.HeaderText = "Mã";
-            this.maKhoaDataGridViewTextBoxColumn.Name = "maKhoaDataGridViewTextBoxColumn";
-            this.maKhoaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.maKhoaDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // tenKhoaDataGridViewTextBoxColumn1
-            // 
-            this.tenKhoaDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tenKhoaDataGridViewTextBoxColumn1.DataPropertyName = "TenKhoa";
-            this.tenKhoaDataGridViewTextBoxColumn1.HeaderText = "Tên khoa";
-            this.tenKhoaDataGridViewTextBoxColumn1.Name = "tenKhoaDataGridViewTextBoxColumn1";
-            this.tenKhoaDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Controls.Add(this.buttonAddClass);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(388, 628);
-            this.tabPage1.TabIndex = 4;
-            this.tabPage1.Text = "Lớp";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.LightGray;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.maLopDataGridViewTextBoxColumn,
-            this.tenLopDataGridViewTextBoxColumn1});
-            this.dataGridView1.DataSource = this.classGridBindingSouce;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle15;
-            this.dataGridView1.Location = new System.Drawing.Point(8, 51);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(373, 570);
-            this.dataGridView1.TabIndex = 28;
-            // 
-            // buttonAddClass
-            // 
-            this.buttonAddClass.BackColor = System.Drawing.Color.Transparent;
-            this.buttonAddClass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonAddClass.FlatAppearance.BorderSize = 0;
-            this.buttonAddClass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAddClass.Image = ((System.Drawing.Image)(resources.GetObject("buttonAddClass.Image")));
-            this.buttonAddClass.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAddClass.Location = new System.Drawing.Point(8, 7);
-            this.buttonAddClass.Name = "buttonAddClass";
-            this.buttonAddClass.Size = new System.Drawing.Size(134, 30);
-            this.buttonAddClass.TabIndex = 27;
-            this.buttonAddClass.Text = "Thêm lớp";
-            this.buttonAddClass.UseVisualStyleBackColor = false;
-            // 
-            // quanLyThuVienDataSet9
-            // 
-            this.quanLyThuVienDataSet9.DataSetName = "QuanLyThuVienDataSet9";
-            this.quanLyThuVienDataSet9.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // classGridBindingSouce
-            // 
-            this.classGridBindingSouce.DataMember = "Lop";
-            this.classGridBindingSouce.DataSource = this.quanLyThuVienDataSet9;
-            // 
             // lopTableAdapter
             // 
             this.lopTableAdapter.ClearBeforeFill = true;
-            // 
-            // maLopDataGridViewTextBoxColumn
-            // 
-            this.maLopDataGridViewTextBoxColumn.DataPropertyName = "MaLop";
-            this.maLopDataGridViewTextBoxColumn.HeaderText = "Mã";
-            this.maLopDataGridViewTextBoxColumn.Name = "maLopDataGridViewTextBoxColumn";
-            this.maLopDataGridViewTextBoxColumn.ReadOnly = true;
-            this.maLopDataGridViewTextBoxColumn.Width = 70;
-            // 
-            // tenLopDataGridViewTextBoxColumn1
-            // 
-            this.tenLopDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tenLopDataGridViewTextBoxColumn1.DataPropertyName = "TenLop";
-            this.tenLopDataGridViewTextBoxColumn1.HeaderText = "Tên lớp";
-            this.tenLopDataGridViewTextBoxColumn1.Name = "tenLopDataGridViewTextBoxColumn1";
-            this.tenLopDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // ReaderForm
             // 
@@ -620,7 +623,7 @@
             this.Controls.Add(this.buttonClearSearch);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonSearch);
-            this.Controls.Add(this.buttonAddBook);
+            this.Controls.Add(this.buttonAddReader);
             this.Controls.Add(this.readerGrid);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -628,19 +631,19 @@
             this.Text = "ReaderForm";
             this.Load += new System.EventHandler(this.ReaderForm_Load);
             this.tabPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.locationGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.khoaGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.khoaGridBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyThuVienDataSet8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.readerGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchSinhVienBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyThuVienDataSet7)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.classGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classGridBindingSouce)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quanLyThuVienDataSet9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.khoaBindingSource)).EndInit();
-            this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.quanLyThuVienDataSet9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classGridBindingSouce)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -649,12 +652,12 @@
         #endregion
 
         private System.Windows.Forms.TabPage tabPage4;
-        public System.Windows.Forms.DataGridView locationGrid;
+        public System.Windows.Forms.DataGridView khoaGrid;
         private System.Windows.Forms.Button buttonAddKhoa;
         private System.Windows.Forms.Button buttonClearSearch;
         private System.Windows.Forms.Button buttonRefresh;
         private System.Windows.Forms.Button buttonSearch;
-        private System.Windows.Forms.Button buttonAddBook;
+        private System.Windows.Forms.Button buttonAddReader;
         public System.Windows.Forms.DataGridView readerGrid;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.BindingSource searchSinhVienBindingSource;
@@ -687,7 +690,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn maKhoaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tenKhoaDataGridViewTextBoxColumn1;
         private System.Windows.Forms.TabPage tabPage1;
-        public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView classGrid;
         private System.Windows.Forms.Button buttonAddClass;
         private QuanLyThuVienDataSet9 quanLyThuVienDataSet9;
         private QuanLyThuVienDataSet9TableAdapters.LopTableAdapter lopTableAdapter;

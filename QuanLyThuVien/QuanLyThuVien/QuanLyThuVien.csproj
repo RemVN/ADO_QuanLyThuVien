@@ -97,6 +97,12 @@
     <Compile Include="Forms\InputForm\InputForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\InputForm\InputKhoaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InputForm\InputKhoaForm.Designer.cs">
+      <DependentUpon>InputKhoaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\InputForm\InputLocationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +205,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyThuVienDataSet8.xsd</DependentUpon>
     </Compile>
+    <Compile Include="QuanLyThuVienDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyThuVienDataSet9.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Searching\SearchQuery.cs" />
     <Compile Include="Utils\InputCleaner.cs" />
     <Compile Include="Utils\Messaging.cs" />
@@ -222,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\InputForm\InputForm.resx">
       <DependentUpon>InputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InputForm\InputKhoaForm.resx">
+      <DependentUpon>InputKhoaForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\InputForm\InputLocationForm.resx">
       <DependentUpon>InputLocationForm.cs</DependentUpon>
@@ -371,6 +385,17 @@
     </None>
     <None Include="QuanLyThuVienDataSet8.xss">
       <DependentUpon>QuanLyThuVienDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyThuVienDataSet9.xsc">
+      <DependentUpon>QuanLyThuVienDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyThuVienDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyThuVienDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyThuVienDataSet9.xss">
+      <DependentUpon>QuanLyThuVienDataSet9.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

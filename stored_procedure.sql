@@ -347,6 +347,22 @@ go
 exec getSinhVien 0, 100
 go
 
+create proc getKhoa
+as
+begin
+	select * from Khoa
+	where 1=1
+end
+go
+
+create proc getLop
+as
+begin
+	select * from Lop
+	where 1=1
+end
+go
+
 create proc searchSinhVien
 	@MaSo int,
 	@MaKhoa int,

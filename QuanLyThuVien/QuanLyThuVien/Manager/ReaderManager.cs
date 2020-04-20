@@ -17,7 +17,7 @@ namespace QuanLyThuVien.Manager
 
         public ReaderManager() : base(main.ReaderForm.readerGrid)
         {
-            
+            initSelector();
         }
 
         public object[] getReaderSearchParams()
@@ -61,11 +61,11 @@ namespace QuanLyThuVien.Manager
             setBindingSource(readerForm.khoaBindingSource,
                 SqlObjectLoader.getSqlObjectsFromDataTable(
                     typeof(NameableObject),
-                    getDataTableWithOffsetAndLimit("getKhoa", 0, limit)));
+                    getDataTable("getKhoa")));
             setBindingSource(readerForm.classBindingSource,
                 SqlObjectLoader.getSqlObjectsFromDataTable(
                     typeof(NameableObject),
-                    getDataTableWithOffsetAndLimit("getLop", 0, limit)));
+                    getDataTable("getLop")));
         }
 
         public override void defaultLoad()

@@ -77,5 +77,15 @@ namespace QuanLyThuVien.Manager
             sqlDataAdapter.Fill(table);
             return table;
         }
+
+        public DataTable getDataTable(string procedureName)
+        {
+            SqlCommand sqlCommand = new SqlCommand(procedureName, main.sqlConnection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            DataTable table = new DataTable();
+            sqlDataAdapter.Fill(table);
+            return table;
+        }
     }
 }
