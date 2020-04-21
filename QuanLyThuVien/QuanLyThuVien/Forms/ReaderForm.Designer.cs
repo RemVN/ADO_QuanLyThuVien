@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReaderForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.khoaGrid = new System.Windows.Forms.DataGridView();
             this.maKhoaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -75,9 +75,9 @@
             this.searchRealname = new System.Windows.Forms.TextBox();
             this.searchID = new System.Windows.Forms.TextBox();
             this.searchKhoa = new System.Windows.Forms.ComboBox();
+            this.khoaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.classBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.searchClass = new System.Windows.Forms.ComboBox();
-            this.khoaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.searchNgayCap = new QuanLyThuVien.CustomControl.EDateTimePicker();
             this.searchHetHan = new QuanLyThuVien.CustomControl.EDateTimePicker();
             this.khoaTableAdapter = new QuanLyThuVien.QuanLyThuVienDataSet8TableAdapters.KhoaTableAdapter();
@@ -94,8 +94,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.classGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.classGridBindingSouce)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyThuVienDataSet9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.khoaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPage4
@@ -124,14 +124,14 @@
             this.maKhoaDataGridViewTextBoxColumn,
             this.tenKhoaDataGridViewTextBoxColumn1});
             this.khoaGrid.DataSource = this.khoaGridBindingSource;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.khoaGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.khoaGrid.DefaultCellStyle = dataGridViewCellStyle16;
             this.khoaGrid.Location = new System.Drawing.Point(6, 52);
             this.khoaGrid.Name = "khoaGrid";
             this.khoaGrid.ReadOnly = true;
@@ -259,8 +259,8 @@
             // 
             this.readerGrid.AllowUserToAddRows = false;
             this.readerGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.readerGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.readerGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.readerGrid.AutoGenerateColumns = false;
             this.readerGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.readerGrid.BackgroundColor = System.Drawing.Color.LightGray;
@@ -277,23 +277,24 @@
             this.sDTDataGridViewTextBoxColumn,
             this.diaChiDataGridViewTextBoxColumn});
             this.readerGrid.DataSource = this.searchSinhVienBindingSource;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.readerGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.readerGrid.DefaultCellStyle = dataGridViewCellStyle18;
             this.readerGrid.Location = new System.Drawing.Point(12, 76);
             this.readerGrid.Name = "readerGrid";
             this.readerGrid.ReadOnly = true;
             this.readerGrid.RowHeadersVisible = false;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.readerGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.readerGrid.RowsDefaultCellStyle = dataGridViewCellStyle19;
             this.readerGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.readerGrid.Size = new System.Drawing.Size(830, 599);
             this.readerGrid.TabIndex = 41;
+            this.readerGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ReaderGrid_MouseClick);
             // 
             // maSoDataGridViewTextBoxColumn
             // 
@@ -419,20 +420,21 @@
             this.maLopDataGridViewTextBoxColumn,
             this.tenLopDataGridViewTextBoxColumn1});
             this.classGrid.DataSource = this.classGridBindingSouce;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.classGrid.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.classGrid.DefaultCellStyle = dataGridViewCellStyle20;
             this.classGrid.Location = new System.Drawing.Point(8, 51);
             this.classGrid.Name = "classGrid";
             this.classGrid.ReadOnly = true;
             this.classGrid.RowHeadersVisible = false;
             this.classGrid.Size = new System.Drawing.Size(373, 570);
             this.classGrid.TabIndex = 28;
+            this.classGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ClassGrid_MouseClick);
             // 
             // maLopDataGridViewTextBoxColumn
             // 
@@ -475,6 +477,7 @@
             this.buttonAddClass.TabIndex = 27;
             this.buttonAddClass.Text = "Thêm lớp";
             this.buttonAddClass.UseVisualStyleBackColor = false;
+            this.buttonAddClass.Click += new System.EventHandler(this.ButtonAddClass_Click);
             // 
             // searchSinhVienTableAdapter
             // 
@@ -485,12 +488,14 @@
             this.searchBirthday.CustomFormat = " ";
             this.searchBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.searchBirthday.Location = new System.Drawing.Point(468, 49);
-            this.searchBirthday.MaxDate = new System.DateTime(2020, 4, 20, 11, 33, 1, 545);
+            this.searchBirthday.MaxDate = new System.DateTime(2020, 4, 21, 15, 51, 34, 734);
             this.searchBirthday.MaxIsToday = true;
             this.searchBirthday.Name = "searchBirthday";
             this.searchBirthday.Size = new System.Drawing.Size(75, 20);
             this.searchBirthday.TabIndex = 65;
             this.searchBirthday.Value = new System.DateTime(2020, 4, 19, 20, 6, 53, 921);
+            this.searchBirthday.ValueChanged += new System.EventHandler(this.eDateTimePicker_OnValueChanged);
+            this.searchBirthday.KeyDown += new System.Windows.Forms.KeyEventHandler(this.eDateTimePicker_onKeyDown);
             // 
             // searchLocation
             // 
@@ -544,7 +549,7 @@
             // 
             // searchKhoa
             // 
-            this.searchKhoa.DataSource = this.classBindingSource;
+            this.searchKhoa.DataSource = this.khoaBindingSource;
             this.searchKhoa.DisplayMember = "Name";
             this.searchKhoa.FormattingEnabled = true;
             this.searchKhoa.Location = new System.Drawing.Point(70, 49);
@@ -553,13 +558,17 @@
             this.searchKhoa.TabIndex = 67;
             this.searchKhoa.ValueMember = "Id";
             // 
+            // khoaBindingSource
+            // 
+            this.khoaBindingSource.DataSource = typeof(QuanLyThuVien.Core.NameableObject);
+            // 
             // classBindingSource
             // 
             this.classBindingSource.DataSource = typeof(QuanLyThuVien.Core.NameableObject);
             // 
             // searchClass
             // 
-            this.searchClass.DataSource = this.khoaBindingSource;
+            this.searchClass.DataSource = this.classBindingSource;
             this.searchClass.DisplayMember = "Name";
             this.searchClass.FormattingEnabled = true;
             this.searchClass.Location = new System.Drawing.Point(143, 49);
@@ -568,33 +577,32 @@
             this.searchClass.TabIndex = 68;
             this.searchClass.ValueMember = "Id";
             // 
-            // khoaBindingSource
-            // 
-            this.khoaBindingSource.DataSource = typeof(QuanLyThuVien.Core.NameableObject);
-            // 
             // searchNgayCap
             // 
             this.searchNgayCap.CustomFormat = " ";
             this.searchNgayCap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.searchNgayCap.Location = new System.Drawing.Point(216, 49);
-            this.searchNgayCap.MaxDate = new System.DateTime(2020, 4, 20, 11, 33, 1, 565);
+            this.searchNgayCap.MaxDate = new System.DateTime(2020, 4, 21, 15, 51, 34, 756);
             this.searchNgayCap.MaxIsToday = true;
             this.searchNgayCap.Name = "searchNgayCap";
             this.searchNgayCap.Size = new System.Drawing.Size(75, 20);
             this.searchNgayCap.TabIndex = 69;
             this.searchNgayCap.Value = new System.DateTime(2020, 4, 19, 20, 6, 53, 921);
+            this.searchNgayCap.ValueChanged += new System.EventHandler(this.eDateTimePicker_OnValueChanged);
+            this.searchNgayCap.KeyDown += new System.Windows.Forms.KeyEventHandler(this.eDateTimePicker_onKeyDown);
             // 
             // searchHetHan
             // 
             this.searchHetHan.CustomFormat = " ";
             this.searchHetHan.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.searchHetHan.Location = new System.Drawing.Point(295, 49);
-            this.searchHetHan.MaxDate = new System.DateTime(2020, 4, 20, 11, 33, 1, 567);
-            this.searchHetHan.MaxIsToday = true;
+            this.searchHetHan.MaxDate = new System.DateTime(4020, 4, 21, 15, 47, 17, 206);
             this.searchHetHan.Name = "searchHetHan";
             this.searchHetHan.Size = new System.Drawing.Size(75, 20);
             this.searchHetHan.TabIndex = 70;
             this.searchHetHan.Value = new System.DateTime(2020, 4, 19, 20, 6, 53, 921);
+            this.searchHetHan.ValueChanged += new System.EventHandler(this.eDateTimePicker_OnValueChanged);
+            this.searchHetHan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.eDateTimePicker_onKeyDown);
             // 
             // khoaTableAdapter
             // 
@@ -642,8 +650,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.classGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.classGridBindingSouce)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyThuVienDataSet9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.classBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.khoaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.classBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -1,6 +1,6 @@
 ﻿namespace QuanLyThuVien.Forms.InputForm
 {
-    partial class InputKhoaForm
+    partial class InputClassForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputKhoaForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputClassForm));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.buttonAdd = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.inputID = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.inputKhoa = new System.Windows.Forms.TextBox();
+            this.inputClass = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // imageList1
@@ -54,7 +54,7 @@
             this.buttonAdd.Location = new System.Drawing.Point(327, 112);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(60, 23);
-            this.buttonAdd.TabIndex = 10;
+            this.buttonAdd.TabIndex = 16;
             this.buttonAdd.Text = "Thêm";
             this.buttonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAdd.UseVisualStyleBackColor = true;
@@ -70,7 +70,7 @@
             this.button2.Location = new System.Drawing.Point(259, 112);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(60, 23);
-            this.button2.TabIndex = 11;
+            this.button2.TabIndex = 17;
             this.button2.Text = "Huỷ";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.ButtonClose_Click);
@@ -78,39 +78,39 @@
             // inputID
             // 
             this.inputID.Enabled = false;
-            this.inputID.Location = new System.Drawing.Point(181, 34);
+            this.inputID.Location = new System.Drawing.Point(181, 36);
             this.inputID.Name = "inputID";
             this.inputID.Size = new System.Drawing.Size(138, 20);
-            this.inputID.TabIndex = 7;
+            this.inputID.TabIndex = 13;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(84, 35);
+            this.label3.Location = new System.Drawing.Point(84, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 18);
-            this.label3.TabIndex = 6;
+            this.label3.TabIndex = 12;
             this.label3.Text = "Mã";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(84, 69);
+            this.label1.Location = new System.Drawing.Point(84, 71);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 18);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Tên khoa";
+            this.label1.Size = new System.Drawing.Size(57, 18);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Tên lớp";
             // 
-            // inputKhoa
+            // inputClass
             // 
-            this.inputKhoa.Location = new System.Drawing.Point(181, 69);
-            this.inputKhoa.Name = "inputKhoa";
-            this.inputKhoa.Size = new System.Drawing.Size(138, 20);
-            this.inputKhoa.TabIndex = 9;
+            this.inputClass.Location = new System.Drawing.Point(181, 71);
+            this.inputClass.Name = "inputClass";
+            this.inputClass.Size = new System.Drawing.Size(138, 20);
+            this.inputClass.TabIndex = 15;
             // 
-            // InputKhoaForm
+            // InputClassForm
             // 
             this.AcceptButton = this.buttonAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,11 +123,10 @@
             this.Controls.Add(this.inputID);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.inputKhoa);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "InputKhoaForm";
+            this.Controls.Add(this.inputClass);
+            this.Name = "InputClassForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Thêm khoa";
+            this.Text = "Thêm lớp";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,6 +140,6 @@
         private System.Windows.Forms.TextBox inputID;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox inputKhoa;
+        private System.Windows.Forms.TextBox inputClass;
     }
 }

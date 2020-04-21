@@ -17,6 +17,7 @@ namespace QuanLyThuVien.Forms.InputForm
 {
     public class InputForm : Form
     {
+
         public string id;
         public string getTableProcedure;
         public DataGridView gridView;
@@ -38,6 +39,7 @@ namespace QuanLyThuVien.Forms.InputForm
             this.getTableProcedure = getTableProcedure;
             this.gridView = gridView;
             this.refreshGridWhenDone = resetWhenDone;
+            initEvents();
         }
 
         public InputForm withSelectorBindingSource(Type selectorClass, BindingSource bindingSource)
@@ -71,6 +73,7 @@ namespace QuanLyThuVien.Forms.InputForm
 
         public virtual void changeControlData()
         {
+            Console.WriteLine("name: " + getName());
             this.Text = getName();
         }
 
@@ -138,14 +141,18 @@ namespace QuanLyThuVien.Forms.InputForm
             // 
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Name = "InputForm";
-            this.Shown += new System.EventHandler(this.InputForm_Shown);
             this.ResumeLayout(false);
+        }
 
+        public void initEvents()
+        {
+            this.Shown += new System.EventHandler(this.InputForm_Shown);
         }
 
         private void InputForm_Shown(object sender, EventArgs e)
         {
             changeControlData();
         }
+
     }
 }

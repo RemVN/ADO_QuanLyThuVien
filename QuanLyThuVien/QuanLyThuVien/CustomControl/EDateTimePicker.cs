@@ -38,7 +38,7 @@ namespace QuanLyThuVien.CustomControl
                     this.MaxDate = DateTime.Now;
                 } else
                 {
-                    this.MaxDate = DateTime.MaxValue;
+                    this.MaxDate = DateTime.Now.AddYears(2000);
                 }
             }
         }
