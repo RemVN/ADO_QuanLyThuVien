@@ -26,6 +26,39 @@ namespace QuanLyThuVien.Manager
             initSelector();
         }
 
+        public bool isBookExist(int bookID)
+        {
+            return main.isSqlObjectExist("select * from Sach where MaSach = @MaSach", "@MaSach", bookID);
+        }
+
+        public NameableObject getBookByID(int bookID)
+        {
+            SqlCommand sqlCommand = new SqlCommand(@"select s.MaSach, s.TenSach from Sach s where s.MaSach = @MaSach", main.sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@MaSach", bookID);
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+            try
+            {
+                if (!reader.Read())
+                    return null;
+                return new NameableObject(reader.GetInt32(0), reader.GetString(1));
+            } finally
+            {
+                reader.Close();
+            }
+        }
+
+        public bool isBookAvailable(int bookID)
+        {
+            SqlCommand sqlCommand = new SqlCommand("sp_is_sach_available", main.sqlConnection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@MaSach", bookID);
+            SqlParameter sqlParameter = new SqlParameter("@result", DbType.Boolean);
+            sqlParameter.Direction = ParameterDirection.Output;
+            sqlCommand.Parameters.Add(sqlParameter);
+            sqlCommand.ExecuteNonQuery();
+            return Convert.ToBoolean(sqlCommand.Parameters["@result"].Value);
+        }
+
         public object[] getBookSearchParm()
         {
             BookForm bookForm = main.BookForm;

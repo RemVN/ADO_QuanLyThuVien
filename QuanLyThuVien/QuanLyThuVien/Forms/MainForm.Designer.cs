@@ -279,6 +279,7 @@
             this.buttonMuonTraForm.TabIndex = 25;
             this.buttonMuonTraForm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonMuonTraForm.UseVisualStyleBackColor = false;
+            this.buttonMuonTraForm.Click += new System.EventHandler(this.ButtonMuonTraForm_Click);
             // 
             // label2
             // 

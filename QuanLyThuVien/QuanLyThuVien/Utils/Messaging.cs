@@ -9,9 +9,14 @@ namespace QuanLyThuVien.Utils
     class Messaging
     {
 
+        public static void showWarning(string message)
+        {
+            MessageBox.Show(message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
         public static  void showInputMissingMessage(string inputName)
         {
-            MessageBox.Show(String.Format("Bạn chưa nhập {0}", inputName), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            showWarning(String.Format("Bạn chưa nhập {0}", inputName));
         }
 
     }

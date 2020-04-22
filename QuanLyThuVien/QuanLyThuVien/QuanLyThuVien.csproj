@@ -127,6 +127,12 @@
     <Compile Include="Forms\InputForm\InputPersonForm.Designer.cs">
       <DependentUpon>InputPersonForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\InputForm\InputPhieuMuonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InputForm\InputPhieuMuonForm.Designer.cs">
+      <DependentUpon>InputPhieuMuonForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\InputForm\InputReaderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,12 @@
     </Compile>
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\PhieuMuonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PhieuMuonForm.Designer.cs">
+      <DependentUpon>PhieuMuonForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ReaderForm.cs">
       <SubType>Form</SubType>
@@ -166,6 +178,7 @@
     </Compile>
     <Compile Include="Manager\BookManager.cs" />
     <Compile Include="Manager\GridManager.cs" />
+    <Compile Include="Manager\PhieuMuonManager.cs" />
     <Compile Include="Manager\ReaderManager.cs" />
     <Compile Include="Manager\StaffManager.cs" />
     <Compile Include="MuonTra\MuonTraStatus.cs" />
@@ -181,6 +194,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyThuVienDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyThuVienDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyThuVienDataSet10.xsd</DependentUpon>
     </Compile>
     <Compile Include="QuanLyThuVienDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -261,6 +279,9 @@
     <EmbeddedResource Include="Forms\InputForm\InputPersonForm.resx">
       <DependentUpon>InputPersonForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InputForm\InputPhieuMuonForm.resx">
+      <DependentUpon>InputPhieuMuonForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\InputForm\InputReaderForm.resx">
       <DependentUpon>InputReaderForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -272,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PhieuMuonForm.resx">
+      <DependentUpon>PhieuMuonForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ReaderForm.resx">
       <DependentUpon>ReaderForm.cs</DependentUpon>
@@ -326,6 +350,17 @@
     </None>
     <None Include="QuanLyThuVienDataSet1.xss">
       <DependentUpon>QuanLyThuVienDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyThuVienDataSet10.xsc">
+      <DependentUpon>QuanLyThuVienDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyThuVienDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyThuVienDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyThuVienDataSet10.xss">
+      <DependentUpon>QuanLyThuVienDataSet10.xsd</DependentUpon>
     </None>
     <None Include="QuanLyThuVienDataSet2.xsc">
       <DependentUpon>QuanLyThuVienDataSet2.xsd</DependentUpon>

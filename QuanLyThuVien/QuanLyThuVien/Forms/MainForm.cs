@@ -35,6 +35,7 @@ namespace QuanLyThuVien
             Forms.Add(main.BookForm);
             Forms.Add(main.StaffForm);
             Forms.Add(main.ReaderForm);
+            Forms.Add(main.PhieuMuonForm);
             foreach (Form form in Forms) {
                 formPanel.Controls.Add(form);
             }
@@ -94,6 +95,11 @@ namespace QuanLyThuVien
         private void ButtonReaderForm_Click(object sender, EventArgs e)
         {
             showForm(main.ReaderForm, (Button)sender);
+        }
+
+        private void ButtonMuonTraForm_Click(object sender, EventArgs e)
+        {
+            showForm(main.PhieuMuonForm, (Button)sender);
         }
     }
 }

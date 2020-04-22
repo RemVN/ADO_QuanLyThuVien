@@ -73,6 +73,21 @@ create table MuonTra (
 	DaTra bit
 )
 
+create table PhieuMuon (
+	MaPhieu int not null IDENTITY(1,1) primary key,
+	MaSV int not null,
+	MaNV int not null,
+	NgayMuon date,
+	NgayHenTra date,
+	NgayTra date,
+	DaTra bit	
+)
+
+create table ChiTietPhieuMuon (
+	MaPhieu int not null,
+	MaSach int not null
+)
+
 create table TacGia (
 	MaTG int not null IDENTITY(1,1) primary key,
 	TenTacGia nvarchar(100),

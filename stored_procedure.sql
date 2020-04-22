@@ -24,7 +24,7 @@ create proc getSach
 	@limit int
 as
 begin 
-	select s.MaSach, s.TenSach, s.TinhTrang, s.NamXB, s.GiaSach, l.TenLoaiSach, v.TenViTri, n.TenNXB, tg.TenTacGia, dbo.getTinhTrangMuonTraBookSide(s.MaSach) as MuonTra
+	select s.MaSach, s.TenSach, s.TinhTrang, s.NamXB, s.GiaSach, l.TenLoaiSach, v.TenViTri, n.TenNXB, tg.TenTacGia, dbo.getSachKhaDungDisplayName(s.MaSach) as MuonTra
 	from Sach s, LoaiSach l, ViTri v, NXB n, TacGia tg
 	where s.MaLoaiSach = l.MaLoaiSach and s.MaViTri = v.MaViTri
 	and s.MaNXB = n.MaNXB and s.MaTG = tg.MaTG
@@ -99,7 +99,7 @@ as
 begin 
 	--declare @TinhTrangMuonTra nvarchar(20)
 	select 
-	s.MaSach, s.TenSach, s.TinhTrang, s.NamXB, s.GiaSach, l.TenLoaiSach, v.TenViTri, n.TenNXB, tg.TenTacGia, dbo.getTinhTrangMuonTraBookSide(s.MaSach) as MuonTra
+	s.MaSach, s.TenSach, s.TinhTrang, s.NamXB, s.GiaSach, l.TenLoaiSach, v.TenViTri, n.TenNXB, tg.TenTacGia, dbo.getSachKhaDungDisplayName(s.MaSach) as MuonTra
 	from Sach s, LoaiSach l, ViTri v, NXB n, TacGia tg 
 	where s.MaLoaiSach = l.MaLoaiSach and s.MaViTri = v.MaViTri
 	and s.MaNXB = n.MaNXB and s.MaTG = tg.MaTG
@@ -113,7 +113,7 @@ begin
 	and (v.TenViTri = @ViTri or @ViTri is null)
 	and (n.TenNXB = @NXB or @NXB is null)
 	and (tg.TenTacGia = @TacGia or @TacGia is null)
-	and (dbo.getMuonTraCode(s.MaSach) = @MuonTra or @MuonTra is null)
+	and (dbo.getSachKhaDungCode(s.MaSach) = @MuonTra or @MuonTra is null)
 	)
 	order by s.MaSach
 	OFFSET 0 ROWS
@@ -121,14 +121,16 @@ begin
 end
 go
 
-create function getMuonTraCode
+create function getSachKhaDungCode
 	(@MaSach as int)
 returns int
 as
 begin
 	if exists (
-		select * from MuonTra where MaSach = @MaSach
-		and DaTra = 0
+		select * from ChiTietPhieuMuon ctpm, PhieuMuon pm 
+		where ctpm.MaPhieu = pm.MaPhieu
+		and ctpm.MaSach = @MaSach
+		and pm.DaTra = 0
 	)
 	begin
 		return 0;
@@ -156,14 +158,16 @@ begin
 end
 go
 
-create function getTinhTrangMuonTraBookSide
+create function getSachKhaDungDisplayName
 	(@MaSach as int)
 returns nvarchar(20)
 as
 begin
 	if exists (
-		select * from MuonTra where MaSach = @MaSach
-		and DaTra = 0
+		select * from ChiTietPhieuMuon ctpm, PhieuMuon pm 
+		where ctpm.MaPhieu = pm.MaPhieu
+		and ctpm.MaSach = @MaSach
+		and pm.DaTra = 0
 	)
 	begin
 		return N'Đang mượn'
@@ -399,6 +403,88 @@ begin
 	order by sv.MaSo
 	OFFSET 0 ROWS
 	FETCH NEXT @limit ROWS ONLY;
+end
+go
+
+-- Phieu muon
+
+create proc sp_get_PhieuMuon
+	@offset int,
+	@limit int
+as
+begin
+	select pm.MaPhieu, 
+	dbo.func_get_CaNhan_name(sv.MaSo) as SinhVien, 
+	dbo.func_get_CaNhan_name(nv.MaSo) as NguoiTao,
+	dbo.func_get_SachPhieuMuon_amount(pm.MaPhieu) as SoSachMuon,
+	pm.NgayMuon, pm.NgayHenTra, pm.NgayTra,
+	dbo.func_get_DaTra_displayname(pm.DaTra) as TinhTrang
+	from PhieuMuon pm, ChiTietPhieuMuon ct, SinhVien sv, NhanVien nv
+	where pm.MaPhieu = ct.MaPhieu 
+	and pm.MaNV = nv.MaSo
+	and pm.MaSV = sv.MaSo
+	group by pm.MaPhieu, sv.MaSo, nv.MaSo, pm.MaPhieu, pm.NgayMuon, pm.NgayHenTra, pm.NgayTra, pm.DaTra
+end
+go
+
+exec sp_get_PhieuMuon 0 , 100
+go
+
+create function func_get_CaNhan_name 
+	(@MaSo as int)
+returns nvarchar(100)
+as
+begin
+	declare @name nvarchar(100);
+	select @name = cn.HoTen from CaNhan cn where cn.MaSo = @MaSo
+	return @name;
+end
+go
+
+create function func_get_SachPhieuMuon_amount
+	(@MaPhieu as int)
+returns int
+begin
+	declare @amount int;
+	select @amount = count(*) from ChiTietPhieuMuon ct
+	where @MaPhieu = ct.MaPhieu
+	return @amount;
+end
+go
+
+create function func_get_DaTra_displayname
+	(@DaTra as bit) 
+returns nvarchar(50)
+begin
+	if (@DaTra = 0)
+	begin
+		return N'Chưa trả';
+	end
+	return N'Đã trả';
+end
+go
+
+create proc sp_is_sach_available
+	@MaSach int,
+	@result int output
+as
+begin 
+	set @result = 1;
+	if (exists(select * from PhieuMuon pm,  ChiTietPhieuMuon ct
+	where pm.MaPhieu = ct.MaPhieu and ct.MaSach = @MaSach and pm.DaTra = 0))
+	begin
+		set @result = 0;
+	end
+end
+go
+
+create proc sp_get_SachPhieuMuon
+	@MaPhieu int
+as
+begin
+	select s.MaSach, s.TenSach from Sach s, PhieuMuon pm, ChiTietPhieuMuon ctpm
+	where pm.MaPhieu = ctpm.MaPhieu
+	and s.MaSach = ctpm.MaSach
 end
 go
 
