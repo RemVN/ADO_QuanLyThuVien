@@ -72,6 +72,12 @@
     <Compile Include="CustomControl\TestControl.Designer.cs">
       <DependentUpon>TestControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AppAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AppAbout.Designer.cs">
+      <DependentUpon>AppAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\InputForm\InputAuthorForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,12 @@
     </Compile>
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MuonTra\TraSachForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MuonTra\TraSachForm.Designer.cs">
+      <DependentUpon>TraSachForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\PhieuMuonForm.cs">
       <SubType>Form</SubType>
@@ -251,6 +263,9 @@
     <EmbeddedResource Include="CustomControl\TestControl.resx">
       <DependentUpon>TestControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AppAbout.resx">
+      <DependentUpon>AppAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\InputForm\InputAuthorForm.resx">
       <DependentUpon>InputAuthorForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -295,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MuonTra\TraSachForm.resx">
+      <DependentUpon>TraSachForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PhieuMuonForm.resx">
       <DependentUpon>PhieuMuonForm.cs</DependentUpon>

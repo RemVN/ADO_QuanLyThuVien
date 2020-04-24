@@ -86,6 +86,8 @@ namespace QuanLyThuVien.Forms.InputForm
 
         public bool checkInput()
         {
+            if (!checkAge(inputPerson.inputBirthday.Value, 18))
+                return false;
             if(inputKhoa.SelectedIndex == -1)
             {
                 Messaging.showInputMissingMessage("Khoa");

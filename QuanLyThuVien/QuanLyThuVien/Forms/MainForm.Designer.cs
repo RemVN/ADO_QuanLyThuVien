@@ -44,6 +44,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.buttonSettingForm = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.buttonStaffForm = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.buttonLogout = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonReaderForm = new System.Windows.Forms.Button();
@@ -52,8 +54,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.buttonBookForm = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.buttonStaffForm = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -204,6 +204,7 @@
             this.buttonInfoForm.TabIndex = 35;
             this.buttonInfoForm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonInfoForm.UseVisualStyleBackColor = false;
+            this.buttonInfoForm.Click += new System.EventHandler(this.ButtonInfoForm_Click);
             // 
             // label7
             // 
@@ -240,6 +241,32 @@
             this.label6.TabIndex = 32;
             this.label6.Text = "Cài đặt";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // buttonStaffForm
+            // 
+            this.buttonStaffForm.BackColor = System.Drawing.Color.White;
+            this.buttonStaffForm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonStaffForm.BackgroundImage")));
+            this.buttonStaffForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonStaffForm.FlatAppearance.BorderSize = 0;
+            this.buttonStaffForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonStaffForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonStaffForm.Location = new System.Drawing.Point(1062, 17);
+            this.buttonStaffForm.Name = "buttonStaffForm";
+            this.buttonStaffForm.Size = new System.Drawing.Size(55, 55);
+            this.buttonStaffForm.TabIndex = 31;
+            this.buttonStaffForm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonStaffForm.UseVisualStyleBackColor = false;
+            this.buttonStaffForm.Click += new System.EventHandler(this.ButtonStaffForm_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(1055, 76);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(68, 16);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Nhân viên";
             // 
             // buttonLogout
             // 
@@ -344,32 +371,6 @@
             this.label1.Size = new System.Drawing.Size(39, 16);
             this.label1.TabIndex = 22;
             this.label1.Text = "Sách";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(1055, 76);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(68, 16);
-            this.label5.TabIndex = 30;
-            this.label5.Text = "Nhân viên";
-            // 
-            // buttonStaffForm
-            // 
-            this.buttonStaffForm.BackColor = System.Drawing.Color.White;
-            this.buttonStaffForm.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonStaffForm.BackgroundImage")));
-            this.buttonStaffForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonStaffForm.FlatAppearance.BorderSize = 0;
-            this.buttonStaffForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonStaffForm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonStaffForm.Location = new System.Drawing.Point(1062, 17);
-            this.buttonStaffForm.Name = "buttonStaffForm";
-            this.buttonStaffForm.Size = new System.Drawing.Size(55, 55);
-            this.buttonStaffForm.TabIndex = 31;
-            this.buttonStaffForm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonStaffForm.UseVisualStyleBackColor = false;
-            this.buttonStaffForm.Click += new System.EventHandler(this.ButtonStaffForm_Click);
             // 
             // MainForm
             // 

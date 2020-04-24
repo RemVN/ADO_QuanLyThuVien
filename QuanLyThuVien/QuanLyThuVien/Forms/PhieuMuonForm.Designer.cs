@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhieuMuonForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhieuMuonForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
@@ -51,6 +51,8 @@
             this.sp_get_PhieuMuonTableAdapter = new QuanLyThuVien.QuanLyThuVienDataSet10TableAdapters.sp_get_PhieuMuonTableAdapter();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.buttonClearSearch = new System.Windows.Forms.Button();
+            this.buttonTraSach = new System.Windows.Forms.Button();
+            this.functionImage = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phieuMuonGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spgetPhieuMuonBindingSource)).BeginInit();
@@ -59,6 +61,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonTraSach);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(1049, 0);
@@ -75,9 +78,10 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(18, 35);
+            this.button1.ImageKey = "print.png";
+            this.button1.ImageList = this.functionImage;
+            this.button1.Location = new System.Drawing.Point(19, 87);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(147, 30);
             this.button1.TabIndex = 42;
@@ -271,6 +275,31 @@
             this.buttonClearSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonClearSearch.UseVisualStyleBackColor = false;
             // 
+            // buttonTraSach
+            // 
+            this.buttonTraSach.BackColor = System.Drawing.Color.Transparent;
+            this.buttonTraSach.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonTraSach.FlatAppearance.BorderSize = 0;
+            this.buttonTraSach.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTraSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTraSach.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonTraSach.ImageIndex = 0;
+            this.buttonTraSach.ImageList = this.functionImage;
+            this.buttonTraSach.Location = new System.Drawing.Point(19, 38);
+            this.buttonTraSach.Name = "buttonTraSach";
+            this.buttonTraSach.Size = new System.Drawing.Size(161, 30);
+            this.buttonTraSach.TabIndex = 43;
+            this.buttonTraSach.Text = "Trả sách";
+            this.buttonTraSach.UseVisualStyleBackColor = false;
+            this.buttonTraSach.Click += new System.EventHandler(this.ButtonTraSach_Click);
+            // 
+            // functionImage
+            // 
+            this.functionImage.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("functionImage.ImageStream")));
+            this.functionImage.TransparentColor = System.Drawing.Color.Transparent;
+            this.functionImage.Images.SetKeyName(0, "book.png");
+            this.functionImage.Images.SetKeyName(1, "print.png");
+            // 
             // PhieuMuonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -314,5 +343,7 @@
         private QuanLyThuVienDataSet10TableAdapters.sp_get_PhieuMuonTableAdapter sp_get_PhieuMuonTableAdapter;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Button buttonClearSearch;
+        private System.Windows.Forms.Button buttonTraSach;
+        private System.Windows.Forms.ImageList functionImage;
     }
 }

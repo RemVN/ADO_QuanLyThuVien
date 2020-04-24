@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffForm));
             this.staffGrid = new System.Windows.Forms.DataGridView();
             this.maSoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,6 +67,7 @@
             this.searchStatus = new System.Windows.Forms.ComboBox();
             this.sqlCodeObjectBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.searchBirthday = new QuanLyThuVien.CustomControl.EDateTimePicker();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.staffGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.getNhanVienBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyThuVienDataSet6)).BeginInit();
@@ -80,8 +81,8 @@
             // 
             this.staffGrid.AllowUserToAddRows = false;
             this.staffGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.staffGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.staffGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.staffGrid.AutoGenerateColumns = false;
             this.staffGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.staffGrid.BackgroundColor = System.Drawing.Color.LightGray;
@@ -98,20 +99,20 @@
             this.sDTDataGridViewTextBoxColumn,
             this.diaChiDataGridViewTextBoxColumn});
             this.staffGrid.DataSource = this.getNhanVienBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.staffGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.staffGrid.DefaultCellStyle = dataGridViewCellStyle8;
             this.staffGrid.Location = new System.Drawing.Point(12, 69);
             this.staffGrid.Name = "staffGrid";
             this.staffGrid.ReadOnly = true;
             this.staffGrid.RowHeadersVisible = false;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.staffGrid.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.staffGrid.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.staffGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.staffGrid.Size = new System.Drawing.Size(1015, 599);
             this.staffGrid.TabIndex = 1;
@@ -280,9 +281,9 @@
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(1045, 12);
+            this.groupBox1.Location = new System.Drawing.Point(1045, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(201, 656);
+            this.groupBox1.Size = new System.Drawing.Size(201, 666);
             this.groupBox1.TabIndex = 48;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lối tắt";
@@ -294,8 +295,9 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.ImageIndex = 0;
+            this.button2.ImageList = this.imageList1;
             this.button2.Location = new System.Drawing.Point(18, 84);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(168, 30);
@@ -311,8 +313,9 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.ImageIndex = 1;
+            this.button1.ImageList = this.imageList1;
             this.button1.Location = new System.Drawing.Point(18, 35);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(147, 30);
@@ -436,7 +439,7 @@
             this.searchBirthday.CustomFormat = " ";
             this.searchBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.searchBirthday.Location = new System.Drawing.Point(563, 43);
-            this.searchBirthday.MaxDate = new System.DateTime(2020, 4, 19, 21, 44, 31, 901);
+            this.searchBirthday.MaxDate = new System.DateTime(2020, 4, 24, 7, 29, 5, 665);
             this.searchBirthday.MaxIsToday = true;
             this.searchBirthday.Name = "searchBirthday";
             this.searchBirthday.Size = new System.Drawing.Size(111, 20);
@@ -444,6 +447,13 @@
             this.searchBirthday.Value = new System.DateTime(2020, 4, 19, 20, 6, 53, 921);
             this.searchBirthday.ValueChanged += new System.EventHandler(this.SearchBirthday_ValueChanged);
             this.searchBirthday.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SearchBirthday_KeyDown);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "lock (1).png");
+            this.imageList1.Images.SetKeyName(1, "lock.png");
             // 
             // StaffForm
             // 
@@ -519,5 +529,6 @@
         private System.Windows.Forms.BindingSource sqlCodeObjectBindingSource2;
         public CustomControl.EDateTimePicker searchBirthday;
         public System.Windows.Forms.ComboBox searchSex;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

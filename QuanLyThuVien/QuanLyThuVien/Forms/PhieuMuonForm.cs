@@ -1,5 +1,6 @@
 ﻿using QuanLyThuVien.Core;
 using QuanLyThuVien.Forms.InputForm;
+using QuanLyThuVien.Forms.MuonTra;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,6 +53,11 @@ namespace QuanLyThuVien.Forms
                 }));
                 eContextMenu.menuStrip.Show(phieuMuonGrid, new Point(e.X, e.Y));
             }
+        }
+
+        private void ButtonTraSach_Click(object sender, EventArgs e)
+        {
+            new TraSachForm().ShowDialog();
         }
     }
 }

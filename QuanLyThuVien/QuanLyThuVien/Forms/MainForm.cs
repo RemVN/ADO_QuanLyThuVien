@@ -142,5 +142,10 @@ namespace QuanLyThuVien
                 Application.Exit();
             }
         }
+
+        private void ButtonInfoForm_Click(object sender, EventArgs e)
+        {
+            new AppAbout().ShowDialog();
+        }
     }
 }

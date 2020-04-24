@@ -37,9 +37,9 @@
             this.inputUsername = new System.Windows.Forms.TextBox();
             this.inputPassword = new System.Windows.Forms.TextBox();
             this.buttonLogin = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,19 +98,19 @@
             this.inputPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputPassword.Location = new System.Drawing.Point(359, 203);
             this.inputPassword.Name = "inputPassword";
-            this.inputPassword.PasswordChar = '*';
+            this.inputPassword.PasswordChar = '●';
             this.inputPassword.Size = new System.Drawing.Size(168, 26);
             this.inputPassword.TabIndex = 5;
             // 
             // buttonLogin
             // 
-            this.buttonLogin.BackColor = System.Drawing.Color.White;
+            this.buttonLogin.BackColor = System.Drawing.Color.Transparent;
             this.buttonLogin.FlatAppearance.BorderSize = 0;
             this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonLogin.ImageIndex = 0;
             this.buttonLogin.ImageList = this.imageList1;
-            this.buttonLogin.Location = new System.Drawing.Point(422, 235);
+            this.buttonLogin.Location = new System.Drawing.Point(422, 245);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(105, 38);
             this.buttonLogin.TabIndex = 6;
@@ -119,10 +119,16 @@
             this.buttonLogin.UseVisualStyleBackColor = false;
             this.buttonLogin.Click += new System.EventHandler(this.ButtonLogin_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "login.png");
+            // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(272, 246);
+            this.radioButton1.Location = new System.Drawing.Point(272, 256);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(109, 17);
             this.radioButton1.TabIndex = 7;
@@ -140,19 +146,13 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "login.png");
-            // 
             // LoginForm
             // 
             this.AcceptButton = this.buttonLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(604, 395);
+            this.ClientSize = new System.Drawing.Size(604, 366);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.buttonLogin);
             this.Controls.Add(this.inputPassword);

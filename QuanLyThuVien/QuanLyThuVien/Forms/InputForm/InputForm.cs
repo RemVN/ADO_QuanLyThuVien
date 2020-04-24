@@ -42,6 +42,17 @@ namespace QuanLyThuVien.Forms.InputForm
             initEvents();
         }
 
+        public bool checkAge(DateTime dateTime, int age)
+        {
+            int years = ((dateTime - DateTime.Now).Days) / 365;
+            if(years < age)
+            {
+                Messaging.showWarning(String.Format("Người dùng phải trên {0} tuổi", age));
+                return false;
+            }
+            return true;
+        }
+
         public InputForm withSelectorBindingSource(Type selectorClass, BindingSource bindingSource)
         {
             this.selectorClass = selectorClass;

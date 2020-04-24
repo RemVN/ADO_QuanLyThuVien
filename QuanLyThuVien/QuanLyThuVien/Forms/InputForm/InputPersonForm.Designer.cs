@@ -133,7 +133,7 @@
             this.inputBirthday.CustomFormat = " ";
             this.inputBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.inputBirthday.Location = new System.Drawing.Point(222, 100);
-            this.inputBirthday.MaxDate = new System.DateTime(2020, 4, 19, 23, 26, 22, 882);
+            this.inputBirthday.MaxDate = new System.DateTime(2020, 4, 24, 7, 25, 42, 225);
             this.inputBirthday.MaxIsToday = true;
             this.inputBirthday.Name = "inputBirthday";
             this.inputBirthday.Size = new System.Drawing.Size(180, 20);
@@ -206,17 +206,17 @@
 
         private System.Windows.Forms.GroupBox groupPerson;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox inputLocation;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox inputSDT;
-        private System.Windows.Forms.ComboBox inputSex;
         private System.Windows.Forms.Label label4;
-        private CustomControl.EDateTimePicker inputBirthday;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox inputRealname;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox inputID;
         private System.Windows.Forms.BindingSource sqlCodeObjectBindingSource;
+        public System.Windows.Forms.TextBox inputLocation;
+        public System.Windows.Forms.TextBox inputSDT;
+        public System.Windows.Forms.ComboBox inputSex;
+        public CustomControl.EDateTimePicker inputBirthday;
+        public System.Windows.Forms.TextBox inputRealname;
+        public System.Windows.Forms.TextBox inputID;
     }
 }

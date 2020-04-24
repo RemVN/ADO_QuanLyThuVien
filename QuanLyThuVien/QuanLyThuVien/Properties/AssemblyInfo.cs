@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("QuanLyThuVien")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Quản lý thư viện")]
+[assembly: AssemblyDescription("Mã nguồn: https://github.com/RemVN/ADO_QuanLyThuVien")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("QuanLyThuVien")]
