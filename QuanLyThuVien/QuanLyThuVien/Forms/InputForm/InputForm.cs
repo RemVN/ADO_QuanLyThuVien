@@ -44,7 +44,7 @@ namespace QuanLyThuVien.Forms.InputForm
 
         public bool checkAge(DateTime dateTime, int age)
         {
-            int years = ((dateTime - DateTime.Now).Days) / 365;
+            int years = ((DateTime.Now - dateTime).Days) / 365;
             if(years < age)
             {
                 Messaging.showWarning(String.Format("Người dùng phải trên {0} tuổi", age));

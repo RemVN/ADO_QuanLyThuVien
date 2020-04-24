@@ -66,7 +66,7 @@
             // textID
             // 
             this.textID.Enabled = false;
-            this.textID.Location = new System.Drawing.Point(209, 64);
+            this.textID.Location = new System.Drawing.Point(209, 67);
             this.textID.Name = "textID";
             this.textID.Size = new System.Drawing.Size(218, 20);
             this.textID.TabIndex = 1;
@@ -75,7 +75,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(83, 65);
+            this.label3.Location = new System.Drawing.Point(83, 68);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 18);
             this.label3.TabIndex = 0;
@@ -94,7 +94,7 @@
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.ImageKey = "(none)";
             this.button2.ImageList = this.imageList1;
-            this.button2.Location = new System.Drawing.Point(367, 549);
+            this.button2.Location = new System.Drawing.Point(367, 481);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(60, 23);
             this.button2.TabIndex = 19;
@@ -108,7 +108,7 @@
             this.buttonAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAdd.ImageKey = "tick.png";
             this.buttonAdd.ImageList = this.imageList1;
-            this.buttonAdd.Location = new System.Drawing.Point(435, 549);
+            this.buttonAdd.Location = new System.Drawing.Point(435, 481);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(60, 23);
             this.buttonAdd.TabIndex = 18;
@@ -119,17 +119,16 @@
             // 
             // textName
             // 
-            this.textName.Location = new System.Drawing.Point(209, 107);
-            this.textName.Multiline = true;
+            this.textName.Location = new System.Drawing.Point(209, 109);
             this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(218, 57);
+            this.textName.Size = new System.Drawing.Size(218, 20);
             this.textName.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(83, 126);
+            this.label1.Location = new System.Drawing.Point(83, 110);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 18);
             this.label1.TabIndex = 2;
@@ -139,7 +138,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(83, 188);
+            this.label2.Location = new System.Drawing.Point(83, 148);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 18);
             this.label2.TabIndex = 4;
@@ -148,7 +147,7 @@
             // comboStatus
             // 
             this.comboStatus.FormattingEnabled = true;
-            this.comboStatus.Location = new System.Drawing.Point(209, 187);
+            this.comboStatus.Location = new System.Drawing.Point(209, 147);
             this.comboStatus.Name = "comboStatus";
             this.comboStatus.Size = new System.Drawing.Size(218, 21);
             this.comboStatus.TabIndex = 5;
@@ -157,7 +156,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(83, 232);
+            this.label4.Location = new System.Drawing.Point(83, 192);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 18);
             this.label4.TabIndex = 6;
@@ -165,19 +164,29 @@
             // 
             // numYear
             // 
-            this.numYear.Location = new System.Drawing.Point(209, 231);
+            this.numYear.Location = new System.Drawing.Point(209, 191);
             this.numYear.Maximum = new decimal(new int[] {
-            5000,
+            9999,
+            0,
+            0,
+            0});
+            this.numYear.Minimum = new decimal(new int[] {
+            1,
             0,
             0,
             0});
             this.numYear.Name = "numYear";
             this.numYear.Size = new System.Drawing.Size(218, 20);
             this.numYear.TabIndex = 7;
+            this.numYear.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // numPrice
             // 
-            this.numPrice.Location = new System.Drawing.Point(209, 274);
+            this.numPrice.Location = new System.Drawing.Point(209, 234);
             this.numPrice.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -191,7 +200,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(83, 275);
+            this.label5.Location = new System.Drawing.Point(83, 235);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(67, 18);
             this.label5.TabIndex = 8;
@@ -202,7 +211,7 @@
             this.comboType.DataSource = this.bookTypeBindingSource;
             this.comboType.DisplayMember = "Name";
             this.comboType.FormattingEnabled = true;
-            this.comboType.Location = new System.Drawing.Point(209, 317);
+            this.comboType.Location = new System.Drawing.Point(209, 277);
             this.comboType.Name = "comboType";
             this.comboType.Size = new System.Drawing.Size(218, 21);
             this.comboType.TabIndex = 11;
@@ -216,7 +225,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(83, 318);
+            this.label6.Location = new System.Drawing.Point(83, 278);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(72, 18);
             this.label6.TabIndex = 10;
@@ -227,7 +236,7 @@
             this.comboNXB.DataSource = this.bookNXBBindingSource;
             this.comboNXB.DisplayMember = "Name";
             this.comboNXB.FormattingEnabled = true;
-            this.comboNXB.Location = new System.Drawing.Point(209, 405);
+            this.comboNXB.Location = new System.Drawing.Point(209, 365);
             this.comboNXB.Name = "comboNXB";
             this.comboNXB.Size = new System.Drawing.Size(218, 21);
             this.comboNXB.TabIndex = 15;
@@ -241,7 +250,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(83, 406);
+            this.label7.Location = new System.Drawing.Point(83, 366);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(94, 18);
             this.label7.TabIndex = 14;
@@ -252,7 +261,7 @@
             this.comboLocation.DataSource = this.bookLocationBindingSource;
             this.comboLocation.DisplayMember = "Name";
             this.comboLocation.FormattingEnabled = true;
-            this.comboLocation.Location = new System.Drawing.Point(209, 361);
+            this.comboLocation.Location = new System.Drawing.Point(209, 321);
             this.comboLocation.Name = "comboLocation";
             this.comboLocation.Size = new System.Drawing.Size(218, 21);
             this.comboLocation.TabIndex = 13;
@@ -266,7 +275,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(83, 362);
+            this.label8.Location = new System.Drawing.Point(83, 322);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(36, 18);
             this.label8.TabIndex = 12;
@@ -277,7 +286,7 @@
             this.comboAuthor.DataSource = this.bookAuthorBindingSource;
             this.comboAuthor.DisplayMember = "Name";
             this.comboAuthor.FormattingEnabled = true;
-            this.comboAuthor.Location = new System.Drawing.Point(209, 449);
+            this.comboAuthor.Location = new System.Drawing.Point(209, 409);
             this.comboAuthor.Name = "comboAuthor";
             this.comboAuthor.Size = new System.Drawing.Size(218, 21);
             this.comboAuthor.TabIndex = 17;
@@ -291,7 +300,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(83, 450);
+            this.label9.Location = new System.Drawing.Point(83, 410);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(56, 18);
             this.label9.TabIndex = 16;
@@ -304,7 +313,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(507, 584);
+            this.ClientSize = new System.Drawing.Size(507, 523);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.comboAuthor);
             this.Controls.Add(this.label8);

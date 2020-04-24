@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhieuMuonForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonTraSach = new System.Windows.Forms.Button();
+            this.functionImage = new System.Windows.Forms.ImageList(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
             this.buttonAddPhieuMuon = new System.Windows.Forms.Button();
@@ -51,8 +53,6 @@
             this.sp_get_PhieuMuonTableAdapter = new QuanLyThuVien.QuanLyThuVienDataSet10TableAdapters.sp_get_PhieuMuonTableAdapter();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.buttonClearSearch = new System.Windows.Forms.Button();
-            this.buttonTraSach = new System.Windows.Forms.Button();
-            this.functionImage = new System.Windows.Forms.ImageList(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phieuMuonGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spgetPhieuMuonBindingSource)).BeginInit();
@@ -71,6 +71,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chức năng";
             // 
+            // buttonTraSach
+            // 
+            this.buttonTraSach.BackColor = System.Drawing.Color.Transparent;
+            this.buttonTraSach.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonTraSach.FlatAppearance.BorderSize = 0;
+            this.buttonTraSach.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTraSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTraSach.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonTraSach.ImageIndex = 0;
+            this.buttonTraSach.ImageList = this.functionImage;
+            this.buttonTraSach.Location = new System.Drawing.Point(19, 38);
+            this.buttonTraSach.Name = "buttonTraSach";
+            this.buttonTraSach.Size = new System.Drawing.Size(161, 30);
+            this.buttonTraSach.TabIndex = 43;
+            this.buttonTraSach.Text = "Trả sách";
+            this.buttonTraSach.UseVisualStyleBackColor = false;
+            this.buttonTraSach.Click += new System.EventHandler(this.ButtonTraSach_Click);
+            // 
+            // functionImage
+            // 
+            this.functionImage.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("functionImage.ImageStream")));
+            this.functionImage.TransparentColor = System.Drawing.Color.Transparent;
+            this.functionImage.Images.SetKeyName(0, "book.png");
+            this.functionImage.Images.SetKeyName(1, "print.png");
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
@@ -88,6 +113,7 @@
             this.button1.Text = "In phiếu mượn";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // buttonRefresh
             // 
@@ -129,8 +155,8 @@
             // 
             this.phieuMuonGrid.AllowUserToAddRows = false;
             this.phieuMuonGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.phieuMuonGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.phieuMuonGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.phieuMuonGrid.AutoGenerateColumns = false;
             this.phieuMuonGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.phieuMuonGrid.BackgroundColor = System.Drawing.Color.LightGray;
@@ -145,20 +171,20 @@
             this.ngayTraDataGridViewTextBoxColumn,
             this.tinhTrangDataGridViewTextBoxColumn});
             this.phieuMuonGrid.DataSource = this.spgetPhieuMuonBindingSource;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.phieuMuonGrid.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.phieuMuonGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.phieuMuonGrid.Location = new System.Drawing.Point(16, 74);
             this.phieuMuonGrid.Name = "phieuMuonGrid";
             this.phieuMuonGrid.ReadOnly = true;
             this.phieuMuonGrid.RowHeadersVisible = false;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.phieuMuonGrid.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.phieuMuonGrid.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.phieuMuonGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.phieuMuonGrid.Size = new System.Drawing.Size(1015, 599);
             this.phieuMuonGrid.TabIndex = 61;
@@ -274,31 +300,6 @@
             this.buttonClearSearch.Text = "Xoá khung tìm kiếm";
             this.buttonClearSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonClearSearch.UseVisualStyleBackColor = false;
-            // 
-            // buttonTraSach
-            // 
-            this.buttonTraSach.BackColor = System.Drawing.Color.Transparent;
-            this.buttonTraSach.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonTraSach.FlatAppearance.BorderSize = 0;
-            this.buttonTraSach.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTraSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTraSach.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonTraSach.ImageIndex = 0;
-            this.buttonTraSach.ImageList = this.functionImage;
-            this.buttonTraSach.Location = new System.Drawing.Point(19, 38);
-            this.buttonTraSach.Name = "buttonTraSach";
-            this.buttonTraSach.Size = new System.Drawing.Size(161, 30);
-            this.buttonTraSach.TabIndex = 43;
-            this.buttonTraSach.Text = "Trả sách";
-            this.buttonTraSach.UseVisualStyleBackColor = false;
-            this.buttonTraSach.Click += new System.EventHandler(this.ButtonTraSach_Click);
-            // 
-            // functionImage
-            // 
-            this.functionImage.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("functionImage.ImageStream")));
-            this.functionImage.TransparentColor = System.Drawing.Color.Transparent;
-            this.functionImage.Images.SetKeyName(0, "book.png");
-            this.functionImage.Images.SetKeyName(1, "print.png");
             // 
             // PhieuMuonForm
             // 

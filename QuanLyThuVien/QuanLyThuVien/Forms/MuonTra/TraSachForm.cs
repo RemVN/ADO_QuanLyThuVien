@@ -26,8 +26,9 @@ namespace QuanLyThuVien.Forms.MuonTra
                 Messaging.showWarning("Phiếu mượn không tồn tại");
                 return false;
             }
-            SqlCommand sqlCommand = new SqlCommand("update PhieuMuon set DaTra = 1 where MaPhieu = @MaPhieu", main.sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand("update PhieuMuon set DaTra = 1, NgayTra = @NgayTra where MaPhieu = @MaPhieu", main.sqlConnection);
             sqlCommand.Parameters.AddWithValue("@MaPhieu", id);
+            sqlCommand.Parameters.AddWithValue("@NgayTra", DateTime.Now);
             sqlCommand.ExecuteNonQuery();
             return true;
         }
@@ -41,6 +42,7 @@ namespace QuanLyThuVien.Forms.MuonTra
             }
             if(traSach())
             {
+                Program.MainInstance.phieuMuonManager.refreshGrid();
                 this.Close();
             }
         }

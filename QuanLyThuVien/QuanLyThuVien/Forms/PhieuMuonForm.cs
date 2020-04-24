@@ -59,5 +59,10 @@ namespace QuanLyThuVien.Forms
         {
             new TraSachForm().ShowDialog();
         }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            new InputPrintPhieuMuon().ShowDialog();
+        }
     }
 }

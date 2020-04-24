@@ -1,6 +1,6 @@
-﻿namespace QuanLyThuVien.Forms.InputForm
+﻿namespace QuanLyThuVien.Forms.MuonTra
 {
-    partial class InputNXBForm
+    partial class InputPrintPhieuMuon
     {
         /// <summary>
         /// Required designer variable.
@@ -29,50 +29,30 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputNXBForm));
-            this.textID = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InputPrintPhieuMuon));
+            this.inputMaPhieu = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textNXB = new System.Windows.Forms.TextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.buttonAdd = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textID
+            // inputMaPhieu
             // 
-            this.textID.Enabled = false;
-            this.textID.Location = new System.Drawing.Point(180, 36);
-            this.textID.Name = "textID";
-            this.textID.Size = new System.Drawing.Size(138, 20);
-            this.textID.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(83, 37);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 18);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Mã";
+            this.inputMaPhieu.Location = new System.Drawing.Point(104, 63);
+            this.inputMaPhieu.Name = "inputMaPhieu";
+            this.inputMaPhieu.Size = new System.Drawing.Size(100, 20);
+            this.inputMaPhieu.TabIndex = 21;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(83, 71);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(55, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 18);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Nhà xuất bản";
-            // 
-            // textNXB
-            // 
-            this.textNXB.Location = new System.Drawing.Point(180, 71);
-            this.textNXB.Name = "textNXB";
-            this.textNXB.Size = new System.Drawing.Size(138, 20);
-            this.textNXB.TabIndex = 3;
+            this.label1.Size = new System.Drawing.Size(199, 24);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Nhập mã phiếu mượn:";
             // 
             // imageList1
             // 
@@ -86,11 +66,11 @@
             this.buttonAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAdd.ImageKey = "tick.png";
             this.buttonAdd.ImageList = this.imageList1;
-            this.buttonAdd.Location = new System.Drawing.Point(327, 112);
+            this.buttonAdd.Location = new System.Drawing.Point(146, 104);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(60, 23);
-            this.buttonAdd.TabIndex = 4;
-            this.buttonAdd.Text = "Thêm";
+            this.buttonAdd.Size = new System.Drawing.Size(83, 23);
+            this.buttonAdd.TabIndex = 22;
+            this.buttonAdd.Text = "Xác nhận";
             this.buttonAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
@@ -102,31 +82,26 @@
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.ImageKey = "(none)";
             this.button2.ImageList = this.imageList1;
-            this.button2.Location = new System.Drawing.Point(259, 112);
+            this.button2.Location = new System.Drawing.Point(78, 104);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(60, 23);
-            this.button2.TabIndex = 5;
+            this.button2.TabIndex = 23;
             this.button2.Text = "Huỷ";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // InputNXBForm
+            // InputPrintPhieuMuon
             // 
-            this.AcceptButton = this.buttonAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(399, 147);
+            this.ClientSize = new System.Drawing.Size(309, 148);
+            this.Controls.Add(this.inputMaPhieu);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textID);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textNXB);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "InputNXBForm";
+            this.Name = "InputPrintPhieuMuon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Thêm nhà xuất bản";
+            this.Text = "In phiếu mượn";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,10 +109,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textID;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox inputMaPhieu;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textNXB;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button button2;

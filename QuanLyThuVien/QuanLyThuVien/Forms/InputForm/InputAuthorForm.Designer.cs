@@ -100,6 +100,7 @@
             // textSDT
             // 
             this.textSDT.Location = new System.Drawing.Point(181, 99);
+            this.textSDT.MaxLength = 15;
             this.textSDT.Name = "textSDT";
             this.textSDT.Size = new System.Drawing.Size(138, 20);
             this.textSDT.TabIndex = 5;

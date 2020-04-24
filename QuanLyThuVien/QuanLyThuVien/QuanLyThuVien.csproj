@@ -8,9 +8,10 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>QuanLyThuVien</RootNamespace>
     <AssemblyName>QuanLyThuVien</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -30,10 +32,27 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1404.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1404.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -159,6 +178,18 @@
     <Compile Include="Forms\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MuonTra\InputPrintPhieuMuon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MuonTra\InputPrintPhieuMuon.Designer.cs">
+      <DependentUpon>InputPrintPhieuMuon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MuonTra\PrintPhieuMuonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MuonTra\PrintPhieuMuonForm.Designer.cs">
+      <DependentUpon>PrintPhieuMuonForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MuonTra\TraSachForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +228,7 @@
     <Compile Include="Manager\StaffManager.cs" />
     <Compile Include="MuonTra\MuonTraStatus.cs" />
     <Compile Include="People\Person.cs" />
+    <Compile Include="PhieuMuon\PhieuMuon.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuanLyThuVienDataSet.Designer.cs">
@@ -255,6 +287,7 @@
       <DependentUpon>QuanLyThuVienDataSet9.xsd</DependentUpon>
     </Compile>
     <Compile Include="Searching\SearchQuery.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="Utils\InputCleaner.cs" />
     <Compile Include="Utils\Messaging.cs" />
     <EmbeddedResource Include="Core\EContextMenu.resx">
@@ -311,6 +344,14 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MuonTra\BookPhieuMuonRP.rdlc" />
+    <EmbeddedResource Include="Forms\MuonTra\InputPrintPhieuMuon.resx">
+      <DependentUpon>InputPrintPhieuMuon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MuonTra\PhieuMuonReport.rdlc" />
+    <EmbeddedResource Include="Forms\MuonTra\PrintPhieuMuonForm.resx">
+      <DependentUpon>PrintPhieuMuonForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\MuonTra\TraSachForm.resx">
       <DependentUpon>TraSachForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -331,8 +372,10 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\QuanLyThuVien.BookDetails.BookAuthor.datasource" />
     <None Include="Properties\DataSources\QuanLyThuVien.BookDetails.BookLocation.datasource" />
     <None Include="Properties\DataSources\QuanLyThuVien.BookDetails.BookNXB.datasource" />
@@ -474,6 +517,21 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="People\Staff\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

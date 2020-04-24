@@ -446,6 +446,20 @@ begin
 end
 go
 
+create proc sp_get_PhieuMuon_printmode
+	@MaPhieu int
+as
+begin
+	select pm.MaPhieu, sv.MaSo, cn.HoTen, lop.TenLop, pm.NgayHenTra
+	from PhieuMuon pm, SinhVien sv, Lop lop, CaNhan cn
+	where
+	pm.MaPhieu = @MaPhieu and
+	pm.MaSV = sv.MaSo and
+	sv.MaKhoa = lop.MaLop and
+	sv.MaSo = cn.MaSo
+end 
+go
+
 create proc sp_get_PhieuMuon_raw
 	@MaPhieu int 
 as
@@ -512,10 +526,11 @@ begin
 	select s.MaSach, s.TenSach from Sach s, PhieuMuon pm, ChiTietPhieuMuon ctpm
 	where pm.MaPhieu = ctpm.MaPhieu
 	and s.MaSach = ctpm.MaSach
+	group by s.MaSach, s.TenSach
 end
 go
 
-exec sp_get_SachPhieuMuon 1
+exec sp_get_SachPhieuMuon 5
 go
 
 select cn.*, nv.TenDangNhap, nv.MatKhau, nv.TrangThai  from NhanVien nv, CaNhan cn

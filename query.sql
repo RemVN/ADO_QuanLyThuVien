@@ -9,6 +9,8 @@ create table CaNhan (
 	DiaChi nvarchar(200)
 )
 
+
+
 create table SinhVien (
 	MaSo int not null, 
 	MaKhoa int not null,

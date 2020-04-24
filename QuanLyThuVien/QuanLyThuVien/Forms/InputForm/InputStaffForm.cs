@@ -79,7 +79,7 @@ namespace QuanLyThuVien.Forms.InputForm
 
         public bool checkInput()
         {
-            if (checkAge(inputPerson.inputBirthday.Value, 18))
+            if (!checkAge(inputPerson.inputBirthday.Value, 18))
                 return false;
             if(inputUsername.Text.Length == 0)
             {

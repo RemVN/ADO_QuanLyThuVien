@@ -1,5 +1,6 @@
 ﻿using QuanLyThuVien.BookDetails;
 using QuanLyThuVien.Core;
+using QuanLyThuVien.Forms.MuonTra;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,6 +16,15 @@ namespace QuanLyThuVien.Manager
         public PhieuMuonManager() : base(Program.MainForm.PhieuMuonForm.phieuMuonGrid)
         {
 
+        }
+
+        public void printPhieuMuon(int phieuMuonID)
+        {
+            List<BookPhieuMuon> books = getBookPhieuMuon(phieuMuonID);
+            DataTable dataTable = main.getSqlObject("sp_get_PhieuMuon_printmode", "@MaPhieu", phieuMuonID);
+            DataRow row = dataTable.Rows[0];
+            PrintPhieuMuonForm form = new PrintPhieuMuonForm(Convert.ToInt32(row["MaSo"]), Convert.ToString(row["HoTen"]), Convert.ToString(row["TenLop"]), books);
+            form.ShowDialog();
         }
 
         public List<BookPhieuMuon> getBookPhieuMuon(int phieuMuonID)

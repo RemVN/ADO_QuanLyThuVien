@@ -89,7 +89,7 @@ namespace QuanLyThuVien.Forms.InputForm
         {
             sqlCommand.Parameters.AddWithValue("@MaSV", inputReader.Text);
             if(nhanVien)
-            sqlCommand.Parameters.AddWithValue("@MaNV", 1);
+            sqlCommand.Parameters.AddWithValue("@MaNV", main.Authenticator.Id);
             sqlCommand.Parameters.AddWithValue("@NgayMuon", inputNgayMuon.getDateTimeSQL());
             sqlCommand.Parameters.AddWithValue("@NgayHenTra", inputNgayMuon.Value.AddDays(Convert.ToDouble(inputSoNgay.Value)));
         }
