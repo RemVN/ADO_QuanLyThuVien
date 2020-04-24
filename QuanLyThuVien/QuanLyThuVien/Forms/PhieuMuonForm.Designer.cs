@@ -30,23 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PhieuMuonForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.searchRank = new System.Windows.Forms.ComboBox();
-            this.searchPassword = new System.Windows.Forms.TextBox();
-            this.searchUsername = new System.Windows.Forms.TextBox();
-            this.searchID = new System.Windows.Forms.TextBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.buttonClearSearch = new System.Windows.Forms.Button();
             this.buttonRefresh = new System.Windows.Forms.Button();
-            this.buttonSearch = new System.Windows.Forms.Button();
-            this.searchSex = new System.Windows.Forms.ComboBox();
-            this.searchRealname = new System.Windows.Forms.TextBox();
-            this.searchStatus = new System.Windows.Forms.ComboBox();
-            this.searchLocation = new System.Windows.Forms.TextBox();
-            this.searchSDT = new System.Windows.Forms.TextBox();
             this.buttonAddPhieuMuon = new System.Windows.Forms.Button();
             this.phieuMuonGrid = new System.Windows.Forms.DataGridView();
             this.maPhieuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,64 +49,24 @@
             this.spgetPhieuMuonBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.quanLyThuVienDataSet10 = new QuanLyThuVien.QuanLyThuVienDataSet10();
             this.sp_get_PhieuMuonTableAdapter = new QuanLyThuVien.QuanLyThuVienDataSet10TableAdapters.sp_get_PhieuMuonTableAdapter();
-            this.searchBirthday = new QuanLyThuVien.CustomControl.EDateTimePicker();
+            this.buttonSearch = new System.Windows.Forms.Button();
+            this.buttonClearSearch = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.phieuMuonGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spgetPhieuMuonBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyThuVienDataSet10)).BeginInit();
             this.SuspendLayout();
             // 
-            // searchRank
-            // 
-            this.searchRank.DisplayMember = "SqlCode";
-            this.searchRank.FormattingEnabled = true;
-            this.searchRank.Location = new System.Drawing.Point(255, 48);
-            this.searchRank.Name = "searchRank";
-            this.searchRank.Size = new System.Drawing.Size(94, 21);
-            this.searchRank.TabIndex = 70;
-            this.searchRank.ValueMember = "SqlCode";
-            // 
-            // searchPassword
-            // 
-            this.searchPassword.BackColor = System.Drawing.Color.LightGray;
-            this.searchPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchPassword.Enabled = false;
-            this.searchPassword.ForeColor = System.Drawing.Color.Black;
-            this.searchPassword.Location = new System.Drawing.Point(196, 48);
-            this.searchPassword.Name = "searchPassword";
-            this.searchPassword.Size = new System.Drawing.Size(53, 20);
-            this.searchPassword.TabIndex = 69;
-            // 
-            // searchUsername
-            // 
-            this.searchUsername.BackColor = System.Drawing.Color.White;
-            this.searchUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchUsername.ForeColor = System.Drawing.Color.Black;
-            this.searchUsername.Location = new System.Drawing.Point(91, 48);
-            this.searchUsername.Name = "searchUsername";
-            this.searchUsername.Size = new System.Drawing.Size(99, 20);
-            this.searchUsername.TabIndex = 68;
-            // 
-            // searchID
-            // 
-            this.searchID.BackColor = System.Drawing.Color.White;
-            this.searchID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchID.ForeColor = System.Drawing.Color.Black;
-            this.searchID.Location = new System.Drawing.Point(16, 48);
-            this.searchID.Name = "searchID";
-            this.searchID.Size = new System.Drawing.Size(69, 20);
-            this.searchID.TabIndex = 67;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(1049, 17);
+            this.groupBox1.Location = new System.Drawing.Point(1049, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(201, 656);
+            this.groupBox1.Size = new System.Drawing.Size(201, 673);
             this.groupBox1.TabIndex = 66;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Lối tắt";
+            this.groupBox1.Text = "Chức năng";
             // 
             // button1
             // 
@@ -136,23 +85,6 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // buttonClearSearch
-            // 
-            this.buttonClearSearch.BackColor = System.Drawing.Color.Transparent;
-            this.buttonClearSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonClearSearch.FlatAppearance.BorderSize = 0;
-            this.buttonClearSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClearSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonClearSearch.Image = ((System.Drawing.Image)(resources.GetObject("buttonClearSearch.Image")));
-            this.buttonClearSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonClearSearch.Location = new System.Drawing.Point(770, 0);
-            this.buttonClearSearch.Name = "buttonClearSearch";
-            this.buttonClearSearch.Size = new System.Drawing.Size(160, 31);
-            this.buttonClearSearch.TabIndex = 65;
-            this.buttonClearSearch.Text = "Xoá khung tìm kiếm";
-            this.buttonClearSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonClearSearch.UseVisualStyleBackColor = false;
-            // 
             // buttonRefresh
             // 
             this.buttonRefresh.BackColor = System.Drawing.Color.Transparent;
@@ -170,73 +102,6 @@
             this.buttonRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonRefresh.UseVisualStyleBackColor = false;
             this.buttonRefresh.Click += new System.EventHandler(this.ButtonRefresh_Click);
-            // 
-            // buttonSearch
-            // 
-            this.buttonSearch.BackColor = System.Drawing.Color.Transparent;
-            this.buttonSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonSearch.FlatAppearance.BorderSize = 0;
-            this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSearch.Image = ((System.Drawing.Image)(resources.GetObject("buttonSearch.Image")));
-            this.buttonSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSearch.Location = new System.Drawing.Point(936, 0);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(95, 31);
-            this.buttonSearch.TabIndex = 63;
-            this.buttonSearch.Text = "Tìm kiếm";
-            this.buttonSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSearch.UseVisualStyleBackColor = false;
-            // 
-            // searchSex
-            // 
-            this.searchSex.DisplayMember = "SqlCode";
-            this.searchSex.FormattingEnabled = true;
-            this.searchSex.Location = new System.Drawing.Point(684, 48);
-            this.searchSex.Name = "searchSex";
-            this.searchSex.Size = new System.Drawing.Size(74, 21);
-            this.searchSex.TabIndex = 72;
-            this.searchSex.ValueMember = "SqlCode";
-            // 
-            // searchRealname
-            // 
-            this.searchRealname.BackColor = System.Drawing.Color.White;
-            this.searchRealname.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchRealname.ForeColor = System.Drawing.Color.Black;
-            this.searchRealname.Location = new System.Drawing.Point(455, 48);
-            this.searchRealname.Name = "searchRealname";
-            this.searchRealname.Size = new System.Drawing.Size(106, 20);
-            this.searchRealname.TabIndex = 71;
-            // 
-            // searchStatus
-            // 
-            this.searchStatus.DisplayMember = "SqlCode";
-            this.searchStatus.FormattingEnabled = true;
-            this.searchStatus.Location = new System.Drawing.Point(355, 48);
-            this.searchStatus.Name = "searchStatus";
-            this.searchStatus.Size = new System.Drawing.Size(94, 21);
-            this.searchStatus.TabIndex = 75;
-            this.searchStatus.ValueMember = "SqlCode";
-            // 
-            // searchLocation
-            // 
-            this.searchLocation.BackColor = System.Drawing.Color.White;
-            this.searchLocation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchLocation.ForeColor = System.Drawing.Color.Black;
-            this.searchLocation.Location = new System.Drawing.Point(864, 48);
-            this.searchLocation.Name = "searchLocation";
-            this.searchLocation.Size = new System.Drawing.Size(167, 20);
-            this.searchLocation.TabIndex = 74;
-            // 
-            // searchSDT
-            // 
-            this.searchSDT.BackColor = System.Drawing.Color.White;
-            this.searchSDT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchSDT.ForeColor = System.Drawing.Color.Black;
-            this.searchSDT.Location = new System.Drawing.Point(764, 48);
-            this.searchSDT.Name = "searchSDT";
-            this.searchSDT.Size = new System.Drawing.Size(94, 20);
-            this.searchSDT.TabIndex = 73;
             // 
             // buttonAddPhieuMuon
             // 
@@ -260,8 +125,8 @@
             // 
             this.phieuMuonGrid.AllowUserToAddRows = false;
             this.phieuMuonGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.phieuMuonGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.phieuMuonGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.phieuMuonGrid.AutoGenerateColumns = false;
             this.phieuMuonGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.phieuMuonGrid.BackgroundColor = System.Drawing.Color.LightGray;
@@ -276,23 +141,24 @@
             this.ngayTraDataGridViewTextBoxColumn,
             this.tinhTrangDataGridViewTextBoxColumn});
             this.phieuMuonGrid.DataSource = this.spgetPhieuMuonBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.phieuMuonGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.phieuMuonGrid.DefaultCellStyle = dataGridViewCellStyle5;
             this.phieuMuonGrid.Location = new System.Drawing.Point(16, 74);
             this.phieuMuonGrid.Name = "phieuMuonGrid";
             this.phieuMuonGrid.ReadOnly = true;
             this.phieuMuonGrid.RowHeadersVisible = false;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.phieuMuonGrid.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.phieuMuonGrid.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.phieuMuonGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.phieuMuonGrid.Size = new System.Drawing.Size(1015, 599);
             this.phieuMuonGrid.TabIndex = 61;
+            this.phieuMuonGrid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PhieuMuonGrid_MouseClick);
             // 
             // maPhieuDataGridViewTextBoxColumn
             // 
@@ -369,17 +235,41 @@
             // 
             this.sp_get_PhieuMuonTableAdapter.ClearBeforeFill = true;
             // 
-            // searchBirthday
+            // buttonSearch
             // 
-            this.searchBirthday.CustomFormat = " ";
-            this.searchBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.searchBirthday.Location = new System.Drawing.Point(567, 48);
-            this.searchBirthday.MaxDate = new System.DateTime(2020, 4, 22, 21, 19, 31, 204);
-            this.searchBirthday.MaxIsToday = true;
-            this.searchBirthday.Name = "searchBirthday";
-            this.searchBirthday.Size = new System.Drawing.Size(111, 20);
-            this.searchBirthday.TabIndex = 76;
-            this.searchBirthday.Value = new System.DateTime(2020, 4, 19, 20, 6, 53, 921);
+            this.buttonSearch.BackColor = System.Drawing.Color.Transparent;
+            this.buttonSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonSearch.Enabled = false;
+            this.buttonSearch.FlatAppearance.BorderSize = 0;
+            this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSearch.Image = ((System.Drawing.Image)(resources.GetObject("buttonSearch.Image")));
+            this.buttonSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSearch.Location = new System.Drawing.Point(936, 0);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(95, 31);
+            this.buttonSearch.TabIndex = 63;
+            this.buttonSearch.Text = "Tìm kiếm";
+            this.buttonSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSearch.UseVisualStyleBackColor = false;
+            // 
+            // buttonClearSearch
+            // 
+            this.buttonClearSearch.BackColor = System.Drawing.Color.Transparent;
+            this.buttonClearSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonClearSearch.Enabled = false;
+            this.buttonClearSearch.FlatAppearance.BorderSize = 0;
+            this.buttonClearSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonClearSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonClearSearch.Image = ((System.Drawing.Image)(resources.GetObject("buttonClearSearch.Image")));
+            this.buttonClearSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonClearSearch.Location = new System.Drawing.Point(770, 0);
+            this.buttonClearSearch.Name = "buttonClearSearch";
+            this.buttonClearSearch.Size = new System.Drawing.Size(160, 31);
+            this.buttonClearSearch.TabIndex = 65;
+            this.buttonClearSearch.Text = "Xoá khung tìm kiếm";
+            this.buttonClearSearch.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonClearSearch.UseVisualStyleBackColor = false;
             // 
             // PhieuMuonForm
             // 
@@ -387,20 +277,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1267, 680);
-            this.Controls.Add(this.searchRank);
-            this.Controls.Add(this.searchPassword);
-            this.Controls.Add(this.searchUsername);
-            this.Controls.Add(this.searchID);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonClearSearch);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.buttonSearch);
-            this.Controls.Add(this.searchSex);
-            this.Controls.Add(this.searchRealname);
-            this.Controls.Add(this.searchStatus);
-            this.Controls.Add(this.searchLocation);
-            this.Controls.Add(this.searchSDT);
-            this.Controls.Add(this.searchBirthday);
             this.Controls.Add(this.buttonAddPhieuMuon);
             this.Controls.Add(this.phieuMuonGrid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -412,27 +292,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.spgetPhieuMuonBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.quanLyThuVienDataSet10)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        public System.Windows.Forms.ComboBox searchRank;
-        public System.Windows.Forms.TextBox searchPassword;
-        public System.Windows.Forms.TextBox searchUsername;
-        public System.Windows.Forms.TextBox searchID;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button buttonClearSearch;
         private System.Windows.Forms.Button buttonRefresh;
-        private System.Windows.Forms.Button buttonSearch;
-        public System.Windows.Forms.ComboBox searchSex;
-        public System.Windows.Forms.TextBox searchRealname;
-        public System.Windows.Forms.ComboBox searchStatus;
-        public System.Windows.Forms.TextBox searchLocation;
-        public System.Windows.Forms.TextBox searchSDT;
-        public CustomControl.EDateTimePicker searchBirthday;
         private System.Windows.Forms.Button buttonAddPhieuMuon;
         public System.Windows.Forms.DataGridView phieuMuonGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn maPhieuDataGridViewTextBoxColumn;
@@ -446,5 +312,7 @@
         private System.Windows.Forms.BindingSource spgetPhieuMuonBindingSource;
         private QuanLyThuVienDataSet10 quanLyThuVienDataSet10;
         private QuanLyThuVienDataSet10TableAdapters.sp_get_PhieuMuonTableAdapter sp_get_PhieuMuonTableAdapter;
+        private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.Button buttonClearSearch;
     }
 }

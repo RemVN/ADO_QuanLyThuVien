@@ -16,9 +16,9 @@ namespace QuanLyThuVien.Forms.InputForm
     {
         Main main = Program.getMain();
 
-        public InputAuthorForm(bool isAdd) : base(isAdd, "getAllTacGia", Program.getMain().BookForm.tacGiaGrid, true)
+        public InputAuthorForm(bool isAdd) : base(isAdd, "getAllTacGia", Program.MainForm.BookForm.tacGiaGrid, true)
         {
-            withSelectorBindingSource(typeof(BookAuthor), Program.getMain().BookForm.bookAuthorBindingSource);
+            withSelectorBindingSource(typeof(BookAuthor), Program.MainForm.BookForm.bookAuthorBindingSource);
             InitializeComponent();
         }
 

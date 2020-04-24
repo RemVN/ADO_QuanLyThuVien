@@ -290,6 +290,25 @@ go
 exec getNhanVien 0, 100
 go
 
+create proc sp_get_NhanVien_by_TenDangNhap
+	@TenDangNhap varchar(50)
+as
+begin
+	select 
+	cn.MaSo, nv.TenDangNhap, nv.MatKhau, 
+	dbo.getChucVuDisplayName(nv.ChucVu) as ChucVuDisplayName, 
+	nv.ChucVu as ChucVu,
+	dbo.getTrangThaiNhanVienDisplayName(nv.TrangThai) as TrangThai, 
+	cn.HoTen, cn.NgaySinh, 
+	dbo.getGioiTinhDisplayName(cn.GioiTinh) as GioiTinh, 
+	cn.SDT, cn.DiaChi 
+	from NhanVien nv, CaNhan cn
+	where 
+	nv.TenDangNhap = @TenDangNhap and
+	nv.MaSo = cn.MaSo
+end
+go
+
 create function getGioiTinhDisplayName
 	(@GioiTinh as int)
 	returns nvarchar(10)
@@ -427,6 +446,14 @@ begin
 end
 go
 
+create proc sp_get_PhieuMuon_raw
+	@MaPhieu int 
+as
+begin 
+	select * from PhieuMuon where MaPhieu = @MaPhieu
+end
+go
+
 exec sp_get_PhieuMuon 0 , 100
 go
 
@@ -488,6 +515,9 @@ begin
 end
 go
 
+exec sp_get_SachPhieuMuon 1
+go
+
 select cn.*, nv.TenDangNhap, nv.MatKhau, nv.TrangThai  from NhanVien nv, CaNhan cn
 where nv.MaSo = cn.MaSo
 
@@ -510,3 +540,4 @@ select * from TacGia tg
 where tg.TenTacGia like 'Nguyen%' or tg.TenTacGia is null
 order by tg.MaTG
 
+select * from NhanVien where TenDangNhap = 'admin' and MatKhau = '123'

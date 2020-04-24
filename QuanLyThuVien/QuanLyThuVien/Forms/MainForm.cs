@@ -1,4 +1,7 @@
-﻿using System;
+﻿using QuanLyThuVien.Core;
+using QuanLyThuVien.Forms;
+using QuanLyThuVien.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +17,11 @@ namespace QuanLyThuVien
     {
         static Main main;
 
+        BookForm bookForm;
+        StaffForm staffForm;
+        ReaderForm readerForm;
+        PhieuMuonForm phieuMuonForm;
+
         List<Form> forms = new List<Form>();
         Form currentForm;
         Button currentFormButton;
@@ -24,22 +32,42 @@ namespace QuanLyThuVien
 
         public MainForm()
         {
+            this.BookForm = new BookForm();
+            this.StaffForm = new StaffForm();
+            this.ReaderForm = new ReaderForm();
+            this.PhieuMuonForm = new PhieuMuonForm();
             InitializeComponent();
-            button1.ContextMenuStrip = testMenuStrip;
         }
+
+        public BookForm BookForm { get => bookForm; set => bookForm = value; }
+        public StaffForm StaffForm { get => staffForm; set => staffForm = value; }
+        public ReaderForm ReaderForm { get => readerForm; set => readerForm = value; }
+        public PhieuMuonForm PhieuMuonForm { get => phieuMuonForm; set => phieuMuonForm = value; }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             main = Program.getMain();
             main.init();
-            Forms.Add(main.BookForm);
-            Forms.Add(main.StaffForm);
-            Forms.Add(main.ReaderForm);
-            Forms.Add(main.PhieuMuonForm);
+            Forms.Add(BookForm);
+            Forms.Add(StaffForm);
+            Forms.Add(ReaderForm);
+            Forms.Add(PhieuMuonForm);
             foreach (Form form in Forms) {
                 formPanel.Controls.Add(form);
             }
-            showForm(main.BookForm, buttonBookForm);
+            showForm(BookForm, buttonBookForm);
+            initLoginInfo();
+        }
+
+        public void initLoginInfo()
+        {
+            Authenticator auth = main.Authenticator;
+            labelName.Text = String.Format(labelName.Text, auth.DisplayName, auth.Id);
+            labelRank.Text = String.Format(labelRank.Text, auth.RankDisplayName);
+            labelLoginTime.Text = String.Format(labelLoginTime.Text, auth.LoginTime.ToString("dd/MM/yyyy hh:mm"));
+            if(!auth.isAdmin())
+            {
+            }
         }
 
         public void showForm(Form form, Button button)
@@ -77,29 +105,42 @@ namespace QuanLyThuVien
             }
         }
 
-        private void ButtonLogout_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void ButtonBookForm_Click(object sender, EventArgs e)
         {
-            showForm(main.BookForm, (Button) sender);
+            showForm(BookForm, (Button) sender);
         }
 
         private void ButtonStaffForm_Click(object sender, EventArgs e)
         {
-            showForm(main.StaffForm, (Button) sender);
+            if(!Program.MainInstance.Authenticator.isAdmin())
+            {
+                Messaging.showMissingPerm();
+                return;
+            }
+            showForm(StaffForm, (Button) sender);
         }
 
         private void ButtonReaderForm_Click(object sender, EventArgs e)
         {
-            showForm(main.ReaderForm, (Button)sender);
+            showForm(ReaderForm, (Button)sender);
         }
 
         private void ButtonMuonTraForm_Click(object sender, EventArgs e)
         {
-            showForm(main.PhieuMuonForm, (Button)sender);
+            showForm(PhieuMuonForm, (Button)sender);
+        }
+
+        private void ButtonLogout_Click_1(object sender, EventArgs e)
+        {
+            Program.logout();
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(main.Authenticator.Auth == true)
+            {
+                Application.Exit();
+            }
         }
     }
 }

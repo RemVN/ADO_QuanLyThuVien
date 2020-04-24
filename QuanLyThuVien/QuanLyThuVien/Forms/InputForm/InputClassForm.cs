@@ -16,9 +16,9 @@ namespace QuanLyThuVien.Forms.InputForm
     {
         static Main main = Program.MainInstance;
 
-        public InputClassForm(bool isAdd) : base(isAdd, "getLop", Program.MainInstance.ReaderForm.classGrid, true)
+        public InputClassForm(bool isAdd) : base(isAdd, "getLop", Program.MainForm.ReaderForm.classGrid, true)
         {
-            withSelectorBindingSource(typeof(NameableObject), main.ReaderForm.classBindingSource);
+            withSelectorBindingSource(typeof(NameableObject), Program.MainForm.ReaderForm.classBindingSource);
             InitializeComponent();
         }
 

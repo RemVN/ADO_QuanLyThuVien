@@ -46,12 +46,14 @@
   <ItemGroup>
     <Compile Include="BookDetails\Book.cs" />
     <Compile Include="BookDetails\BookAuthor.cs" />
+    <Compile Include="BookDetails\BookPhieuMuon.cs" />
     <Compile Include="BookDetails\BookType.cs" />
     <Compile Include="BookDetails\BookLocation.cs" />
     <Compile Include="BookDetails\BookNXB.cs" />
     <Compile Include="BookDetails\SqlObject.cs" />
     <Compile Include="BookDetails\SqlObjectLoader.cs" />
     <Compile Include="Config\Configuration.cs" />
+    <Compile Include="Core\Authenticator.cs" />
     <Compile Include="Core\ContextMenuAction.cs" />
     <Compile Include="Core\EContextMenu.cs">
       <SubType>UserControl</SubType>
@@ -316,6 +318,7 @@
     <None Include="Properties\DataSources\QuanLyThuVien.BookDetails.BookAuthor.datasource" />
     <None Include="Properties\DataSources\QuanLyThuVien.BookDetails.BookLocation.datasource" />
     <None Include="Properties\DataSources\QuanLyThuVien.BookDetails.BookNXB.datasource" />
+    <None Include="Properties\DataSources\QuanLyThuVien.BookDetails.BookPhieuMuon.datasource" />
     <None Include="Properties\DataSources\QuanLyThuVien.BookDetails.BookType.datasource" />
     <None Include="Properties\DataSources\QuanLyThuVien.Core.NameableObject.datasource" />
     <None Include="Properties\DataSources\QuanLyThuVien.Core.SqlCodeObject.datasource" />

@@ -15,14 +15,14 @@ namespace QuanLyThuVien.Manager
     public class ReaderManager : GridManager
     {
 
-        public ReaderManager() : base(main.ReaderForm.readerGrid)
+        public ReaderManager() : base(Program.MainForm.ReaderForm.readerGrid)
         {
             initSelector();
         }
 
         public object[] getReaderSearchParams()
         {
-            ReaderForm readerForm = main.ReaderForm;
+            ReaderForm readerForm = Program.MainForm.ReaderForm;
             object[] arr = new object[11];
             arr[0] = getValueOfTextBox(readerForm.searchID);
             arr[1] = getValueOfComboBox(readerForm.searchKhoa);
@@ -57,7 +57,7 @@ namespace QuanLyThuVien.Manager
         public void initSelector()
         {
             int limit = Configuration.defaultLimit;
-            ReaderForm readerForm = main.ReaderForm;
+            ReaderForm readerForm = Program.MainForm.ReaderForm;
             setBindingSource(readerForm.khoaBindingSource,
                 SqlObjectLoader.getSqlObjectsFromDataTable(
                     typeof(NameableObject),
@@ -73,7 +73,7 @@ namespace QuanLyThuVien.Manager
             new Thread(() =>
             {
                 DataTable dataTable = getDataTableWithOffsetAndLimit("getSinhVien", currentOffset, 40);
-                main.ReaderForm.Invoke(new Action(delegate
+                Program.MainForm.ReaderForm.Invoke(new Action(delegate
                 {
                     setDataToGrid(dataTable);
                 }));

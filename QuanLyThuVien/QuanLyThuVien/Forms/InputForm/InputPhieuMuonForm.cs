@@ -1,4 +1,5 @@
-﻿using QuanLyThuVien.Core;
+﻿using QuanLyThuVien.BookDetails;
+using QuanLyThuVien.Core;
 using QuanLyThuVien.CustomControl;
 using QuanLyThuVien.Utils;
 using System;
@@ -18,14 +19,13 @@ namespace QuanLyThuVien.Forms.InputForm
     {
         static Main main = Program.MainInstance;
 
-        List<NameableObject> oldBooks = new List<NameableObject>();
-        List<NameableObject> newBooks = new List<NameableObject>();
+        IDList<BookPhieuMuon> oldBooks = new IDList<BookPhieuMuon>();
+        IDList<BookPhieuMuon> newBooks = new IDList<BookPhieuMuon>();
         BindingSource bookBinding = new BindingSource();
 
-        public InputPhieuMuonForm(bool isAdd) : base(isAdd, "", main.PhieuMuonForm.phieuMuonGrid, true)
+        public InputPhieuMuonForm(bool isAdd) : base(isAdd, "", Program.MainForm.PhieuMuonForm.phieuMuonGrid, true)
         {
             InitializeComponent();
-            initEvents();
             bookBinding.DataSource = newBooks;
             inputBooks.DataSource = bookBinding;
         }
@@ -37,11 +37,23 @@ namespace QuanLyThuVien.Forms.InputForm
             this.buttonAdd.Text = getExecuteButtonName();
             if (!isAdd)
             {
-                oldBooks = main.phieuMuonManager.getBookPhieuMuon(int.Parse(id));
+                oldBooks.AddRange(main.phieuMuonManager.getBookPhieuMuon(int.Parse(id)));
                 this.inputID.Text = id;
                 newBooks.AddRange(oldBooks);
                 bookBinding.ResetBindings(true);
+                DataTable dataTable = main.getSqlObject("sp_get_PhieuMuon_raw", "@MaPhieu", int.Parse(id));
+                DataRow row = dataTable.Rows[0];
+                inputReader.Text = Convert.ToString(row["MaSV"]);
+                inputNgayMuon.Value = (DateTime) row["NgayMuon"];
+                DateTime ngayHenTra = (DateTime)row["NgayHenTra"];
+                int totalDays = (ngayHenTra - inputNgayMuon.Value).Days;
+                inputSoNgay.Value = totalDays;
             }
+        }
+
+        public bool isOldBook(int bookID)
+        {
+            return oldBooks.getByID(bookID) != null;
         }
 
         public override string getName()
@@ -49,7 +61,15 @@ namespace QuanLyThuVien.Forms.InputForm
             return isAdd ? "Tạo phiếu mượn" : "Sửa phiếu mượn";
         }
 
-        public void insertChiTietPhieuMuon(int phieuMuonID, int bookID)
+        public void insertCTPM(int id)
+        {
+            foreach (NameableObject book in inputBooks.Items)
+            {
+                insertBook(id, book.id);
+            }
+        }
+
+        public void insertBook(int phieuMuonID, int bookID)
         {
             SqlCommand sqlCommand = new SqlCommand("insert into ChiTietPhieuMuon (MaPhieu, MaSach) values (@MaPhieu, @MaSach)", main.sqlConnection);
             sqlCommand.Parameters.AddWithValue("@MaPhieu", phieuMuonID);
@@ -60,25 +80,35 @@ namespace QuanLyThuVien.Forms.InputForm
         public void addPhieuMuonToSQL()
         {
             SqlCommand sqlCommand = new SqlCommand("insert into PhieuMuon (MaSV, MaNV, NgayMuon, NgayHenTra) output INSERTED.MaPhieu values (@MaSV, @MaNV, @NgayMuon, @NgayHenTra)", main.sqlConnection);
-            addPhieuMuonParams(sqlCommand);
+            addPhieuMuonParams(sqlCommand, true);
             int id = (int) sqlCommand.ExecuteScalar();
-            foreach(NameableObject book in inputBooks.Items)
-            {
-                insertChiTietPhieuMuon(id, book.id);
-            }
+            insertCTPM(id);
         }
 
-        public void addPhieuMuonParams(SqlCommand sqlCommand)
+        public void addPhieuMuonParams(SqlCommand sqlCommand, bool nhanVien)
         {
             sqlCommand.Parameters.AddWithValue("@MaSV", inputReader.Text);
+            if(nhanVien)
             sqlCommand.Parameters.AddWithValue("@MaNV", 1);
             sqlCommand.Parameters.AddWithValue("@NgayMuon", inputNgayMuon.getDateTimeSQL());
             sqlCommand.Parameters.AddWithValue("@NgayHenTra", inputNgayMuon.Value.AddDays(Convert.ToDouble(inputSoNgay.Value)));
         }
 
+        public void deleteBooksOfPhieuMuon()
+        {
+            SqlCommand sqlCommand = new SqlCommand(@"delete from ChiTietPhieuMuon where MaPhieu = @MaPhieu", main.sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@MaPhieu", id);
+            sqlCommand.ExecuteNonQuery();
+        }
+
         public void editPhieuMuonToSQL()
         {
-
+            deleteBooksOfPhieuMuon();
+            insertCTPM(int.Parse(id));
+            SqlCommand sqlCommand = new SqlCommand(@"update PhieuMuon set MaSV = @MaSV, NgayMuon = @NgayMuon, NgayHenTra = @NgayHenTra where MaPhieu = @MaPhieu", main.sqlConnection);
+            sqlCommand.Parameters.AddWithValue("@MaPhieu", id);
+            addPhieuMuonParams(sqlCommand, false);
+            sqlCommand.ExecuteNonQuery();
         }
 
         public override void refresh()
@@ -98,6 +128,11 @@ namespace QuanLyThuVien.Forms.InputForm
                 Messaging.showInputMissingMessage("Mã sinh viên mượn");
                 return false;
             }
+            if(!main.isSqlObjectExist(@"select * from SinhVien where MaSo = @MaSo", "@MaSo", Convert.ToInt32(inputReader.Text)))
+            {
+                Messaging.showWarning(String.Format("Sinh có mã số {0} không tồn tại", inputReader.Text));
+                return false;
+            }
             if(inputNgayMuon.getDateTimeSQL() == DBNull.Value)
             {
                 Messaging.showInputMissingMessage("Ngày mượn");
@@ -106,13 +141,14 @@ namespace QuanLyThuVien.Forms.InputForm
             if(inputBooks.Items.Count == 0)
             {
                 Messaging.showWarning("Phải mượn ít nhất một quyển sách");
-                return true;
+                return false;
             }
             return true;
         }
 
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
+            if (!checkInput()) return;
             new Thread(() =>
             {
                 if (isAdd)
@@ -146,14 +182,43 @@ namespace QuanLyThuVien.Forms.InputForm
                 Messaging.showWarning("Sách không tồn tại");
                 return;
             }
-            if(!main.bookManager.isBookAvailable(id))
+            if (newBooks.getByID(id) != null)
             {
-                Messaging.showWarning("Sách không khả dụng");
+                Messaging.showWarning("Bạn đã thêm sách này");
                 return;
             }
-            NameableObject book = main.bookManager.getBookByID(id);
+            if (!isAdd)
+            {
+                if(!isOldBook(id))
+                {
+                    if (!main.bookManager.isBookAvailable(id))
+                    {
+                        Messaging.showWarning("Sách không khả dụng");
+                        return;
+                    }
+                }
+            }
+            else
+            {
+                if (!main.bookManager.isBookAvailable(id))
+                {
+                    Messaging.showWarning("Sách không khả dụng");
+                    return;
+                }
+            }
+            BookPhieuMuon book = main.bookManager.getBookByID(id);
             newBooks.Add(book);
             bookBinding.ResetBindings(true);
+        }
+
+        private void InputBooks_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Delete)
+            {
+                if (inputBooks.SelectedIndex == -1) return;
+                newBooks.RemoveAt(inputBooks.SelectedIndex);
+                bookBinding.ResetBindings(true);
+            }
         }
     }
 }

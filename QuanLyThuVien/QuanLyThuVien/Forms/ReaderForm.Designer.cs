@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReaderForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.khoaGrid = new System.Windows.Forms.DataGridView();
             this.maKhoaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,6 +67,7 @@
             this.classGridBindingSouce = new System.Windows.Forms.BindingSource(this.components);
             this.quanLyThuVienDataSet9 = new QuanLyThuVien.QuanLyThuVienDataSet9();
             this.buttonAddClass = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.searchSinhVienTableAdapter = new QuanLyThuVien.QuanLyThuVienDataSet7TableAdapters.searchSinhVienTableAdapter();
             this.searchBirthday = new QuanLyThuVien.CustomControl.EDateTimePicker();
             this.searchLocation = new System.Windows.Forms.TextBox();
@@ -103,11 +104,11 @@
             this.tabPage4.Controls.Add(this.khoaGrid);
             this.tabPage4.Controls.Add(this.buttonAddKhoa);
             this.tabPage4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPage4.ImageIndex = 3;
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.ImageIndex = 1;
+            this.tabPage4.Location = new System.Drawing.Point(4, 39);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(388, 628);
+            this.tabPage4.Size = new System.Drawing.Size(388, 614);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Khoa";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -124,14 +125,14 @@
             this.maKhoaDataGridViewTextBoxColumn,
             this.tenKhoaDataGridViewTextBoxColumn1});
             this.khoaGrid.DataSource = this.khoaGridBindingSource;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.khoaGrid.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.khoaGrid.DefaultCellStyle = dataGridViewCellStyle11;
             this.khoaGrid.Location = new System.Drawing.Point(6, 52);
             this.khoaGrid.Name = "khoaGrid";
             this.khoaGrid.ReadOnly = true;
@@ -259,8 +260,8 @@
             // 
             this.readerGrid.AllowUserToAddRows = false;
             this.readerGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.readerGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.readerGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
             this.readerGrid.AutoGenerateColumns = false;
             this.readerGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.readerGrid.BackgroundColor = System.Drawing.Color.LightGray;
@@ -277,20 +278,20 @@
             this.sDTDataGridViewTextBoxColumn,
             this.diaChiDataGridViewTextBoxColumn});
             this.readerGrid.DataSource = this.searchSinhVienBindingSource;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.readerGrid.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.readerGrid.DefaultCellStyle = dataGridViewCellStyle13;
             this.readerGrid.Location = new System.Drawing.Point(12, 76);
             this.readerGrid.Name = "readerGrid";
             this.readerGrid.ReadOnly = true;
             this.readerGrid.RowHeadersVisible = false;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.readerGrid.RowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.readerGrid.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.readerGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.readerGrid.Size = new System.Drawing.Size(830, 599);
             this.readerGrid.TabIndex = 41;
@@ -390,6 +391,7 @@
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.ImageList = this.imageList1;
             this.tabControl1.Location = new System.Drawing.Point(859, 18);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -400,10 +402,11 @@
             // 
             this.tabPage1.Controls.Add(this.classGrid);
             this.tabPage1.Controls.Add(this.buttonAddClass);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.ImageIndex = 0;
+            this.tabPage1.Location = new System.Drawing.Point(4, 39);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(388, 628);
+            this.tabPage1.Size = new System.Drawing.Size(388, 614);
             this.tabPage1.TabIndex = 4;
             this.tabPage1.Text = "Lớp";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -420,14 +423,14 @@
             this.maLopDataGridViewTextBoxColumn,
             this.tenLopDataGridViewTextBoxColumn1});
             this.classGrid.DataSource = this.classGridBindingSouce;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.classGrid.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.classGrid.DefaultCellStyle = dataGridViewCellStyle15;
             this.classGrid.Location = new System.Drawing.Point(8, 51);
             this.classGrid.Name = "classGrid";
             this.classGrid.ReadOnly = true;
@@ -479,6 +482,13 @@
             this.buttonAddClass.UseVisualStyleBackColor = false;
             this.buttonAddClass.Click += new System.EventHandler(this.ButtonAddClass_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "teacher.png");
+            this.imageList1.Images.SetKeyName(1, "school.png");
+            // 
             // searchSinhVienTableAdapter
             // 
             this.searchSinhVienTableAdapter.ClearBeforeFill = true;
@@ -488,7 +498,7 @@
             this.searchBirthday.CustomFormat = " ";
             this.searchBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.searchBirthday.Location = new System.Drawing.Point(468, 49);
-            this.searchBirthday.MaxDate = new System.DateTime(2020, 4, 21, 15, 51, 34, 734);
+            this.searchBirthday.MaxDate = new System.DateTime(2020, 4, 24, 6, 21, 35, 928);
             this.searchBirthday.MaxIsToday = true;
             this.searchBirthday.Name = "searchBirthday";
             this.searchBirthday.Size = new System.Drawing.Size(75, 20);
@@ -582,7 +592,7 @@
             this.searchNgayCap.CustomFormat = " ";
             this.searchNgayCap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.searchNgayCap.Location = new System.Drawing.Point(216, 49);
-            this.searchNgayCap.MaxDate = new System.DateTime(2020, 4, 21, 15, 51, 34, 756);
+            this.searchNgayCap.MaxDate = new System.DateTime(2020, 4, 24, 6, 21, 35, 956);
             this.searchNgayCap.MaxIsToday = true;
             this.searchNgayCap.Name = "searchNgayCap";
             this.searchNgayCap.Size = new System.Drawing.Size(75, 20);
@@ -706,5 +716,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tenLopDataGridViewTextBoxColumn1;
         public System.Windows.Forms.BindingSource classGridBindingSouce;
         public System.Windows.Forms.BindingSource khoaGridBindingSource;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

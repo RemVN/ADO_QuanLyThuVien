@@ -142,17 +142,17 @@ namespace QuanLyThuVien.Forms.InputForm
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Name = "InputForm";
             this.ResumeLayout(false);
+
         }
 
         public void initEvents()
         {
-            this.Shown += new System.EventHandler(this.InputForm_Shown);
+            this.Load += new System.EventHandler(this.InputForm_Load);
         }
 
-        private void InputForm_Shown(object sender, EventArgs e)
+        private void InputForm_Load(object sender, EventArgs e)
         {
             changeControlData();
         }
-
     }
 }

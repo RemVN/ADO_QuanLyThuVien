@@ -21,7 +21,7 @@ namespace QuanLyThuVien.Manager
         public IDList<NameableObject> locationList = new IDList<NameableObject>();
         public IDList<NameableObject> typeList = new IDList<NameableObject>();
 
-        public BookManager() : base(main.BookForm.bookGrid)
+        public BookManager() : base(Program.MainForm.BookForm.bookGrid)
         {
             initSelector();
         }
@@ -31,7 +31,7 @@ namespace QuanLyThuVien.Manager
             return main.isSqlObjectExist("select * from Sach where MaSach = @MaSach", "@MaSach", bookID);
         }
 
-        public NameableObject getBookByID(int bookID)
+        public BookPhieuMuon getBookByID(int bookID)
         {
             SqlCommand sqlCommand = new SqlCommand(@"select s.MaSach, s.TenSach from Sach s where s.MaSach = @MaSach", main.sqlConnection);
             sqlCommand.Parameters.AddWithValue("@MaSach", bookID);
@@ -40,7 +40,7 @@ namespace QuanLyThuVien.Manager
             {
                 if (!reader.Read())
                     return null;
-                return new NameableObject(reader.GetInt32(0), reader.GetString(1));
+                return new BookPhieuMuon(reader.GetInt32(0), reader.GetString(1));
             } finally
             {
                 reader.Close();
@@ -61,7 +61,7 @@ namespace QuanLyThuVien.Manager
 
         public object[] getBookSearchParm()
         {
-            BookForm bookForm = main.BookForm;
+            BookForm bookForm = Program.MainForm.BookForm;
             object[] arr = new object[11];
             arr[0] = getValueOfTextBox(bookForm.searchBookID);
             arr[1] = getValueOfTextBox(bookForm.searchBookName);
@@ -107,16 +107,16 @@ namespace QuanLyThuVien.Manager
             nxbList.AddRange(SqlObjectLoader.getSqlObjectsFromDataTable(typeof(BookNXB), getDataTableWithOffsetAndLimit("getNXB", 0, limit)));
             locationList.AddRange(SqlObjectLoader.getSqlObjectsFromDataTable(typeof(BookLocation), getDataTableWithOffsetAndLimit("getVitri", 0, limit)));
             typeList.AddRange(SqlObjectLoader.getSqlObjectsFromDataTable(typeof(BookType), getDataTableWithOffsetAndLimit("getLoaiSach", 0, limit)));
-            main.BookForm.clearSearchInput();
+            Program.MainForm.BookForm.clearSearchInput();
         }
 
         public void initSelector()
         {
             loadSelector();
-            setBindingSource(main.BookForm.bookAuthorBindingSource, authorList);
-            setBindingSource(main.BookForm.bookNXBBindingSource, nxbList);
-            setBindingSource(main.BookForm.bookLocationBindingSource, locationList);
-            setBindingSource(main.BookForm.bookTypeBindingSource, typeList);
+            setBindingSource(Program.MainForm.BookForm.bookAuthorBindingSource, authorList);
+            setBindingSource(Program.MainForm.BookForm.bookNXBBindingSource, nxbList);
+            setBindingSource(Program.MainForm.BookForm.bookLocationBindingSource, locationList);
+            setBindingSource(Program.MainForm.BookForm.bookTypeBindingSource, typeList);
         }
 
         public override void defaultLoad()
@@ -124,7 +124,7 @@ namespace QuanLyThuVien.Manager
             new Thread(() =>
             {
                 DataTable dataTable = getBooksWithOffsetAndLimit(currentOffset, 40);
-                main.BookForm.Invoke(new Action(delegate
+                Program.MainForm.BookForm.Invoke(new Action(delegate
                 {
                     setDataToGrid(dataTable);
                 }));

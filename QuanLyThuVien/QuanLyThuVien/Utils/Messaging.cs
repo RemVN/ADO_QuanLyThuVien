@@ -9,6 +9,11 @@ namespace QuanLyThuVien.Utils
     class Messaging
     {
 
+        public static void showMissingPerm()
+        {
+            showWarning("Bạn không đủ quyền để truy cập chức năng này");
+        }
+
         public static void showWarning(string message)
         {
             MessageBox.Show(message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);

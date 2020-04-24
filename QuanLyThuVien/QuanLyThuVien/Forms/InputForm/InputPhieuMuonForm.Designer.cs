@@ -41,13 +41,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.inputBooks = new System.Windows.Forms.ListBox();
-            this.booksBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonAddBook = new System.Windows.Forms.Button();
             this.inputAddBook = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.buttonAdd = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.booksBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.inputSoNgay)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -137,11 +137,12 @@
             this.inputNgayMuon.CustomFormat = " ";
             this.inputNgayMuon.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.inputNgayMuon.Location = new System.Drawing.Point(270, 141);
-            this.inputNgayMuon.MaxDate = new System.DateTime(2020, 4, 22, 22, 6, 50, 150);
+            this.inputNgayMuon.MaxDate = new System.DateTime(2020, 4, 24, 4, 40, 22, 424);
             this.inputNgayMuon.MaxIsToday = true;
             this.inputNgayMuon.Name = "inputNgayMuon";
             this.inputNgayMuon.Size = new System.Drawing.Size(155, 21);
             this.inputNgayMuon.TabIndex = 4;
+            this.inputNgayMuon.Value = new System.DateTime(2020, 4, 22, 22, 6, 50, 150);
             this.inputNgayMuon.ValueChanged += new System.EventHandler(this.InputNgayMuon_ValueChanged);
             this.inputNgayMuon.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InputNgayMuon_KeyDown);
             // 
@@ -179,7 +180,7 @@
             // inputBooks
             // 
             this.inputBooks.DataSource = this.booksBindingSource;
-            this.inputBooks.DisplayMember = "Name";
+            this.inputBooks.DisplayMember = "DisplayName";
             this.inputBooks.FormattingEnabled = true;
             this.inputBooks.ItemHeight = 15;
             this.inputBooks.Location = new System.Drawing.Point(128, 83);
@@ -187,10 +188,7 @@
             this.inputBooks.Size = new System.Drawing.Size(297, 124);
             this.inputBooks.TabIndex = 7;
             this.inputBooks.ValueMember = "Id";
-            // 
-            // booksBindingSource
-            // 
-            this.booksBindingSource.DataSource = typeof(QuanLyThuVien.Core.NameableObject);
+            this.inputBooks.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InputBooks_KeyDown);
             // 
             // buttonAddBook
             // 
@@ -255,6 +253,10 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
+            // booksBindingSource
+            // 
+            this.booksBindingSource.DataSource = typeof(QuanLyThuVien.BookDetails.BookPhieuMuon);
+            // 
             // InputPhieuMuonForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -293,11 +295,11 @@
         private System.Windows.Forms.TextBox inputAddBook;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox inputBooks;
-        private System.Windows.Forms.BindingSource booksBindingSource;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox inputID;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.BindingSource booksBindingSource;
     }
 }

@@ -16,9 +16,9 @@ namespace QuanLyThuVien.Forms.InputForm
     {
         Main main = Program.getMain();
 
-        public InputNXBForm(bool isAdd) : base(isAdd, "getAllNXB", Program.getMain().BookForm.nxbGrid, true)
+        public InputNXBForm(bool isAdd) : base(isAdd, "getAllNXB", Program.MainForm.BookForm.nxbGrid, true)
         {
-            withSelectorBindingSource(typeof(BookNXB), Program.getMain().BookForm.bookNXBBindingSource);
+            withSelectorBindingSource(typeof(BookNXB), Program.MainForm.BookForm.bookNXBBindingSource);
             InitializeComponent();
         }
 

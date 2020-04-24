@@ -1,4 +1,5 @@
 ﻿using QuanLyThuVien.Config;
+using QuanLyThuVien.Core;
 using QuanLyThuVien.Utils;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace QuanLyThuVien.Forms.InputForm
     {
         static Main main = Program.getMain();
 
-        public InputStaffForm(bool isAdd) : base(isAdd, "", main.StaffForm.staffGrid, true)
+        public InputStaffForm(bool isAdd) : base(isAdd, "", Program.MainForm.StaffForm.staffGrid, true)
         {
             InitializeComponent();
             inputRank.DataSource = Configuration.staffRanks;
@@ -70,7 +71,8 @@ namespace QuanLyThuVien.Forms.InputForm
         public void addInputParams(SqlCommand sqlCommand)
         {
             sqlCommand.Parameters.AddWithValue("@TenDangNhap", inputUsername.Text);
-            sqlCommand.Parameters.AddWithValue("@MatKhau", inputPassword.Text);
+            Console.WriteLine("pwd hash: " + Authenticator.sha256(inputPassword.Text));
+            sqlCommand.Parameters.AddWithValue("@MatKhau", Authenticator.sha256(inputPassword.Text));
             sqlCommand.Parameters.AddWithValue("@TrangThai", inputStatus.SelectedValue);
             sqlCommand.Parameters.AddWithValue("@ChucVu", inputRank.SelectedValue);
         }

@@ -1,4 +1,5 @@
-﻿using QuanLyThuVien.Forms;
+﻿using QuanLyThuVien.Core;
+using QuanLyThuVien.Forms;
 using QuanLyThuVien.Manager;
 using System;
 using System.Collections.Generic;
@@ -13,31 +14,21 @@ namespace QuanLyThuVien
     public class Main
     {
 
-        BookForm bookForm;
-        StaffForm staffForm;
-        ReaderForm readerForm;
-        PhieuMuonForm phieuMuonForm;
-
         public SqlConnection sqlConnection;
 
         public BookManager bookManager;
         public StaffManager staffManager;
         public ReaderManager readerManager;
         public PhieuMuonManager phieuMuonManager;
+        Authenticator authenticator;
 
         public Main()
         {
-            this.BookForm = new BookForm();
-            this.StaffForm = new StaffForm();
-            this.ReaderForm = new ReaderForm();
-            this.PhieuMuonForm = new PhieuMuonForm();
+            this.Authenticator = new Authenticator();
             initSqlConnection();
         }
 
-        public BookForm BookForm { get => bookForm; set => bookForm = value; }
-        public StaffForm StaffForm { get => staffForm; set => staffForm = value; }
-        public ReaderForm ReaderForm { get => readerForm; set => readerForm = value; }
-        public PhieuMuonForm PhieuMuonForm { get => phieuMuonForm; set => phieuMuonForm = value; }
+        public Authenticator Authenticator { get => authenticator; set => authenticator = value; }
 
         public void init()
         {
@@ -57,6 +48,22 @@ namespace QuanLyThuVien
             stringBuilder["Password"] = "123456";
             sqlConnection = new SqlConnection(stringBuilder.ToString());
             sqlConnection.Open();
+        }
+
+        public DataTable getSqlObject(string storedProcedure, string idParamName, string id)
+        {
+            SqlCommand sqlCommand = new SqlCommand(storedProcedure, sqlConnection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue(idParamName, id);
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            DataTable table = new DataTable();
+            sqlDataAdapter.Fill(table);
+            return table;
+        }
+
+        public DataTable getSqlObject(string storedProcedure, string idParamName, int id)
+        {
+            return getSqlObject(storedProcedure, idParamName, id.ToString());
         }
 
         public bool isSqlObjectExist(string command, string paramName, int id)
@@ -80,7 +87,6 @@ namespace QuanLyThuVien
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
             DataTable sinhVien = new DataTable();
             sqlDataAdapter.Fill(sinhVien);
-            bookForm.bookGrid.DataSource = sinhVien;
             foreach (DataRow row in sinhVien.Rows)
             {
                 //foreach (var item in row.ItemArray)

@@ -17,11 +17,11 @@ namespace QuanLyThuVien.Forms.InputForm
     {
         static Main main = Program.MainInstance;
 
-        public InputReaderForm(bool isAdd) : base(isAdd, "", main.ReaderForm.readerGrid, true)
+        public InputReaderForm(bool isAdd) : base(isAdd, "", Program.MainForm.ReaderForm.readerGrid, true)
         {
             InitializeComponent();
-            inputKhoa.DataSource = main.ReaderForm.khoaBindingSource;
-            inputClass.DataSource = main.ReaderForm.classBindingSource;
+            inputKhoa.DataSource = Program.MainForm.ReaderForm.khoaBindingSource;
+            inputClass.DataSource = Program.MainForm.ReaderForm.classBindingSource;
         }
 
         public override void changeControlData()

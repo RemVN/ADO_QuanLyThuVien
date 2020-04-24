@@ -1,4 +1,5 @@
-﻿using QuanLyThuVien.Core;
+﻿using QuanLyThuVien.BookDetails;
+using QuanLyThuVien.Core;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,22 +12,24 @@ namespace QuanLyThuVien.Manager
 {
     public class PhieuMuonManager : GridManager
     {
-        public PhieuMuonManager() : base(main.PhieuMuonForm.phieuMuonGrid)
+        public PhieuMuonManager() : base(Program.MainForm.PhieuMuonForm.phieuMuonGrid)
         {
 
         }
 
-        public List<NameableObject> getBookPhieuMuon(int phieuMuonID)
+        public List<BookPhieuMuon> getBookPhieuMuon(int phieuMuonID)
         {
-            List<NameableObject> list = new List<NameableObject>();
+            List<BookPhieuMuon> list = new List<BookPhieuMuon>();
             SqlCommand sqlCommand = new SqlCommand("sp_get_SachPhieuMuon", main.sqlConnection);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
             sqlCommand.Parameters.AddWithValue("@MaPhieu", phieuMuonID);
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
             DataTable table = new DataTable();
             sqlDataAdapter.Fill(table);
+            Console.WriteLine("rows: " + table.Rows.Count);
             foreach(DataRow row in table.Rows)
             {
-                list.Add(new NameableObject(int.Parse(row["MaSach"].ToString()), (string)row["TenSach"]));
+                list.Add(new BookPhieuMuon(int.Parse(row["MaSach"].ToString()), (string)row["TenSach"]));
             }
             return list;
         }
@@ -36,7 +39,7 @@ namespace QuanLyThuVien.Manager
             new Thread(() =>
             {
                 DataTable dataTable = getDataTableWithOffsetAndLimit("sp_get_PhieuMuon", currentOffset, 40);
-                main.PhieuMuonForm.Invoke(new Action(delegate
+                Program.MainForm.PhieuMuonForm.Invoke(new Action(delegate
                 {
                     setDataToGrid(dataTable);
                 }));

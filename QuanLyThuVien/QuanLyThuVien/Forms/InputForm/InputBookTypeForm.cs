@@ -17,9 +17,9 @@ namespace QuanLyThuVien.Forms.InputForm
 
         Main main = Program.getMain();
 
-        public InputBookTypeForm(bool isAdd) : base(isAdd, "getAllLoaiSach", Program.getMain().BookForm.bookTypeGrid, true)
+        public InputBookTypeForm(bool isAdd) : base(isAdd, "getAllLoaiSach", Program.MainForm.BookForm.bookTypeGrid, true)
         {
-            withSelectorBindingSource(typeof(BookType), Program.getMain().BookForm.bookTypeBindingSource);
+            withSelectorBindingSource(typeof(BookType), Program.MainForm.BookForm.bookTypeBindingSource);
             InitializeComponent();
         }
 

@@ -16,9 +16,9 @@ namespace QuanLyThuVien.Forms.InputForm
     {
         Main main = Program.getMain();
 
-        public InputLocationForm(bool isAdd) : base(isAdd, "getAllViTri", Program.getMain().BookForm.locationGrid, true)
+        public InputLocationForm(bool isAdd) : base(isAdd, "getAllViTri", Program.MainForm.BookForm.locationGrid, true)
         {
-            withSelectorBindingSource(typeof(BookLocation), Program.getMain().BookForm.bookLocationBindingSource);
+            withSelectorBindingSource(typeof(BookLocation), Program.MainForm.BookForm.bookLocationBindingSource);
             InitializeComponent();
         }
 

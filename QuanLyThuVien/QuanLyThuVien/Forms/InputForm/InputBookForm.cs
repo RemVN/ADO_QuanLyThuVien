@@ -17,14 +17,14 @@ namespace QuanLyThuVien.Forms.InputForm
     {
         Main main = Program.getMain();
 
-        public InputBookForm(bool isAdd) : base(isAdd, "", Program.getMain().BookForm.bookGrid, true)
+        public InputBookForm(bool isAdd) : base(isAdd, "", Program.MainForm.BookForm.bookGrid, true)
         {
             InitializeComponent();
             comboStatus.DataSource = Configuration.statusList;
-            comboAuthor.DataSource = main.BookForm.bookAuthorBindingSource;
-            comboNXB.DataSource = main.BookForm.bookNXBBindingSource;
-            comboType.DataSource = main.BookForm.bookTypeBindingSource;
-            comboLocation.DataSource = main.BookForm.bookLocationBindingSource;
+            comboAuthor.DataSource = Program.MainForm.BookForm.bookAuthorBindingSource;
+            comboNXB.DataSource = Program.MainForm.BookForm.bookNXBBindingSource;
+            comboType.DataSource = Program.MainForm.BookForm.bookTypeBindingSource;
+            comboLocation.DataSource = Program.MainForm.BookForm.bookLocationBindingSource;
         }
 
         public override void changeControlData()

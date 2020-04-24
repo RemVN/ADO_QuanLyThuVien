@@ -12,14 +12,14 @@ namespace QuanLyThuVien.Manager
     public class StaffManager : GridManager
     {
 
-        public StaffManager() : base(main.StaffForm.staffGrid)
+        public StaffManager() : base(Program.MainForm.StaffForm.staffGrid)
         {
 
         }
 
         public object[] getStaffSearchParam()
         {
-            StaffForm staffForm = main.StaffForm;
+            StaffForm staffForm = Program.MainForm.StaffForm;
             object[] arr = new object[10];
             arr[0] = getValueOfTextBox(staffForm.searchID);
             arr[1] = getValueOfTextBox(staffForm.searchUsername);
@@ -55,7 +55,7 @@ namespace QuanLyThuVien.Manager
             new Thread(() =>
             {
                 DataTable dataTable = getDataTableWithOffsetAndLimit("getNhanVien", currentOffset, 40);
-                main.BookForm.Invoke(new Action(delegate
+                Program.MainForm.BookForm.Invoke(new Action(delegate
                 {
                     setDataToGrid(dataTable);
                 }));

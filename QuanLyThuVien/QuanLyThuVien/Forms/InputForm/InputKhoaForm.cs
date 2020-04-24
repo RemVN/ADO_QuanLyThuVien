@@ -16,9 +16,9 @@ namespace QuanLyThuVien.Forms.InputForm
     {
         static Main main = Program.MainInstance;
 
-        public InputKhoaForm(bool isAdd) : base(isAdd, "getKhoa", main.ReaderForm.khoaGrid, true)
+        public InputKhoaForm(bool isAdd) : base(isAdd, "getKhoa", Program.MainForm.ReaderForm.khoaGrid, true)
         {
-            withSelectorBindingSource(typeof(NameableObject), main.ReaderForm.khoaBindingSource);
+            withSelectorBindingSource(typeof(NameableObject), Program.MainForm.ReaderForm.khoaBindingSource);
             InitializeComponent();
         }
 

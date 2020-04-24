@@ -1,4 +1,5 @@
-﻿using QuanLyThuVien.Forms.InputForm;
+﻿using QuanLyThuVien.Core;
+using QuanLyThuVien.Forms.InputForm;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,6 +33,25 @@ namespace QuanLyThuVien.Forms
         private void ButtonRefresh_Click(object sender, EventArgs e)
         {
             Program.MainInstance.phieuMuonManager.refreshGrid();
+        }
+
+        private void PhieuMuonGrid_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                int rowClick = phieuMuonGrid.HitTest(e.X, e.Y).RowIndex;
+                if (rowClick == -1) return;
+                DataGridViewRow row = phieuMuonGrid.Rows[rowClick];
+                string id = ((int)row.Cells[0].Value).ToString();
+                EContextMenu eContextMenu = new EContextMenu(this, new Action(delegate
+                {
+                    InputPhieuMuonForm form = new InputPhieuMuonForm(false);
+                    form.withID(id);
+                    form.withDataRow(row);
+                    form.ShowDialog();
+                }));
+                eContextMenu.menuStrip.Show(phieuMuonGrid, new Point(e.X, e.Y));
+            }
         }
     }
 }
